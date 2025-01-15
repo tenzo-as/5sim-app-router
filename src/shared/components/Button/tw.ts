@@ -5,11 +5,17 @@ export const twSize: Record<Size, string> = {
     42: 'h-[42px]',
     48: 'h-[48px]',
 }
+export const twFigure: Record<Size, string> = {
+    32: 'w-[32px] p-0',
+    40: 'w-[40px] p-0',
+    42: 'w-[42px] p-0',
+    48: 'w-[48px] p-0',
+}
 
-export type Variant =  'contained' |'outlined' | 'text'
+export type Variant = 'contained' | 'outlined' | 'text'
 export const twVariant: Record<Variant, string> = {
     contained: 'border-none',
-    outlined: 'btn-outline border-width-2',
+    outlined: 'btn-outline border-2',
     text: 'btn-outline border-none',
 }
 

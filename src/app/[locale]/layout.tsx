@@ -1,29 +1,15 @@
 import '@/app/globals.css'
+import ThemeProvider from '@/features/theme/components/ThemeProvider'
+import ThemedHtml from '@/features/theme/components/ThemedHtml'
 import { routing } from '@/i18n/routing'
+import { DEFAULT_LOCALE } from '@/shared/constants/LOCALES'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
+import { Inter } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { ReactNode } from 'react'
-import { Inter } from 'next/font/google'
-// import { locales } from '../../../i18n.config'
 
 const inter = Inter({ subsets: ['latin'] })
-
-// export function generateStaticParams() {
-//     return ['en'].map(locale => ({ locale }))
-// }
-//
-// export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-//     const t = await getTranslations({
-//         locale,
-//         // namespace: "Layout.metaData",
-//     })
-//
-//     return {
-//         title: t('hello'),
-//         description: t('hello'),
-//     }
-// }
 
 const LocaleLayout = async ({
     params: { locale },
@@ -36,17 +22,18 @@ const LocaleLayout = async ({
         notFound()
     }
 
-    // Providing all messages to the client
-    // side is the easiest way to get started
     const messages = await getMessages()
 
     return (
-        <html lang={locale || 'en'} >
-            <body className={`${inter.className} antialiased`}>{children}</body>
-            <body>
-                <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-            </body>
-        </html>
+        <ThemeProvider>
+            <ThemedHtml lang={locale || DEFAULT_LOCALE}>
+                <body className={`${inter.className} antialiased`}>
+                    <NextIntlClientProvider messages={messages}>
+                        {children}
+                    </NextIntlClientProvider>
+                </body>
+            </ThemedHtml>
+        </ThemeProvider>
     )
 }
 

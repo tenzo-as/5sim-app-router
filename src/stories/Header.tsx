@@ -1,5 +1,5 @@
-import './header.css'
 import Button from '@/shared/components/Button'
+import './header.css'
 
 type User = {
     name: string
@@ -44,7 +44,9 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
                     </>
                 ) : (
                     <>
-                        <Button color={'primary'} onClick={onCreateAccount}>Sign up</Button>
+                        <Button color={'primary'} onClick={onCreateAccount}>
+                            Sign up
+                        </Button>
                     </>
                 )}
             </div>

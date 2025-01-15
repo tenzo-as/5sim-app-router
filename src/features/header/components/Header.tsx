@@ -1,5 +1,5 @@
-import { AuthToolbar } from '@/features/Header/components/toolbar/AuthToolbar'
-import { NotAuthToolbar } from '@/features/Header/components/toolbar/NotAuthToolbar'
+import { AuthToolbar } from '@/features/header/components/toolbar/AuthToolbar'
+import { NotAuthToolbar } from '@/features/header/components/toolbar/NotAuthToolbar'
 
 export const Header = () => {
     return (

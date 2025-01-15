@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
     font-family: 'Inter', sans-serif;
+}
+
+[data-theme='dark'] {
+    transition: all 0.3s ease;
+}
+[data-theme='light'] {
+    transition: all 0.3s ease;
 }

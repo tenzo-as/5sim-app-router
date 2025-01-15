@@ -1,6 +1,6 @@
 import daisyui from 'daisyui'
-import type { Config } from 'tailwindcss'
 import themes from 'daisyui/src/theming/themes'
+import type { Config } from 'tailwindcss'
 
 export default {
     content: [
@@ -22,40 +22,42 @@ export default {
         },
     },
     plugins: [daisyui],
+    darkTheme: 'dark',
+    darkMode: ['selector', '[data-theme="dark"]'],
     daisyui: {
         // defaultTheme: 'light',
         themes: [
             {
                 light: {
                     ...themes.light,
-                    '--pc': '#ffffff',
-                    '--sc': '#ffffff',
-                    '--ac': '#ffffff',
-                    '--nc': '#ffffff',
-                    '--bc': '#ffffff',
-                    '--inc': '#ffffff',
-                    '--suc': '#ffffff',
-                    '--wac': '#ffffff',
-                    '--erc': '#ffffff',
-                }
+                    'primary-content': '#ffffff',
+                    'secondary-content': '#ffffff',
+                    'accent-content': '#ffffff',
+                    'ghost-content': '#ffffff',
+                    'neutral-content': '#ffffff',
+                    'info-content': '#ffffff',
+                    'success-content': '#ffffff',
+                    'warning-content': '#ffffff',
+                    'error-content': '#ffffff',
+                },
             },
             {
                 dark: {
                     ...themes.dark,
-                    '--pc': '#ffffff',
-                    '--sc': '#ffffff',
-                    '--ac': '#ffffff',
-                    '--nc': '#ffffff',
-                    '--bc': '#ffffff',
-                    '--inc': '#ffffff',
-                    '--suc': '#ffffff',
-                    '--wac': '#ffffff',
-                    '--erc': '#ffffff',
-                }
+                    'primary-content': '#ffffff',
+                    'secondary-content': '#ffffff',
+                    'accent-content': '#ffffff',
+                    'ghost-content': '#ffffff',
+                    'neutral-content': '#ffffff',
+                    'info-content': '#ffffff',
+                    'success-content': '#ffffff',
+                    'warning-content': '#ffffff',
+                    'error-content': '#ffffff',
+                },
             },
         ],
         darkTheme: 'dark',
-        darkMode: ['selector', 'data-theme="dark"']
+        darkMode: ['selector', 'data-theme="dark"'],
     },
 } satisfies Config
 

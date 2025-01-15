@@ -1,6 +1,6 @@
 import { useAuth } from '@/features/auth/hooks/useAuth'
-import { DesktopAuthToolbar } from '@/features/Header/components/toolbar/DesktopAuthToolbar'
-import { MobileAuthToolbar } from '@/features/Header/components/toolbar/MobileAuthToolbar'
+import { DesktopAuthToolbar } from '@/features/header/components/toolbar/DesktopAuthToolbar'
+import { MobileAuthToolbar } from '@/features/header/components/toolbar/MobileAuthToolbar'
 
 export const AuthToolbar = () => {
     const { isAuthenticated } = useAuth()

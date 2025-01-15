@@ -1,7 +1,8 @@
 import { isClient } from '@/shared/utils/isClient'
 
 export enum StorageKey {
-    JWT = 'JWT',
+    JWT = 'jwt',
+    Theme = 'theme',
 }
 
 class Storage {

@@ -6,6 +6,7 @@ import {
     twColor,
     twSize,
     twVariant,
+    twFigure,
 } from '@/shared/components/Button/tw'
 import { clsx } from 'clsx'
 import type { MouseEventHandler, ReactNode } from 'react'
@@ -40,7 +41,7 @@ export const Button = ({
     endIcon: EndIcon,
     children,
 }: Props) => {
-    const handleClick: MouseEventHandler | undefined = (event) => {
+    const handleClick: MouseEventHandler | undefined = event => {
         if (disabled) return
 
         if (type === 'submit') event.preventDefault()
@@ -52,11 +53,14 @@ export const Button = ({
         <Component
             type={type}
             className={twMerge(
-                'btn min-h-[auto] rounded-xl text-base leading-normal font-semibold',
+                'btn min-h-[auto] rounded-xl text-base font-semibold leading-normal',
                 twSize[size],
                 twColor[color][variant],
                 twVariant[variant],
-                clsx(square && 'btn-square', circle && 'btn-circle'),
+                clsx(
+                    square && `btn-square ${twFigure[size]}`,
+                    circle && `btn-circle rounded-full ${twFigure[size]}`
+                ),
                 className,
             )}
             onClick={typeof onClick === 'undefined' ? undefined : handleClick}

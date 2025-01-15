@@ -1,7 +1,7 @@
 'use client'
+import Button from '@/shared/components/Button'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Button from '@/shared/components/Button'
 
 export default function Home() {
     const t = useTranslations('HomePage')
@@ -25,7 +25,9 @@ export default function Home() {
                         </code>
                         .
                     </li>
-                    <li>Save and see your changes instantly.</li>
+                    <li className={'border-2 border-solid border-blue-500 dark:border-red-500'}>
+                        Save and see your changes instantly.
+                    </li>
                     {t('title')}
                 </ol>
 
@@ -46,7 +48,7 @@ export default function Home() {
                         Deploy now
                     </a>
                     <Button
-                        // className='flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-sm transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-12 sm:min-w-44 sm:px-5 sm:text-base dark:border-white/[.145] dark:hover:bg-[#1a1a1a]'
+                    // className='flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-sm transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-12 sm:min-w-44 sm:px-5 sm:text-base dark:border-white/[.145] dark:hover:bg-[#1a1a1a]'
                     >
                         Read our docs
                     </Button>
