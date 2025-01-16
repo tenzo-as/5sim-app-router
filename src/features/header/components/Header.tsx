@@ -1,11 +1,32 @@
-import { AuthToolbar } from '@/features/header/components/toolbar/AuthToolbar'
-import { NotAuthToolbar } from '@/features/header/components/toolbar/NotAuthToolbar'
+import { MobileHeader } from '@/features/header/components/MobileHeader'
+import { DesktopHeader } from '@/features/header/components/DesktopHeader'
+import { Locale } from '@/shared/constants/LOCALES'
 
-export const Header = () => {
+export type HeaderProps = {
+    locale: Locale
+    onChangeLocale?: (locale: Locale) => void
+    user?: {
+        balance: number
+        id: number
+    }
+    onSignIn?: () => {}
+    onSignUp?: () => {}
+    onSignOut?: () => {}
+}
+
+const Header = (props: HeaderProps) => {
     return (
-        <div className={'flex h-14 items-center bg-[#395372] px-1 lg:px-6'}>
-            <NotAuthToolbar />
-            <AuthToolbar />
-        </div>
+        <>
+            <MobileHeader
+                className={'md:hidden'}
+                {...props}
+            />
+            <DesktopHeader
+                className={'max:md:hidden'}
+                {...props}
+            />
+        </>
     )
 }
+
+export default Header

@@ -1,4 +1,7 @@
 {
+    "header": {
+        "languageSelection": "Выбор языка"
+    },
     "HomePage": {
         "title": "мазафака",
         "about": "Go to the about page"

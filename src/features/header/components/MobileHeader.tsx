@@ -1,11 +1,12 @@
-import { ReactNode } from 'react'
+import { HeaderProps } from '@/features/header/components/Header'
+import { twMerge } from 'tailwind-merge'
 
-type Props = {
-    children?: ReactNode
-}
+type Props = { className?: string } & HeaderProps
 
-export const MobileHeader = ({ children }: Props) => {
+export const MobileHeader = ({ className }: Props) => {
     return (
+        <div className={twMerge('flex', className)}>
 
+        </div>
     )
 }

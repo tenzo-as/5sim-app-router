@@ -1,34 +1,30 @@
 import Button from '@/shared/components/Button'
 import Menu from '@/shared/components/Menu'
 import { FLAG_BY_LOCALE } from '@/shared/constants/FLAG_BY_LOCALE'
-import { Locale, LOCALES, NAME_BY_LOCALE } from '@/shared/constants/LOCALES'
+import { LOCALES, NAME_BY_LOCALE } from '@/shared/constants/LOCALES'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 import { useIsClient } from '@/shared/hooks/useIsClient'
 import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
-import { usePathname } from '@/shared/hooks/usePathname'
-import { useRouter } from '@/shared/hooks/useRouter'
 import { clsx } from 'clsx'
 import { useTranslations } from 'next-intl'
 import { useRef } from 'react'
 import { FaChevronDown } from 'react-icons/fa'
-import { useLocale } from 'use-intl'
+import { HeaderProps } from '@/features/header/components/Header'
 
-export const LanguageSwitcher = () => {
+type Props = Pick<HeaderProps, 'locale' | 'onChangeLocale'>
+
+export const LanguageSwitcher = ({
+    locale,
+    onChangeLocale,
+}: Props) => {
     const ref = useRef<HTMLDivElement>(null)
     const t = useTranslations()
-    const locale = useLocale() as Locale
-    const pathname = usePathname()
-    const router = useRouter()
     const isOpen = useBoolean()
     const isClient = useIsClient()
 
     useOnClickOutside<HTMLDivElement>(ref, () => {
         isOpen.setFalse()
     })
-
-    const changeLocale = (locale: Locale) => {
-        router.replace(pathname, { locale })
-    }
 
     return (
         <div className={'relative'} ref={ref}>
@@ -43,7 +39,7 @@ export const LanguageSwitcher = () => {
                     <img
                         className={'size-[26px] rounded-full'}
                         src={FLAG_BY_LOCALE[locale]}
-                        alt={'Language Switcher'}
+                        alt={t('header.languageSelection')}
                     />
                 ) : (
                     <div
@@ -58,9 +54,12 @@ export const LanguageSwitcher = () => {
                     !isOpen.value && 'hidden',
                 )}
             >
-                <Menu.Title>Выбор языка {t('HomePage.title')}</Menu.Title>
+                <Menu.Title>{t('header.languageSelection')}</Menu.Title>
                 {LOCALES.map(locale => (
-                    <Menu.Item key={locale} onClick={() => changeLocale(locale)}>
+                    <Menu.Item
+                        key={locale}
+                        onClick={() => onChangeLocale(locale)}
+                    >
                         <img
                             className={'size-[24px] rounded-full'}
                             src={FLAG_BY_LOCALE[locale]}

@@ -1,4 +1,7 @@
 {
+    "header": {
+        "languageSelection": "语言"
+    },
     "HomePage": {
         "title": "Hello world!",
         "about": "Go to the about page"
