@@ -14,9 +14,9 @@ const StoryWithCode = ({ children, code, className }: Props) => {
     const isLight = useBoolean()
 
     return (
-        <div className='bg-base-100 relative p-4 border-2 border-gray-600 dark:border-white rounded-2xl' data-theme={isLight.value ? 'light' : 'dark'}>
-            <div className={twMerge('mb-4 flex gap-4 items-center justify-center', className)}>{children}</div>
-            <pre className='bg-base-300 p-4 rounded-2xl text-sm overflow-x-auto'>
+        <div className='bg-base-300 relative p-4 border-2 border-gray-600 dark:border-white rounded-2xl' data-theme={isLight.value ? 'light' : 'dark'}>
+            <div className={twMerge('mb-4 flex flex-wrap gap-4 items-center justify-center', className)}>{children}</div>
+            <pre className='bg-base-100 p-4 rounded-2xl text-sm overflow-x-auto'>
                 <code>{code.trim()}</code>
             </pre>
 

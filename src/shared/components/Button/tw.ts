@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge'
+
 export type Size = 32 | 40 | 42 | 48
 export const twSize: Record<Size, string> = {
     32: 'h-[32px] text-sm',
@@ -15,8 +17,8 @@ export const twFigure: Record<Size, string> = {
 export type Variant = 'contained' | 'outlined' | 'text'
 export const twVariant: Record<Variant, string> = {
     contained: 'border-none',
-    outlined: 'btn-outline border-2',
-    text: 'btn-outline border-none',
+    outlined: 'border-2 bg-transparent hover:bg-opacity-0 hover:bg-black',
+    text: 'border-none bg-transparent bg-opacity-20 hover:bg-black',
 }
 
 export type Color =
@@ -35,56 +37,56 @@ export const twColor: Record<Color, Record<Variant, string>> = {
     white: {
         text: 'text-white bg-transparent hover:bg-black hover:bg-opacity-10',
         contained: 'text-blue-400 bg-white hover:bg-gray-200',
-        outlined: 'text-blue-400 bg-transparent hover:bg-black hover:bg-opacity-10',
+        outlined: 'text-blue-400',
     },
     neutral: {
-        text: 'btn-neutral',
         contained: 'btn-neutral',
-        outlined: 'btn-neutral',
+        outlined: 'btn-neutral text-neutral hover:text-neutral-hover border-neutral hover:border-neutral-hover',
+        text: 'btn-neutral',
     },
     primary: {
-        text: 'btn-primary',
         contained: 'btn-primary bg-primary',
-        outlined: 'btn-primary',
+        outlined: 'btn-primary text-primary hover:text-primary-hover border-primary hover:border-primary-hover',
+        text: 'btn-primary',
     },
     secondary: {
-        text: 'btn-secondary',
         contained: 'btn-secondary',
-        outlined: 'btn-secondary',
+        outlined: 'btn-secondary text-secondary hover:text-secondary-hover border-secondary hover:border-secondary-hover',
+        text: 'btn-secondary',
     },
     accent: {
-        text: 'btn-accent',
         contained: 'btn-accent',
-        outlined: 'btn-accent',
+        outlined: 'btn-accent text-accent hover:text-accent-hover border-accent hover:border-accent-hover',
+        text: 'btn-accent',
     },
     ghost: {
-        text: 'btn-ghost',
         contained: 'btn-ghost',
-        outlined: 'btn-ghost',
+        outlined: 'btn-ghost text-ghost hover:text-ghost-hover border-ghost hover:border-ghost-hover',
+        text: 'btn-ghost',
     },
     link: {
-        text: 'btn-link',
         contained: 'btn-link',
-        outlined: 'btn-link',
+        outlined: 'btn-link text-link hover:text-link-hover border-link hover:border-link-hover',
+        text: 'btn-link',
     },
     info: {
-        text: 'btn-info',
         contained: 'btn-info',
-        outlined: 'btn-info',
+        outlined: 'btn-info text-info hover:text-info-hover border-info hover:border-info-hover',
+        text: 'btn-info',
     },
     success: {
-        text: 'btn-success',
         contained: 'btn-success',
-        outlined: 'btn-success',
+        outlined: 'btn-success text-success hover:text-success-hover border-success hover:border-success-hover',
+        text: 'btn-success',
     },
     warning: {
-        text: 'btn-warning',
         contained: 'btn-warning',
-        outlined: 'btn-warning',
+        outlined: 'btn-warning text-warning hover:text-warning-hover border-warning hover:border-warning-hover',
+        text: 'btn-warning',
     },
     error: {
-        text: 'btn-error',
         contained: 'btn-error',
-        outlined: 'btn-error',
+        outlined: 'btn-error text-error hover:text-error-hover border-error hover:border-error-hover',
+        text: 'btn-error',
     },
 }

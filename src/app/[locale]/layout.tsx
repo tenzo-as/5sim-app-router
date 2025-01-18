@@ -8,6 +8,7 @@ import { getMessages } from 'next-intl/server'
 import { Inter } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { ReactNode } from 'react'
+import { ToastContainer } from 'react-toastify'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ const LocaleLayout = async ({
                 <body className={`${inter.className} antialiased`}>
                     <NextIntlClientProvider messages={messages}>
                         {children}
+                        <ToastContainer />
                     </NextIntlClientProvider>
                 </body>
             </ThemedHtml>

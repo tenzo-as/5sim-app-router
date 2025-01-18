@@ -10,7 +10,12 @@ const config: StorybookConfig = {
     ],
     framework: {
         name: '@storybook/nextjs',
-        options: {},
+        options: {
+            image: {
+                unoptimized: true,
+                placeholder: 'blur',
+            }
+        },
     },
     staticDirs: ['..\\public'],
 }

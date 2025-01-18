@@ -13,7 +13,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         locale: {
-            control: { type: 'select',  },
+            control: { type: 'select', },
             options: LOCALES,
             defaultValue: LOCALE.en,
         },
@@ -29,7 +29,11 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const HeaderMobile: Story = {
+export const MobileHeaderStory: Story = {
+    name: 'Mobile Header',
+    args: {
+        locale: LOCALE.en,
+    },
     render: args => (
         <MobileHeader {...args}/>
     )

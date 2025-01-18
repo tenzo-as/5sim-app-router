@@ -1,3 +1,3 @@
-import { axios } from '@/shared/utils/api/axios'
+import { apiClient } from '@/shared/utils/api/apiClient'
 
-export { axios }
+export { apiClient }

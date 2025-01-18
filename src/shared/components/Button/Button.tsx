@@ -53,10 +53,10 @@ export const Button = ({
         <Component
             type={type}
             className={twMerge(
-                'btn min-h-[auto] rounded-xl text-base font-semibold leading-normal',
+                'btn min-h-[auto] rounded-xl text-base font-semibold leading-normal gap-0',
                 twSize[size],
-                twColor[color][variant],
                 twVariant[variant],
+                twColor[color][variant],
                 clsx(
                     square && `btn-square ${twFigure[size]}`,
                     circle && `btn-circle rounded-full ${twFigure[size]}`

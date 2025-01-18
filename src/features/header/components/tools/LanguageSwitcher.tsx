@@ -58,7 +58,9 @@ export const LanguageSwitcher = ({
                 {LOCALES.map(locale => (
                     <Menu.Item
                         key={locale}
-                        onClick={() => onChangeLocale(locale)}
+                        onClick={() => {
+                            if (onChangeLocale) onChangeLocale(locale)
+                        }}
                     >
                         <img
                             className={'size-[24px] rounded-full'}

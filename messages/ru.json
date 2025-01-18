@@ -1,5 +1,8 @@
 {
     "header": {
+        "signIn": "Войти",
+        "signUp": "Создать аккаунт",
+        "signOut": "Выйти",
         "languageSelection": "Выбор языка"
     },
     "HomePage": {

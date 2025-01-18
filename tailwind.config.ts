@@ -2,6 +2,19 @@ import daisyui from 'daisyui'
 import themes from 'daisyui/src/theming/themes'
 import type { Config } from 'tailwindcss'
 
+const commonTheme = {
+    'primary-content': '#ffffff',
+    'secondary-content': '#ffffff',
+    'accent-content': '#ffffff',
+    'ghost-content': '#ffffff',
+    'neutral-content': '#ffffff',
+    'info-content': '#ffffff',
+    'success-content': '#ffffff',
+    'warning-content': '#ffffff',
+    'error-content': '#ffffff',
+    'header': '#395372',
+}
+
 export default {
     content: [
         './src/shared/**/*.{js,ts,jsx,tsx,mdx}',
@@ -30,29 +43,13 @@ export default {
             {
                 light: {
                     ...themes.light,
-                    'primary-content': '#ffffff',
-                    'secondary-content': '#ffffff',
-                    'accent-content': '#ffffff',
-                    'ghost-content': '#ffffff',
-                    'neutral-content': '#ffffff',
-                    'info-content': '#ffffff',
-                    'success-content': '#ffffff',
-                    'warning-content': '#ffffff',
-                    'error-content': '#ffffff',
+                    ...commonTheme,
                 },
             },
             {
                 dark: {
                     ...themes.dark,
-                    'primary-content': '#ffffff',
-                    'secondary-content': '#ffffff',
-                    'accent-content': '#ffffff',
-                    'ghost-content': '#ffffff',
-                    'neutral-content': '#ffffff',
-                    'info-content': '#ffffff',
-                    'success-content': '#ffffff',
-                    'warning-content': '#ffffff',
-                    'error-content': '#ffffff',
+                    ...commonTheme,
                 },
             },
         ],

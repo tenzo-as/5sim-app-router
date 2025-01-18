@@ -28,12 +28,12 @@ const AuthProvider = ({ children }: Props) => {
 
     const storeAndApplyToken = () => {
         axios.setHeaderKey('Authorization', 'Bearer ' + token)
-        storage.set(StorageKey.JWT, token)
+        storage.set(StorageKey.Token, token)
     }
 
     const clearAndRevokeToken = () => {
         axios.removeHeaderKey('Authorization')
-        storage.remove(StorageKey.JWT)
+        storage.remove(StorageKey.Token)
     }
 
     const contextValue = useMemo(
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }: Props) => {
 
 export default AuthProvider
 
-const getTokenFromStorage = () => storage.get<JWT>(StorageKey.JWT)
+const getTokenFromStorage = () => storage.get<JWT>(StorageKey.Token)
 
 export const AuthContext = createContext({
     token: getTokenFromStorage(),

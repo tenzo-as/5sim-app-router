@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 
 type Props = {
     open: boolean
-    onToggle: () => void
+    onToggle?: () => void
 }
 
 export const Burger = ({
@@ -19,9 +19,9 @@ export const Burger = ({
             size={48}
             className={'flex flex-col items-center justify-center'}
         >
-            <div className={twMerge(base, clsx(open && 'rotate-45 translate-y-[5px]'))}/>
-            <div className={twMerge(base, 'my-[3px]', clsx(open && 'w-0'))}/>
-            <div className={twMerge(base, clsx(open && '-rotate-45 -translate-y-[5px]'))}/>
+            <div className={twMerge(base, clsx(open && 'rotate-45 translate-y-[6px]'))}/>
+            <div className={twMerge(base, 'my-[4px] duration-200', clsx(open && 'w-0'))}/>
+            <div className={twMerge(base, clsx(open && '-rotate-45 -translate-y-[6px]'))}/>
         </Button>
     )
 }

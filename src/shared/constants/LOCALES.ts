@@ -2,11 +2,11 @@ import { objectKeys } from '../utils/objectKeys'
 
 export type Locale = 'en' | 'ru' | 'zh'
 
-export const LOCALE: Record<Locale, string> = {
+export const LOCALE: Record<Locale, Locale> = {
     en: 'en',
     ru: 'ru',
     zh: 'zh',
-}
+} as const
 
 export const LOCALES: Locale[] = objectKeys(LOCALE)
 

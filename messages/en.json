@@ -1,5 +1,8 @@
 {
     "header": {
+        "signIn": "Login",
+        "signUp": "Registration",
+        "signOut": "Log out",
         "languageSelection": "Language Selection"
     },
     "HomePage": {
