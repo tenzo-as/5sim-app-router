@@ -8,8 +8,12 @@ type Props = {
 const MainLayout = ({ children }: Props) => {
     return (
         <div className={''}>
-            <Header/>
+            <Header
+                locale={'en'}
+            />
             {children}
         </div>
     )
 }
+
+export default MainLayout

@@ -1,3 +1,5 @@
+'use client'
+
 import { HeaderProps } from '@/features/header/components/Header'
 import { twMerge } from 'tailwind-merge'
 import { Burger } from '@/features/header/components/tools/Burger'
@@ -11,7 +13,7 @@ export const MobileHeader = ({
     const isOpen = useBoolean()
 
     return (
-        <div className={twMerge('flex', className)}>
+        <div className={twMerge('flex bg-header', className)}>
             <Burger
                 open={isOpen.value}
                 onToggle={isOpen.toggle}

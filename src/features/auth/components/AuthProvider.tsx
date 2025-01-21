@@ -1,5 +1,4 @@
 'use client'
-import { axios } from '@/shared/utils/api'
 import storage, { StorageKey } from '@/shared/utils/storage'
 import { createContext, type ReactNode, useEffect, useMemo, useState } from 'react'
 
@@ -27,12 +26,12 @@ const AuthProvider = ({ children }: Props) => {
     }, [token])
 
     const storeAndApplyToken = () => {
-        axios.setHeaderKey('Authorization', 'Bearer ' + token)
+        // apiClient.setHeaderKey('Authorization', 'Bearer ' + token)
         storage.set(StorageKey.Token, token)
     }
 
     const clearAndRevokeToken = () => {
-        axios.removeHeaderKey('Authorization')
+        // apiClient.removeHeaderKey('Authorization')
         storage.remove(StorageKey.Token)
     }
 

@@ -1,3 +1,5 @@
+'use client'
+
 import Button from '@/shared/components/Button'
 import Menu from '@/shared/components/Menu'
 import { FLAG_BY_LOCALE } from '@/shared/constants/FLAG_BY_LOCALE'
@@ -7,9 +9,9 @@ import { useIsClient } from '@/shared/hooks/useIsClient'
 import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
 import { clsx } from 'clsx'
 import { useTranslations } from 'next-intl'
-import { useRef } from 'react'
 import { FaChevronDown } from 'react-icons/fa'
 import { HeaderProps } from '@/features/header/components/Header'
+import { useRef } from 'react'
 
 type Props = Pick<HeaderProps, 'locale' | 'onChangeLocale'>
 

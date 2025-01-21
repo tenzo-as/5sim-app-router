@@ -1,9 +1,8 @@
 'use client'
 import Button from '@/shared/components/Button'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 
-export default function Home() {
+const Home = () => {
     const t = useTranslations('HomePage')
 
     return (
@@ -15,7 +14,7 @@ export default function Home() {
                     alt='Next.js logo'
                     width={180}
                     height={38}
-                    priority
+                    // priority
                 />
                 <ol className='list-inside list-decimal text-center font-[family-name:var(--font-geist-mono)] text-sm sm:text-left'>
                     <li className='mb-2'>
@@ -30,6 +29,15 @@ export default function Home() {
                     </li>
                     {t('title')}
                 </ol>
+
+                <div className={'flex gap-2'}>
+                    <div className={'size-8 bg-primary'}></div>
+                    <div className={'size-8 bg-primary-content'}></div>
+                    <div className={'size-8 bg-primary-hover hover:bg-primary-hover'}></div>
+                    <div className={'size-8 bg-primary-focus hover:bg-primary-focus'}></div>
+                    <div className={'size-8 bg-primary-active hover:bg-primary-active'}></div>
+                    <div className={'size-8 bg-primary-accent hover:bg-primary-accent'}></div>
+                </div>
 
                 <div className='flex flex-col items-center gap-4 sm:flex-row'>
                     <a
@@ -86,3 +94,5 @@ export default function Home() {
         </div>
     )
 }
+
+export default Home

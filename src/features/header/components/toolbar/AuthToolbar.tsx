@@ -1,3 +1,5 @@
+'use client'
+
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { DesktopAuthToolbar } from '@/features/header/components/toolbar/DesktopAuthToolbar'
 import { MobileAuthToolbar } from '@/features/header/components/toolbar/MobileAuthToolbar'
