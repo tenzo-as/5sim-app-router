@@ -53,7 +53,7 @@ export const Button = ({
         <Component
             type={type}
             className={twMerge(
-                'btn min-h-[auto] rounded-xl text-base font-semibold leading-normal gap-0',
+                'btn min-h-[auto] rounded-xl text-base font-semibold leading-normal gap-0 flex-nowrap',
                 twSize[size],
                 twVariant[variant],
                 twColor[color][variant],

@@ -1,6 +1,7 @@
 import { MobileHeader } from '@/features/header/components/MobileHeader'
 import { DesktopHeader } from '@/features/header/components/DesktopHeader'
 import { Locale } from '@/shared/constants/LOCALES'
+import { twMerge } from 'tailwind-merge'
 
 export type HeaderProps = {
     locale: Locale
@@ -9,20 +10,26 @@ export type HeaderProps = {
         balance: number
         id: number
     }
-    onSignIn?: () => {}
-    onSignUp?: () => {}
-    onSignOut?: () => {}
+    onSignIn?: () => void
+    onSignUp?: () => void
+    onSignOut?: () => void
+    isLight: boolean
+    onToggleTheme?: () => void
+    slotProps?: {
+        MobileHeader?: { className?: string },
+        DesktopHeader?: { className?: string },
+    },
 }
 
-const Header = (props: HeaderProps) => {
+const Header = ({ slotProps, ...props }: HeaderProps) => {
     return (
         <>
             <MobileHeader
-                className={'md:hidden'}
+                className={twMerge('md:hidden', slotProps?.MobileHeader?.className)}
                 {...props}
             />
             <DesktopHeader
-                className={'max:md:hidden'}
+                className={twMerge('max-md:hidden', slotProps?.DesktopHeader?.className)}
                 {...props}
             />
         </>

@@ -2,11 +2,7 @@
 
 import storage, { StorageKey } from '@/shared/utils/storage'
 import React, { createContext, ReactNode, useEffect, useState } from 'react'
-
-enum Theme {
-    Light = 'light',
-    Dark = 'dark',
-}
+import { Theme } from '@/features/theme/types'
 
 export type ThemeContextType = {
     theme: Theme

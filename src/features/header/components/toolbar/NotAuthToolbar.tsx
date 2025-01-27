@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuth } from '@/features/auth/hooks/useAuth'
-import { LanguageSwitcher } from '@/features/header/components/tools/LanguageSwitcher'
+import { LocaleSwitcher } from '@/features/header/components/tools/LocaleSwitcher'
 import { clsx } from 'clsx'
 
 export const NotAuthToolbar = () => {
@@ -9,7 +9,7 @@ export const NotAuthToolbar = () => {
 
     return (
         <div className={clsx('ml-auto', isAuthenticated && 'hidden')}>
-            <LanguageSwitcher
+            <LocaleSwitcher
                 locale={'ru'}
             />
         </div>

@@ -1,8 +1,9 @@
 'use client'
 
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { useBoolean } from '@/shared/hooks/useBoolean'
+import theme from 'tailwindcss/defaultTheme'
 
 type Props = {
     children: ReactNode
@@ -13,8 +14,12 @@ type Props = {
 const StoryWithCode = ({ children, code, className }: Props) => {
     const isLight = useBoolean()
 
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', isLight.value ? 'light' : 'dark')
+    }, [isLight.value])
+
     return (
-        <div className='bg-base-300 relative p-4 border-2 border-gray-600 dark:border-white rounded-2xl' data-theme={isLight.value ? 'light' : 'dark'}>
+        <div className='bg-base-300 relative p-4 border-2 border-gray-600 dark:border-white rounded-2xl'>
             <div className={twMerge('mb-4 flex flex-wrap gap-4 items-center justify-center', className)}>{children}</div>
             <pre className='bg-base-100 p-4 rounded-2xl text-sm overflow-x-auto'>
                 <code>{code.trim()}</code>

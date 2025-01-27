@@ -33,6 +33,7 @@ export const MobileHeaderStory: Story = {
     name: 'Mobile Header',
     args: {
         locale: LOCALE.en,
+        isLight: true,
     },
     render: args => (
         <MobileHeader {...args}/>

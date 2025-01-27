@@ -12,7 +12,7 @@ const commonTheme = {
     'success-content': '#ffffff',
     'warning-content': '#ffffff',
     'error-content': '#ffffff',
-    'header': '#395372',
+    '--border-btn': '2px',
 }
 
 export default {
@@ -22,7 +22,11 @@ export default {
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                header: '#395372',
+            },
+        },
         fontFamily: {
             inter: ['"Inter"', 'sans-serif'],
         },
@@ -53,6 +57,7 @@ export default {
                 },
             },
         ],
+        logs: true,
         darkTheme: 'dark',
         darkMode: ['selector', 'data-theme="dark"'],
     },
