@@ -3,7 +3,8 @@
         "signIn": "Login",
         "signUp": "Registration",
         "signOut": "Log out",
-        "languageSelection": "Language Selection"
+        "languageSelection": "Language Selection",
+        "partner": "Partner"
     },
     "HomePage": {
         "title": "Hello world!",

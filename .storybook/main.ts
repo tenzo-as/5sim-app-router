@@ -14,7 +14,7 @@ const config: StorybookConfig = {
             image: {
                 unoptimized: true,
                 placeholder: 'blur',
-            }
+            },
         },
     },
     staticDirs: ['..\\public'],

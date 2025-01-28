@@ -5,43 +5,36 @@ import { twMerge } from 'tailwind-merge'
 import { Burger } from '@/features/header/components/tools/Burger'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 import { LocaleSwitcher } from '@/features/header/components/tools/LocaleSwitcher'
-import { ThemeSwitcher } from '@/features/header/components/tools/ThemeSwitcher'
-import Button from '@/shared/components/Button'
 import { useTranslations } from 'next-intl'
+import { SignInButton } from '@/features/header/components/tools/SignInButton'
+import { SignUpButton } from '@/features/header/components/tools/SignUpButton'
+import { UserMenu } from '@/features/header/components/tools/UserMenu'
+import { TopUpBalanceButton } from '@/features/header/components/tools/TopUpBalanceButton'
 
 type Props = { className?: string } & HeaderProps
 
 export const MobileHeader = ({
-    className,
+    user,
     locale,
     onChangeLocale,
     isLight,
     onToggleTheme,
+    className,
 }: Props) => {
     const isOpen = useBoolean()
     const t = useTranslations()
 
     return (
-        <div className={twMerge('h-14 bg-header flex items-center justify-between pl-1', className)}>
+        <div className={twMerge('h-14 bg-header flex items-center justify-between p-1', className)}>
             <Burger
                 open={isOpen.value}
                 onToggle={isOpen.toggle}
             />
             <div className={'flex items-center'}>
-                <Button
-                    color={'white'}
-                    variant={'text'}
-                    className={'py-1'}
-                >
-                    {t('header.signIn')}
-                </Button>
-                <Button
-                    color={'white'}
-                    variant={'outlined'}
-                    className={'ml-1 py-1 max-[368px]:hidden'}
-                >
-                    {t('header.signUp')}
-                </Button>
+                {user
+                    ? <AuthTools user={user} />
+                    : <NotAuthTools />
+                }
                 <LocaleSwitcher
                     locale={locale}
                     onChangeLocale={onChangeLocale}
@@ -51,3 +44,23 @@ export const MobileHeader = ({
         </div>
     )
 }
+
+const AuthTools = ({ user }: Required<Pick<HeaderProps, 'user'>>) => (
+    <>
+        <TopUpBalanceButton
+            balance={user.balance}
+            className={'ml-1'}
+        />
+        <UserMenu
+            id={user.id}
+            className={'ml-1'}
+        />
+    </>
+)
+
+const NotAuthTools = () => (
+    <>
+        <SignInButton/>
+        <SignUpButton className={'ml-1 max-[371px]:hidden'}/>
+    </>
+)

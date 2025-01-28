@@ -1,7 +1,7 @@
 import Button from '@/shared/components/Button'
-import DarkThemeIcon from '@/features/header/components/icons/DarkThemeIcon'
 import { clsx } from 'clsx'
-import LightThemeIcon from '@/features/header/components/icons/LightThemeIcon'
+import { DarkThemeIcon } from '@/features/header/components/icons/DarkThemeIcon'
+import { LightThemeIcon } from '@/features/header/components/icons/LightThemeIcon'
 
 type Props = {
     isLight: boolean,

@@ -11,6 +11,7 @@ import {
 import { clsx } from 'clsx'
 import type { MouseEventHandler, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
+import Spinner from '@/shared/components/Spinner'
 
 type Props = {
     type?: 'button' | 'submit'
@@ -23,6 +24,7 @@ type Props = {
     startIcon?: Icon
     endIcon?: Icon
     children?: ReactNode
+    loading?: boolean
 } & FigureProps &
     ComponentProps
 
@@ -39,6 +41,7 @@ export const Button = ({
     color = 'primary',
     startIcon: StartIcon,
     endIcon: EndIcon,
+    loading,
     children,
 }: Props) => {
     const handleClick: MouseEventHandler | undefined = event => {
@@ -48,6 +51,8 @@ export const Button = ({
 
         onClick?.(event)
     }
+
+    const isFigure = circle || square
 
     return (
         <Component
@@ -66,9 +71,14 @@ export const Button = ({
             onClick={typeof onClick === 'undefined' ? undefined : handleClick}
             disabled={disabled}
         >
-            {typeof StartIcon === 'function' ? <StartIcon className={'h-6 w-6'} /> : StartIcon}
-            {children}
-            {typeof EndIcon === 'function' ? <EndIcon className={'h-6 w-6'} /> : EndIcon}
+            {loading
+                ? <Spinner />
+                : typeof StartIcon === 'function' ? <StartIcon className={'h-6 w-6 mr-2'} /> : StartIcon}
+            {isFigure
+                ? !loading && children
+                : children
+            }
+            {typeof EndIcon === 'function' ? <EndIcon className={'h-6 w-6 ml-2'} /> : EndIcon}
         </Component>
     )
 }
@@ -91,3 +101,4 @@ type Circle = { circle?: boolean; square?: undefined }
 type Square = { square?: boolean; circle?: undefined }
 
 type Icon = ReactNode | ((props: { className: string }) => ReactNode)
+

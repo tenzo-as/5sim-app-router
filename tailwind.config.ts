@@ -13,6 +13,7 @@ const commonTheme = {
     'warning-content': '#ffffff',
     'error-content': '#ffffff',
     '--border-btn': '2px',
+
 }
 
 export default {
@@ -21,10 +22,12 @@ export default {
         './src/features/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    plugins: [daisyui],
     theme: {
         extend: {
             colors: {
-                header: '#395372',
+                'header': 'oklch(var(--header) / <alpha-value>)',
+                'divider': 'oklch(var(--divider) / <alpha-value>)',
             },
         },
         fontFamily: {
@@ -38,9 +41,6 @@ export default {
             '2xl': '1536px', // xl 1536
         },
     },
-    plugins: [daisyui],
-    darkTheme: 'dark',
-    darkMode: ['selector', '[data-theme="dark"]'],
     daisyui: {
         // defaultTheme: 'light',
         themes: [
@@ -48,19 +48,26 @@ export default {
                 light: {
                     ...themes.light,
                     ...commonTheme,
+                    '--header': '43.52% 0.0605 253.42',
+                    '--divider': '90.97% 0 0',
                 },
             },
             {
                 dark: {
                     ...themes.dark,
                     ...commonTheme,
+                    'base-100': '#1e2e3e',
+                    'base-200': '#1e2e3e',
+                    '--header': '43.52% 0.0605 253.42',
+                    '--divider': '43.52% 0.0605 253.42',
                 },
             },
         ],
-        logs: true,
         darkTheme: 'dark',
         darkMode: ['selector', 'data-theme="dark"'],
     },
+    darkTheme: 'dark',
+    darkMode: ['selector', '[data-theme="dark"]'],
 } satisfies Config
 
 // theme: {

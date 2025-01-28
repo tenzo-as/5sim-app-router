@@ -3,7 +3,6 @@
 import { ReactNode, useEffect } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { useBoolean } from '@/shared/hooks/useBoolean'
-import theme from 'tailwindcss/defaultTheme'
 
 type Props = {
     children: ReactNode

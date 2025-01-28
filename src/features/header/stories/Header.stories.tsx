@@ -3,12 +3,14 @@ import { fn } from '@storybook/test'
 import { Meta, StoryObj } from '@storybook/react'
 import { LOCALE, LOCALES } from '@/shared/constants/LOCALES'
 import { MobileHeader } from '@/features/header/components/MobileHeader'
+import StoryWithCode from '@/features/stories/components/StoryWithCode'
 
 const meta = {
     title: 'Features/Header',
     component: Header,
     parameters: {
         layout: 'centered',
+
     },
     tags: ['autodocs'],
     argTypes: {
@@ -36,6 +38,17 @@ export const MobileHeaderStory: Story = {
         isLight: true,
     },
     render: args => (
-        <MobileHeader {...args}/>
+        <StoryWithCode code={mobileHeaderCode}>
+            <MobileHeader {...args} />
+        </StoryWithCode>
     )
 }
+
+const mobileHeaderCode = `
+import { LOCALE } from '@/shared/constants/LOCALES'
+
+<MobileHeader 
+    locale={LOCALE.en}
+    isLight={true}
+/>
+`

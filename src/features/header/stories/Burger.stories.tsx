@@ -3,10 +3,21 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Burger } from '@/features/header/components/tools/Burger'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import { useArgs } from '@storybook/core/preview-api'
+import {
+    AppRouterContext,
+    type AppRouterInstance,
+} from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 const meta = {
     title: 'Features/Header',
     component: Burger,
+    decorators: [
+        (Story) => (
+            <AppRouterContext.Provider value={{} as AppRouterInstance}>
+                <Story />
+            </AppRouterContext.Provider>
+        ),
+    ],
     parameters: {
         layout: 'centered',
     },
@@ -25,13 +36,6 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-const burgerCode = `
-<Burger 
-    open={isOpen}
-    onToggle={handleToggle}
-/>
-`
 
 export const BurgerStory: Story = {
     name: 'Burger',
@@ -56,3 +60,10 @@ export const BurgerStory: Story = {
         )
     }
 }
+
+const burgerCode = `
+<Burger 
+    open={isOpen}
+    onToggle={handleToggle}
+/>
+`

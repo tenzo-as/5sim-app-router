@@ -4,7 +4,6 @@ import Button from '@/shared/components/Button'
 import Menu from '@/shared/components/Menu'
 import { Locale, LOCALES, NAME_BY_LOCALE } from '@/shared/constants/LOCALES'
 import { useBoolean } from '@/shared/hooks/useBoolean'
-import { useIsClient } from '@/shared/hooks/useIsClient'
 import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
 import { clsx } from 'clsx'
 import { useTranslations } from 'next-intl'
@@ -28,7 +27,6 @@ export const LocaleSwitcher = ({
     const ref = useRef<HTMLDivElement>(null)
     const t = useTranslations()
     const isOpen = useBoolean()
-    const isClient = useIsClient()
 
     useOnClickOutside<HTMLDivElement>(ref, () => {
         isOpen.setFalse()

@@ -1,9 +1,10 @@
 {
     "header": {
-        "signIn": "Войти",
-        "signUp": "Создать аккаунт",
+        "signIn": "登录",
+        "signUp": "注册",
         "signOut": "退出",
-        "languageSelection": "语言"
+        "languageSelection": "语言",
+        "partner": "合作伙伴"
     },
     "HomePage": {
         "title": "Hello world!",

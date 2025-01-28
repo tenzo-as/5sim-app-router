@@ -27,6 +27,10 @@ const Header = ({ slotProps, ...props }: HeaderProps) => {
             <MobileHeader
                 className={twMerge('md:hidden', slotProps?.MobileHeader?.className)}
                 {...props}
+                user={{
+                    id: 2323,
+                    balance: 232
+                }}
             />
             <DesktopHeader
                 className={twMerge('max-md:hidden', slotProps?.DesktopHeader?.className)}

@@ -3,7 +3,8 @@
         "signIn": "Войти",
         "signUp": "Создать аккаунт",
         "signOut": "Выйти",
-        "languageSelection": "Выбор языка"
+        "languageSelection": "Выбор языка",
+        "partner": "Партнер"
     },
     "HomePage": {
         "title": "мазафака",
