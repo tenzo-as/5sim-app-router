@@ -2,9 +2,12 @@
     "header": {
         "signIn": "Войти",
         "signUp": "Создать аккаунт",
-        "signOut": "Выйти",
         "languageSelection": "Выбор языка",
-        "partner": "Партнер"
+        "partner": "Партнер",
+        "topUpBalance": "Пополнить баланс",
+        "getApiKey": "Получить API ключ",
+        "settings": "Настройки",
+        "signOut": "Выйти"
     },
     "HomePage": {
         "title": "мазафака",

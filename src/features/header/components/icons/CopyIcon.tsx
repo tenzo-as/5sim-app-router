@@ -1,6 +1,11 @@
-export const CopyIcon = () => {
+type Props = {
+    className?: string
+}
+
+export const CopyIcon = ({ className }: Props) => {
     return (
         <svg
+            className={className}
             width='24'
             height='24'
             viewBox='0 0 24 24'

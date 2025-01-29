@@ -1,5 +1,3 @@
-import { twMerge } from 'tailwind-merge'
-
 export type Size = 32 | 40 | 42 | 48
 export const twSize: Record<Size, string> = {
     32: 'h-[32px] text-sm',
@@ -12,6 +10,18 @@ export const twFigure: Record<Size, string> = {
     40: 'w-[40px] p-0',
     42: 'w-[42px] p-0',
     48: 'w-[48px] p-0',
+}
+
+export type Gap = 'none' | 4 | 8
+export const twStartGap: Record<Gap, string> = {
+    'none': 'mr-none',
+    4: 'mr-1',
+    8: 'mr-2',
+}
+export const twEndGap: Record<Gap, string> = {
+    'none': 'ml-none',
+    4: 'ml-1',
+    8: 'ml-2',
 }
 
 export type Variant = 'contained' | 'outlined' | 'text'
@@ -90,3 +100,4 @@ export const twColor: Record<Color, Record<Variant, string>> = {
         text: 'btn-error text-error',
     },
 }
+

@@ -1,4 +1,5 @@
 import type { MouseEventHandler, ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
     className?: string
@@ -8,7 +9,7 @@ type Props = {
 
 export const MenuItem = ({ children, className, onClick }: Props) => {
     return (
-        <li className={className} onClick={onClick}>
+        <li className={twMerge('font-medium', className)} onClick={onClick}>
             {children}
         </li>
     )

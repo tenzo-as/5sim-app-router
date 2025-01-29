@@ -2,9 +2,12 @@
     "header": {
         "signIn": "Login",
         "signUp": "Registration",
-        "signOut": "Log out",
         "languageSelection": "Language Selection",
-        "partner": "Partner"
+        "partner": "Partner",
+        "topUpBalance": "Top up balance",
+        "getApiKey": "Get API key",
+        "settings": "Settings",
+        "signOut": "Log out"
     },
     "HomePage": {
         "title": "Hello world!",

@@ -10,6 +10,7 @@ import { SignInButton } from '@/features/header/components/tools/SignInButton'
 import { SignUpButton } from '@/features/header/components/tools/SignUpButton'
 import { UserMenu } from '@/features/header/components/tools/UserMenu'
 import { TopUpBalanceButton } from '@/features/header/components/tools/TopUpBalanceButton'
+import { MobileOrdersButton } from '@/features/header/components/tools/MobileOrdersButton'
 
 type Props = { className?: string } & HeaderProps
 
@@ -47,6 +48,10 @@ export const MobileHeader = ({
 
 const AuthTools = ({ user }: Required<Pick<HeaderProps, 'user'>>) => (
     <>
+        <MobileOrdersButton
+            className={'ml-1'}
+            badge={7}
+        />
         <TopUpBalanceButton
             balance={user.balance}
             className={'ml-1'}

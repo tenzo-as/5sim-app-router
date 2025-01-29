@@ -10,6 +10,11 @@ import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
 import { ProfileIcon } from '@/features/header/components/icons/ProfileIcon'
 import { PartnerIcon } from '@/features/header/components/icons/PartnerIcon'
 import Divider from '@/shared/components/Divider'
+import { MoneyIcon } from '@/features/header/components/icons/MoneyIcon'
+import { KeyIcon } from '@/features/header/components/icons/KeyIcon'
+import { SettingsIcon } from '@/features/header/components/icons/SettingsIcon'
+import { ExitIcon } from '@/features/header/components/icons/ExitIcon'
+import { CopyIcon } from '@/features/header/components/icons/CopyIcon'
 
 type Props = {
     className?: string
@@ -27,11 +32,13 @@ export const UserMenu = ({ id, className }: Props) => {
 
     const topMenuItems = [
         { label: `ID: ${id}`, icon: ProfileIcon, allowCopy: true },
-        { label: `ID: ${id}`, icon: PartnerIcon },
+        { label: t('header.partner'), icon: PartnerIcon },
     ]
     const bottomMenuItems = [
-        { label: `ID: ${id}`, icon: ProfileIcon },
-        { label: `ID: ${id}`, icon: PartnerIcon },
+        { label: t('header.topUpBalance'), icon: MoneyIcon },
+        { label: t('header.getApiKey'), icon: KeyIcon },
+        { label: t('header.settings'), icon: SettingsIcon },
+        { label: t('header.signOut'), icon: ExitIcon },
     ]
 
     return (
@@ -43,7 +50,7 @@ export const UserMenu = ({ id, className }: Props) => {
                 color={'white'}
                 variant={'text'}
                 className={'px-3'}
-                endIcon={<FaChevronDown className={'size-3 ml-2'} />}
+                endIcon={<FaChevronDown className={'size-3'} />}
                 onClick={isOpen.toggle}
             >
                 <ProfileIcon />
@@ -53,6 +60,7 @@ export const UserMenu = ({ id, className }: Props) => {
                     'absolute right-0 top-[calc(100%_+_8px)] lg:right-0',
                     !isOpen.value && 'hidden',
                 )}
+
             >
                 {topMenuItems.map(item =>
                     <MenuItem key={item.label} {...item} />
@@ -80,6 +88,9 @@ const MenuItem = ({ onClick, icon: Icon, label, allowCopy }: MenuItemProps) => (
                 <Icon />
             </div>
             {label}
+            {allowCopy &&
+                <CopyIcon className={'size-5'} />
+            }
         </div>
     </Menu.Item>
 )

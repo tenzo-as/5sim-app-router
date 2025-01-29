@@ -38,7 +38,7 @@ export const LocaleSwitcher = ({
                 color={'white'}
                 variant={'text'}
                 className={'px-3'}
-                endIcon={<FaChevronDown className={'size-3 ml-2'} />}
+                endIcon={<FaChevronDown className={'size-3'} />}
                 onClick={isOpen.toggle}
             >
                 <Image

@@ -1,4 +1,5 @@
 'use client'
+
 import {
     type Color,
     type Size,
@@ -6,7 +7,7 @@ import {
     twColor,
     twSize,
     twVariant,
-    twFigure,
+    twFigure, twStartGap, Gap, twEndGap,
 } from '@/shared/components/Button/tw'
 import { clsx } from 'clsx'
 import type { MouseEventHandler, ReactNode } from 'react'
@@ -25,6 +26,13 @@ type Props = {
     endIcon?: Icon
     children?: ReactNode
     loading?: boolean
+    startGap?: Gap
+    endGap?: Gap
+    slotProps?: {
+        startIconWrapperProps?: {
+            className?: string
+        },
+    },
 } & FigureProps &
     ComponentProps
 
@@ -42,6 +50,9 @@ export const Button = ({
     startIcon: StartIcon,
     endIcon: EndIcon,
     loading,
+    startGap = 8,
+    endGap = 8,
+    slotProps,
     children,
 }: Props) => {
     const handleClick: MouseEventHandler | undefined = event => {
@@ -54,6 +65,9 @@ export const Button = ({
 
     const isFigure = circle || square
 
+    const haveStartIcon = loading || typeof StartIcon !== 'undefined'
+    const haveEndIcon = typeof EndIcon !== 'undefined'
+
     return (
         <Component
             type={type}
@@ -64,21 +78,40 @@ export const Button = ({
                 twColor[color][variant],
                 clsx(
                     square && `btn-square ${twFigure[size]}`,
-                    circle && `btn-circle rounded-full ${twFigure[size]}`
+                    circle && `btn-circle rounded-full ${twFigure[size]}`,
                 ),
                 className,
             )}
             onClick={typeof onClick === 'undefined' ? undefined : handleClick}
             disabled={disabled}
         >
-            {loading
-                ? <Spinner />
-                : typeof StartIcon === 'function' ? <StartIcon className={'h-6 w-6 mr-2'} /> : StartIcon}
+            {haveStartIcon &&
+                <span
+                    className={twMerge(
+                        twStartGap[startGap],
+                        slotProps?.startIconWrapperProps?.className,
+                    )}
+                >
+                    {loading
+                        ? <Spinner />
+                        : typeof StartIcon === 'function'
+                            ? <StartIcon className={'h-6 w-6'} />
+                            : StartIcon
+                    }
+                </span>
+            }
             {isFigure
                 ? !loading && children
                 : children
             }
-            {typeof EndIcon === 'function' ? <EndIcon className={'h-6 w-6 ml-2'} /> : EndIcon}
+            {haveEndIcon &&
+                <span className={twEndGap[endGap]}>
+                    {typeof EndIcon === 'function'
+                        ? <EndIcon className={clsx('h-6 w-6', twEndGap[endGap])} />
+                        : EndIcon
+                    }
+                </span>
+            }
         </Component>
     )
 }

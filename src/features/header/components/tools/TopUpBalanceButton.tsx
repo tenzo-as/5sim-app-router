@@ -1,6 +1,7 @@
 import Button from '@/shared/components/Button'
 import { RubleIcon } from '@/features/header/components/icons/RubleIcon'
 import { WalletIcon } from '@/features/header/components/icons/WalletIcon'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
     className?: string
@@ -16,8 +17,12 @@ export const TopUpBalanceButton = ({
             color={'white'}
             variant={'text'}
             startIcon={<WalletIcon />}
+            slotProps={{
+                startIconWrapperProps: { className: 'max-[350px]:hidden text-[#b5f2ff]' }
+            }}
             endIcon={<RubleIcon />}
-            className={className}
+            endGap={4}
+            className={twMerge('px-3', className)}
         >
             {balance}
         </Button>
