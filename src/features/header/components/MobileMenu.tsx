@@ -4,13 +4,14 @@ import { useTranslations } from 'next-intl'
 import DocIcon from '@/features/header/components/icons/DocIcon'
 import Link from '@/shared/components/Link'
 import { Pathname } from '@/shared/utils/routes'
+import { clsx } from 'clsx'
 
 type Props = {
-    activeRoute: Pathname
+    activeRoute?: string
     className?: string
 }
 
-export const MobileMenu = ({ className }: Props) => {
+export const MobileMenu = ({ className, activeRoute }: Props) => {
     const t = useTranslations()
 
     const mainRoutes = [
@@ -23,14 +24,17 @@ export const MobileMenu = ({ className }: Props) => {
     ]
 
     return (
-        <div className={twMerge('w-[320px]', className)}>
+        <div className={twMerge('w-[320px] h-full bg-base-100', className)}>
             <List>
                 {mainRoutes.map(({ route, label }) =>
-                    <li key={label}>
-                        <Link href={route}>
+                    <ListItem key={label} activeRoute={activeRoute} route={route}>
+                        <Link
+                            href={route}
+                            color={'inherit'}
+                        >
                             {label}
                         </Link>
-                    </li>
+                    </ListItem>
                 )}
             </List>
         </div>
@@ -43,4 +47,15 @@ const List = ({ children }: { children?: ReactNode }) => (
     </ul>
 )
 
-const ListItem = ({ activeRoute, children }: { activeRoute: boolean, children?: ReactNode }) => {}
+const ListItem = (
+    { activeRoute, route, children }:
+    {
+        activeRoute: string,
+        route: string,
+        children?: ReactNode
+    }
+) => (
+    <li className={clsx(activeRoute.includes(route) && 'active')}>
+        {children}
+    </li>
+)

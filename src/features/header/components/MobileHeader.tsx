@@ -11,6 +11,11 @@ import { SignUpButton } from '@/features/header/components/tools/SignUpButton'
 import { UserMenu } from '@/features/header/components/tools/UserMenu'
 import { TopUpBalanceButton } from '@/features/header/components/tools/TopUpBalanceButton'
 import { MobileOrdersButton } from '@/features/header/components/tools/MobileOrdersButton'
+import { MobileMenu } from '@/features/header/components/MobileMenu'
+import { usePathname } from '@/shared/hooks/usePathname'
+import { clsx } from 'clsx'
+import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
+import { useRef } from 'react'
 
 type Props = { className?: string } & HeaderProps
 
@@ -23,9 +28,13 @@ export const MobileHeader = ({
     className,
 }: Props) => {
     const isOpen = useBoolean()
+    const pathname = usePathname()
+    const ref = useRef<HTMLDivElement>(null)
+
+    useOnClickOutside(ref, isOpen.setFalse)
 
     return (
-        <div className={twMerge('h-14 bg-header flex items-center justify-between p-1', className)}>
+        <div ref={ref} className={twMerge('h-14 bg-header flex items-center justify-between p-1', className)}>
             <Burger
                 open={isOpen.value}
                 onToggle={isOpen.toggle}
@@ -41,6 +50,13 @@ export const MobileHeader = ({
                     className={'ml-1'}
                 />
             </div>
+            <MobileMenu
+                activeRoute={pathname}
+                className={clsx(
+                    'fixed top-14 left-0 bottom-0 transition-transform duration-300 z-10 shadow-xl',
+                    isOpen.value ? 'translate-x-0' : '-translate-x-full',
+                )}
+            />
         </div>
     )
 }

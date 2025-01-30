@@ -3,7 +3,7 @@ import { UrlObject } from 'node:url'
 import { ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { clsx } from 'clsx'
-import { Color, twUnderline, Underline } from '@/shared/components/Link/tw'
+import { Color, twColor, twUnderline, Underline } from '@/shared/components/Link/tw'
 
 type Props = {
     className?: string
@@ -19,6 +19,7 @@ export const Link = ({
     href,
     openInNewTab,
     underline = 'hover',
+    color = 'primary',
     children,
 }: Props) => {
     const Component = openInNewTab ? 'a' : NextLink
@@ -28,6 +29,7 @@ export const Link = ({
             className={twMerge(
                 clsx(
                     twUnderline[underline],
+                    twColor[color],
                 ),
                 className,
             )}
