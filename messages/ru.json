@@ -7,7 +7,20 @@
         "topUpBalance": "Пополнить баланс",
         "getApiKey": "Получить API ключ",
         "settings": "Настройки",
-        "signOut": "Выйти"
+        "signOut": "Выйти",
+        "navigation": {
+            "home": "Home",
+            "faq": "FAQ",
+            "api": "API",
+            "howBuy": "How to buy?",
+            "free": "Free",
+            "blog": "Blog",
+            "forDevelopers": "For developers"
+        },
+        "theme": {
+            "lightMode": "Light mode",
+            "darkMode": "Dark mode"
+        }
     },
     "HomePage": {
         "title": "мазафака",

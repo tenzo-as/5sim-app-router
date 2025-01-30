@@ -60,14 +60,13 @@ export const UserMenu = ({ id, className }: Props) => {
                     'absolute right-0 top-[calc(100%_+_8px)] lg:right-0',
                     !isOpen.value && 'hidden',
                 )}
-
             >
                 {topMenuItems.map(item =>
-                    <MenuItem key={item.label} {...item} />
+                    <MenuItem key={item.label} onCloseMenu={isOpen.setFalse} {...item} />
                 )}
                 <Divider className={'my-2 -mx-2'}/>
                 {bottomMenuItems.map(item =>
-                    <MenuItem key={item.label} {...item} />
+                    <MenuItem key={item.label} onCloseMenu={isOpen.setFalse} {...item} />
                 )}
             </Menu>
         </div>
@@ -79,10 +78,17 @@ type MenuItemProps = {
     label: string
     allowCopy?: boolean
     onClick?: () => void
+    onCloseMenu?: () => void
 }
 
-const MenuItem = ({ onClick, icon: Icon, label, allowCopy }: MenuItemProps) => (
-    <Menu.Item onClick={onClick}>
+const MenuItem = ({ onClick, icon: Icon, label, allowCopy, onCloseMenu: closeMenu }: MenuItemProps) => (
+    <Menu.Item
+        onClick={() => {
+            if (!allowCopy && closeMenu) closeMenu()
+
+            if (onClick) onClick()
+        }}
+    >
         <div>
             <div className={'flex items-center justify-center size-6 color-header'}>
                 <Icon />

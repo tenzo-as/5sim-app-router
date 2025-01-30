@@ -23,7 +23,6 @@ export const MobileHeader = ({
     className,
 }: Props) => {
     const isOpen = useBoolean()
-    const t = useTranslations()
 
     return (
         <div className={twMerge('h-14 bg-header flex items-center justify-between p-1', className)}>
@@ -49,8 +48,8 @@ export const MobileHeader = ({
 const AuthTools = ({ user }: Required<Pick<HeaderProps, 'user'>>) => (
     <>
         <MobileOrdersButton
+            activeOrdersCount={7}
             className={'ml-1'}
-            badge={7}
         />
         <TopUpBalanceButton
             balance={user.balance}
@@ -65,7 +64,7 @@ const AuthTools = ({ user }: Required<Pick<HeaderProps, 'user'>>) => (
 
 const NotAuthTools = () => (
     <>
-        <SignInButton/>
-        <SignUpButton className={'ml-1 max-[371px]:hidden'}/>
+        <SignInButton className={'ml-1'}/>
+        <SignUpButton className={'ml-1 max-[377px]:hidden'}/>
     </>
 )

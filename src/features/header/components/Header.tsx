@@ -9,6 +9,7 @@ export type HeaderProps = {
     user?: {
         balance: number
         id: number
+        activeOrdersCount?: number,
     }
     onSignIn?: () => void
     onSignUp?: () => void

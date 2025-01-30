@@ -60,6 +60,8 @@ export const LocaleSwitcher = ({
                     <Menu.Item
                         key={locale}
                         onClick={() => {
+                            if (locale !== currentLocale) isOpen.setFalse()
+
                             if (onChangeLocale) onChangeLocale(locale)
                         }}
                     >

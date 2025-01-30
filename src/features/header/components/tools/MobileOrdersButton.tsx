@@ -4,11 +4,14 @@ import Badge from '@/shared/components/Badge'
 
 type Props = {
     className?: string
-    badge?: number
+    activeOrdersCount?: number
 }
 
-export const MobileOrdersButton = ({ className, badge }: Props) => (
-    <Badge badgeContent={badge}>
+export const MobileOrdersButton = ({ className, activeOrdersCount }: Props) => (
+    <Badge
+        badgeContent={activeOrdersCount}
+        color={'warning'}
+    >
         <Button
             circle
             variant={'text'}

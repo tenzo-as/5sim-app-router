@@ -15,13 +15,13 @@ const Badge = ({
     color = 'base',
     children,
 }: Props) => {
-    if (!badgeContent) return children
+    if (!badgeContent || badgeContent === 0) return children
 
     return (
         <div className={twMerge('relative', className)}>
             <span
                 className={clsx(
-                    'badge absolute -top-1 -right-1 py-0 px-[6px]',
+                    'z-10 badge absolute -top-0.5 -right-0.5 py-0 px-[6px] text-[12px] font-semibold',
                     twColor[color],
                 )}
             >

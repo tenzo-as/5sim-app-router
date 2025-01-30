@@ -1,23 +1,25 @@
 import Button from '@/shared/components/Button'
-import { clsx } from 'clsx'
 import { DarkThemeIcon } from '@/features/header/components/icons/DarkThemeIcon'
 import { LightThemeIcon } from '@/features/header/components/icons/LightThemeIcon'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
     isLight: boolean,
     onToggle?: () => void,
+    className?: string
 }
 
-export const ThemeSwitcher = ({ isLight, onToggle }: Props) => {
+export const ThemeSwitcher = ({ isLight, onToggle, className }: Props) => {
     return (
         <Button
             onClick={onToggle}
             color={'white'}
             variant={'text'}
             circle
+            className={twMerge('swap swap-rotate', className)}
         >
-            <LightThemeIcon className={clsx(isLight && 'hidden')}/>
-            <DarkThemeIcon className={clsx(!isLight && 'hidden')}/>
+            <LightThemeIcon className={isLight ? 'swap-on' : 'swap-off'}/>
+            <DarkThemeIcon className={isLight ? 'swap-off' : 'swap-on'}/>
         </Button>
     )
 }

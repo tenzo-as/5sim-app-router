@@ -1,69 +1,62 @@
 import { fn } from '@storybook/test'
 import { Meta, StoryObj } from '@storybook/react'
-import { Burger } from '@/features/header/components/tools/Burger'
+import { ThemeSwitcher } from '@/features/header/components/tools/ThemeSwitcher'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import { useArgs } from '@storybook/core/preview-api'
 
 const meta = {
     title: 'Features/Header/Tools',
-    component: Burger,
+    component: ThemeSwitcher,
     parameters: {
         layout: 'centered',
     },
     tags: ['autodocs'],
     argTypes: {
-        open: {
+        isLight: {
             control: { type: 'boolean', },
-            defaultValue: false,
         },
     },
     args: {
         onToggle: fn(),
     },
-} satisfies Meta<typeof Burger>
+} satisfies Meta<typeof ThemeSwitcher>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const BurgerStory: Story = {
-    name: 'Burger',
+export const ThemeSwitcherStory: Story = {
+    name: 'ThemeSwitcher',
     args: {
-        open: false,
+        isLight: false,
     },
     render: (args) => {
-        const [{ open }, updateArgs] = useArgs<Story['args']>()
+        const [{ isLight }, updateArgs] = useArgs<Story['args']>()
 
         const handleToggle = () => {
             updateArgs({
-                open: !open,
+                isLight: !isLight,
             })
 
             if (args.onToggle) args.onToggle()
         }
 
         return (
-            <StoryWithCode code={burgerCode}>
-                <Burger {...args} onToggle={handleToggle} />
+            <StoryWithCode code={ThemeSwitcherCode} light={isLight}>
+                <ThemeSwitcher {...args} onToggle={handleToggle} />
 
                 <div className={'bg-header rounded-2xl p-2'}>
-                    <Burger {...args} onToggle={handleToggle} />
+                    <ThemeSwitcher {...args} onToggle={handleToggle} />
                 </div>
             </StoryWithCode>
         )
     }
 }
 
-const burgerCode = `
-<Burger 
-    open={isOpen}
-    onToggle={handleToggle}
-/>
+const ThemeSwitcherCode = `
+<ThemeSwitcher isLight={true} />
 
 <div className={'bg-header rounded-2xl p-2'}>
-    <Burger 
-        open={isOpen}
-        onToggle={handleToggle}
-    />
+    <ThemeSwitcher isLight={false} />
 </div>
 `

@@ -1,35 +1,60 @@
 'use client'
 
-import { ReactNode, useEffect } from 'react'
+import { ReactNode, useEffect, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 
 type Props = {
     children: ReactNode
-    code: string,
-    className?: string,
+    code: string
+    className?: string
+    light?: boolean
+    info?: ReactNode
 }
 
-const StoryWithCode = ({ children, code, className }: Props) => {
+const StoryWithCode = ({ children, code, className, light, info }: Props) => {
     const isLight = useBoolean()
 
+    const theme = useMemo(() => {
+        const isControlled = typeof light === 'boolean'
+
+        const value = isControlled ? light : isLight.value
+
+        return value ? 'light' : 'dark'
+    }, [isLight.value, light])
+
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', isLight.value ? 'light' : 'dark')
-    }, [isLight.value])
+        document.documentElement.setAttribute('data-theme', theme)
+    }, [theme])
 
     return (
-        <div className='bg-base-300 relative p-4 border-2 border-gray-600 dark:border-white rounded-2xl'>
-            <div className={twMerge('mb-4 flex flex-wrap gap-4 items-center justify-center', className)}>{children}</div>
-            <pre className='bg-base-100 p-4 rounded-2xl text-sm overflow-x-auto'>
-                <code>{code.trim()}</code>
-            </pre>
+        <div className='relative'>
+            {info &&
+                <span className={'inline-flex justify-center mb-4 text-wrap bg-orange-500 text-white rounded-2xl py-2 px-6 font-semibold'}>
+                    {info}
+                </span>
+            }
 
-            <label className="absolute right-0 -top-16 grid cursor-pointer place-items-center">
+            <div className={'overflow-visible mockup-window bg-base-300 border'}>
+                <div className={twMerge('bg-base-200 rounded-b-2xl flex flex-wrap gap-4 justify-center px-0 py-12', className)}>
+                    {children}
+                </div>
+            </div>
+
+            <div className={'mockup-code mt-4'}>
+                <pre className={'px-5 before:hidden'}>
+                    <code>{code.trim()}</code>
+                </pre>
+            </div>
+
+
+            <label className="absolute right-0 -top-12 grid cursor-pointer place-items-center">
                 <input
                     type="checkbox"
-                    value="synthwave"
+                    checked={theme === 'light'}
                     onChange={(event) => isLight.setValue(event.currentTarget.checked)}
-                    className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1" />
+                    className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+                />
                 <svg
                     className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
                     xmlns="http://www.w3.org/2000/svg"
