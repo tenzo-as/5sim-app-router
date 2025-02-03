@@ -1,8 +1,11 @@
 import '@/app/globals.css'
 import type { Preview } from '@storybook/react'
-import ruMessages from '../messages/ru.json'
 import { NextIntlClientProvider } from 'next-intl'
-import { AppRouterContext, type AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import {
+    AppRouterContext,
+    type AppRouterInstance,
+} from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import ruMessages from '../messages/ru.json'
 
 const preview: Preview = {
     parameters: {
@@ -22,7 +25,7 @@ const preview: Preview = {
                 <Story />
             </NextIntlClientProvider>
         ),
-        (Story) => (
+        Story => (
             <AppRouterContext.Provider value={{} as AppRouterInstance}>
                 <Story />
             </AppRouterContext.Provider>

@@ -22,6 +22,14 @@
             "darkMode": "Dark mode"
         }
     },
+    "shared": {
+        "support": "Support",
+        "needHelp": "Need help?",
+        "telegram": {
+            "newNumbers": "New numbers",
+            "newsAndStocks": "News, stocks"
+        }
+    },
     "HomePage": {
         "title": "Hello world!",
         "about": "Go to the about page"

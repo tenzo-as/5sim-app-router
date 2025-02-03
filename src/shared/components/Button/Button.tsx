@@ -2,17 +2,20 @@
 
 import {
     type Color,
+    Gap,
     type Size,
     type Variant,
     twColor,
+    twEndGap,
+    twFigure,
     twSize,
+    twStartGap,
     twVariant,
-    twFigure, twStartGap, Gap, twEndGap,
 } from '@/shared/components/Button/tw'
+import Spinner from '@/shared/components/Spinner'
 import { clsx } from 'clsx'
 import type { MouseEventHandler, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
-import Spinner from '@/shared/components/Spinner'
 
 type Props = {
     type?: 'button' | 'submit'
@@ -27,12 +30,13 @@ type Props = {
     children?: ReactNode
     loading?: boolean
     startGap?: Gap
+    fullWidth?: boolean
     endGap?: Gap
     slotProps?: {
         startIconWrapperProps?: {
             className?: string
-        },
-    },
+        }
+    }
 } & FigureProps &
     ComponentProps
 
@@ -53,6 +57,9 @@ export const Button = ({
     startGap = 8,
     endGap = 8,
     slotProps,
+    fullWidth,
+    href,
+    openInNewTab,
     children,
 }: Props) => {
     const handleClick: MouseEventHandler | undefined = event => {
@@ -72,7 +79,7 @@ export const Button = ({
         <Component
             type={type}
             className={twMerge(
-                'btn min-h-[auto] rounded-xl text-base font-semibold leading-normal gap-0 flex-nowrap',
+                'btn min-h-[auto] flex-nowrap gap-0 rounded-xl text-base font-semibold leading-normal',
                 twSize[size],
                 twVariant[variant],
                 twColor[color][variant],
@@ -80,38 +87,40 @@ export const Button = ({
                     square && `btn-square ${twFigure[size]}`,
                     circle && `btn-circle rounded-full ${twFigure[size]}`,
                 ),
+                fullWidth && 'w-full',
                 className,
             )}
             onClick={typeof onClick === 'undefined' ? undefined : handleClick}
             disabled={disabled}
+            href={href}
+            target={openInNewTab ? '_blank' : undefined}
         >
-            {haveStartIcon &&
+            {haveStartIcon && (
                 <span
                     className={twMerge(
                         twStartGap[startGap],
                         slotProps?.startIconWrapperProps?.className,
                     )}
                 >
-                    {loading
-                        ? <Spinner />
-                        : typeof StartIcon === 'function'
-                            ? <StartIcon className={'h-6 w-6'} />
-                            : StartIcon
-                    }
+                    {loading ? (
+                        <Spinner />
+                    ) : typeof StartIcon === 'function' ? (
+                        <StartIcon className={'h-6 w-6'} />
+                    ) : (
+                        StartIcon
+                    )}
                 </span>
-            }
-            {isFigure
-                ? !loading && children
-                : children
-            }
-            {haveEndIcon &&
+            )}
+            {isFigure ? !loading && children : children}
+            {haveEndIcon && (
                 <span className={twEndGap[endGap]}>
-                    {typeof EndIcon === 'function'
-                        ? <EndIcon className={clsx('h-6 w-6', twEndGap[endGap])} />
-                        : EndIcon
-                    }
+                    {typeof EndIcon === 'function' ? (
+                        <EndIcon className={clsx('h-6 w-6', twEndGap[endGap])} />
+                    ) : (
+                        EndIcon
+                    )}
                 </span>
-            }
+            )}
         </Component>
     )
 }
@@ -121,11 +130,13 @@ type ComponentProps = LinkComponent | NotLinkComponent
 type LinkComponent = {
     component?: 'a'
     href?: string
+    openInNewTab?: boolean
 }
 
 type NotLinkComponent = {
     component?: 'button' | 'div'
-    href?: undefined
+    href?: never
+    openInNewTab?: never
 }
 
 type FigureProps = Circle | Square
@@ -134,4 +145,3 @@ type Circle = { circle?: boolean; square?: undefined }
 type Square = { square?: boolean; circle?: undefined }
 
 type Icon = ReactNode | ((props: { className: string }) => ReactNode)
-

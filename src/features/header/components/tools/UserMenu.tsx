@@ -1,27 +1,32 @@
-import { useTranslations } from 'next-intl'
-import { twMerge } from 'tailwind-merge'
+import { CopyIcon } from '@/features/header/components/icons/CopyIcon'
+import { ExitIcon } from '@/features/header/components/icons/ExitIcon'
+import { KeyIcon } from '@/features/header/components/icons/KeyIcon'
+import { MoneyIcon } from '@/features/header/components/icons/MoneyIcon'
+import { PartnerIcon } from '@/features/header/components/icons/PartnerIcon'
+import { ProfileIcon } from '@/features/header/components/icons/ProfileIcon'
+import { SettingsIcon } from '@/features/header/components/icons/SettingsIcon'
 import Button from '@/shared/components/Button'
-import { FaChevronDown } from 'react-icons/fa'
+import Divider from '@/shared/components/Divider'
 import Menu from '@/shared/components/Menu'
-import { clsx } from 'clsx'
-import { FC, useRef } from 'react'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
-import { ProfileIcon } from '@/features/header/components/icons/ProfileIcon'
-import { PartnerIcon } from '@/features/header/components/icons/PartnerIcon'
-import Divider from '@/shared/components/Divider'
-import { MoneyIcon } from '@/features/header/components/icons/MoneyIcon'
-import { KeyIcon } from '@/features/header/components/icons/KeyIcon'
-import { SettingsIcon } from '@/features/header/components/icons/SettingsIcon'
-import { ExitIcon } from '@/features/header/components/icons/ExitIcon'
-import { CopyIcon } from '@/features/header/components/icons/CopyIcon'
+import { clsx } from 'clsx'
+import { useTranslations } from 'next-intl'
+import { FC, useRef } from 'react'
+import { FaChevronDown } from 'react-icons/fa'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
     className?: string
     id: number
+    slotProps?: {
+        Menu: {
+            className?: string
+        }
+    }
 }
 
-export const UserMenu = ({ id, className }: Props) => {
+export const UserMenu = ({ id, className, slotProps }: Props) => {
     const ref = useRef<HTMLDivElement>(null)
     const t = useTranslations()
     const isOpen = useBoolean()
@@ -31,21 +36,18 @@ export const UserMenu = ({ id, className }: Props) => {
     })
 
     const topMenuItems = [
-        { label: `ID: ${id}`, icon: ProfileIcon, allowCopy: true },
-        { label: t('header.partner'), icon: PartnerIcon },
+        { label: `ID: ${id}`, Icon: ProfileIcon, allowCopy: true },
+        { label: t('header.partner'), Icon: PartnerIcon, IconClassName: '-translate-y-0.5' },
     ]
     const bottomMenuItems = [
-        { label: t('header.topUpBalance'), icon: MoneyIcon },
-        { label: t('header.getApiKey'), icon: KeyIcon },
-        { label: t('header.settings'), icon: SettingsIcon },
-        { label: t('header.signOut'), icon: ExitIcon },
+        { label: t('header.topUpBalance'), Icon: MoneyIcon },
+        { label: t('header.getApiKey'), Icon: KeyIcon },
+        { label: t('header.settings'), Icon: SettingsIcon },
+        { label: t('header.signOut'), Icon: ExitIcon },
     ]
 
     return (
-        <div
-            className={twMerge('relative', className)}
-            ref={ref}
-        >
+        <div className={twMerge('relative', className)} ref={ref}>
             <Button
                 color={'white'}
                 variant={'text'}
@@ -56,32 +58,43 @@ export const UserMenu = ({ id, className }: Props) => {
                 <ProfileIcon />
             </Button>
             <Menu
-                className={clsx(
-                    'absolute right-0 top-[calc(100%_+_8px)] lg:right-0',
-                    !isOpen.value && 'hidden',
+                className={twMerge(
+                    clsx(
+                        'absolute right-0 top-[calc(100%_+_8px)] lg:right-0',
+                        !isOpen.value && 'hidden',
+                    ),
+                    slotProps?.Menu?.className,
                 )}
             >
-                {topMenuItems.map(item =>
+                {topMenuItems.map(item => (
                     <MenuItem key={item.label} onCloseMenu={isOpen.setFalse} {...item} />
-                )}
-                <Divider className={'my-2 -mx-2'}/>
-                {bottomMenuItems.map(item =>
+                ))}
+                <Divider className={'-mx-2 my-2'} />
+                {bottomMenuItems.map(item => (
                     <MenuItem key={item.label} onCloseMenu={isOpen.setFalse} {...item} />
-                )}
+                ))}
             </Menu>
         </div>
     )
 }
 
 type MenuItemProps = {
-    icon: FC
+    Icon: FC<{ className?: string }>
     label: string
     allowCopy?: boolean
     onClick?: () => void
     onCloseMenu?: () => void
+    IconClassName?: string
 }
 
-const MenuItem = ({ onClick, icon: Icon, label, allowCopy, onCloseMenu: closeMenu }: MenuItemProps) => (
+const MenuItem = ({
+    onClick,
+    Icon,
+    IconClassName,
+    label,
+    allowCopy,
+    onCloseMenu: closeMenu,
+}: MenuItemProps) => (
     <Menu.Item
         onClick={() => {
             if (!allowCopy && closeMenu) closeMenu()
@@ -89,14 +102,12 @@ const MenuItem = ({ onClick, icon: Icon, label, allowCopy, onCloseMenu: closeMen
             if (onClick) onClick()
         }}
     >
-        <div>
-            <div className={'flex items-center justify-center size-6 color-header'}>
-                <Icon />
+        <div className={'[&:active_svg]:text-white [&_svg]:text-header dark:[&_svg]:text-gray-300'}>
+            <div className={'flex size-6 items-center justify-center'}>
+                <Icon className={IconClassName} />
             </div>
             {label}
-            {allowCopy &&
-                <CopyIcon className={'size-5'} />
-            }
+            {allowCopy && <CopyIcon className={'size-5'} />}
         </div>
     </Menu.Item>
 )

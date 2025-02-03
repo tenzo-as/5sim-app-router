@@ -9,17 +9,25 @@
         "settings": "设置",
         "signOut": "退出",
         "navigation": {
-            "home": "Home",
+            "home": "主页",
             "faq": "FAQ",
             "api": "API",
-            "howBuy": "How to buy?",
-            "free": "Free",
-            "blog": "Blog",
-            "forDevelopers": "For developers"
+            "howBuy": "怎么购买？",
+            "free": "免费",
+            "blog": "博客",
+            "forDevelopers": "开发者"
         },
         "theme": {
             "lightMode": "Light mode",
             "darkMode": "Dark mode"
+        }
+    },
+    "shared": {
+        "support": "帮助中心",
+        "needHelp": "需要帮助吗？",
+        "telegram": {
+            "newNumbers": "新号码",
+            "newsAndStocks": "新闻、活动"
         }
     },
     "HomePage": {

@@ -14,12 +14,12 @@ export const twFigure: Record<Size, string> = {
 
 export type Gap = 'none' | 4 | 8
 export const twStartGap: Record<Gap, string> = {
-    'none': 'mr-none',
+    none: 'mr-none',
     4: 'mr-1',
     8: 'mr-2',
 }
 export const twEndGap: Record<Gap, string> = {
-    'none': 'ml-none',
+    none: 'ml-none',
     4: 'ml-1',
     8: 'ml-2',
 }
@@ -100,4 +100,3 @@ export const twColor: Record<Color, Record<Variant, string>> = {
         text: 'btn-error text-error',
     },
 }
-

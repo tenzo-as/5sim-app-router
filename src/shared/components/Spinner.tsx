@@ -5,7 +5,7 @@ type Props = {
 }
 
 const Spinner = ({ className }: Props) => (
-    <span className={twMerge('loading loading-spinner', className)}/>
+    <span className={twMerge('loading loading-spinner', className)} />
 )
 
 export default Spinner

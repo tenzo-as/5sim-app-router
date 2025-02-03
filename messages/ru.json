@@ -12,14 +12,22 @@
             "home": "Home",
             "faq": "FAQ",
             "api": "API",
-            "howBuy": "How to buy?",
-            "free": "Free",
-            "blog": "Blog",
-            "forDevelopers": "For developers"
+            "howBuy": "Как купить?",
+            "free": "Бесплатно",
+            "blog": "Блог",
+            "forDevelopers": "Разработчикам"
         },
         "theme": {
-            "lightMode": "Light mode",
-            "darkMode": "Dark mode"
+            "lightMode": "Светлая тема",
+            "darkMode": "Темная тема"
+        }
+    },
+    "shared": {
+        "support": "Поддержка",
+        "needHelp": "Нужна помощь?",
+        "telegram": {
+            "newNumbers": "Новые номера",
+            "newsAndStocks": "Новости, акции"
         }
     },
     "HomePage": {

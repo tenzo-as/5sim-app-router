@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { LocaleSwitcher } from '@/features/header/components/tools/LocaleSwitcher'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import { LOCALE, LOCALES } from '@/shared/constants/LOCALES'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'Features/Header/Tools',
@@ -29,14 +29,14 @@ export const LocaleSwitcherStory: Story = {
     args: {
         locale: LOCALE.ru,
     },
-    render: (args) =>  (
+    render: args => (
         <StoryWithCode code={burgerCode}>
             <LocaleSwitcher {...args} />
-            <div className={'bg-header rounded-2xl p-2'}>
+            <div className={'rounded-2xl bg-header p-2'}>
                 <LocaleSwitcher {...args} />
             </div>
         </StoryWithCode>
-)
+    ),
 }
 
 const burgerCode = `

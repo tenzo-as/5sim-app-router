@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { TopUpBalanceButton } from '@/features/header/components/tools/TopUpBalanceButton'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'Features/Header/Tools',
@@ -11,7 +11,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         balance: {
-            control: { type: 'number', },
+            control: { type: 'number' },
         },
     },
 } satisfies Meta<typeof TopUpBalanceButton>
@@ -23,20 +23,20 @@ type Story = StoryObj<typeof meta>
 export const TopUpBalanceButtonStory: Story = {
     name: 'TopUpBalanceButton',
     args: {
-         balance: 2500
+        balance: 2500,
     },
-    render: (args) =>  (
+    render: args => (
         <StoryWithCode
             code={burgerCode}
             info={'В определенном брекпоинте, пропадает иконка кошелька'}
         >
             <TopUpBalanceButton {...args} />
-            
-            <div className={'bg-header rounded-2xl p-2'}>
-                <TopUpBalanceButton  {...args} />
+
+            <div className={'rounded-2xl bg-header p-2'}>
+                <TopUpBalanceButton {...args} />
             </div>
         </StoryWithCode>
-)
+    ),
 }
 
 const burgerCode = `

@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { MobileOrdersButton } from '@/features/header/components/tools/MobileOrdersButton'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'Features/Header/Tools',
@@ -11,7 +11,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         activeOrdersCount: {
-            control: { type: 'number', },
+            control: { type: 'number' },
         },
     },
 } satisfies Meta<typeof MobileOrdersButton>
@@ -25,14 +25,14 @@ export const MobileOrdersButtonStory: Story = {
     args: {
         activeOrdersCount: 3,
     },
-    render: (args) =>  (
+    render: args => (
         <StoryWithCode code={burgerCode}>
             <MobileOrdersButton {...args} />
-            <div className={'bg-header rounded-2xl p-2'}>
+            <div className={'rounded-2xl bg-header p-2'}>
                 <MobileOrdersButton {...args} />
             </div>
         </StoryWithCode>
-)
+    ),
 }
 
 const burgerCode = `

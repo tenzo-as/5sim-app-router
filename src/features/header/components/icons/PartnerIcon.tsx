@@ -1,6 +1,11 @@
-export const PartnerIcon = () => {
+type Props = {
+    className?: string
+}
+
+export const PartnerIcon = ({ className }: Props) => {
     return (
         <svg
+            className={className}
             width='20'
             height='19'
             viewBox='0 0 20 19'

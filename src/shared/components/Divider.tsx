@@ -5,12 +5,7 @@ type Props = {
 }
 
 const Divider = ({ className }: Props) => (
-    <hr
-        className={twMerge(
-            'border-none h-0.5 min-w-full bg-divider',
-            className
-        )}
-    />
+    <hr className={twMerge('h-0.5 min-w-full border-none bg-divider', className)} />
 )
 
 export default Divider

@@ -1,29 +1,23 @@
 'use client'
 
+import { HeaderProps } from '@/features/header/components/Header'
 import Button from '@/shared/components/Button'
+import Image from '@/shared/components/Image'
 import Menu from '@/shared/components/Menu'
 import { Locale, LOCALES, NAME_BY_LOCALE } from '@/shared/constants/LOCALES'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 import { useOnClickOutside } from '@/shared/hooks/useOnClickOutside'
 import { clsx } from 'clsx'
 import { useTranslations } from 'next-intl'
-import { FaChevronDown } from 'react-icons/fa'
-import { HeaderProps } from '@/features/header/components/Header'
 import { useRef } from 'react'
-import Image from '@/shared/components/Image'
+import { FaChevronDown } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
     className?: string
-} & Pick<
-    HeaderProps, 'locale' | 'onChangeLocale'
->
+} & Pick<HeaderProps, 'locale' | 'onChangeLocale'>
 
-export const LocaleSwitcher = ({
-    locale: currentLocale,
-    onChangeLocale,
-    className,
-}: Props) => {
+export const LocaleSwitcher = ({ locale: currentLocale, onChangeLocale, className }: Props) => {
     const ref = useRef<HTMLDivElement>(null)
     const t = useTranslations()
     const isOpen = useBoolean()

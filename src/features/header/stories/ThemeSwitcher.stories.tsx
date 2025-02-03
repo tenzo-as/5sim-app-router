@@ -1,8 +1,8 @@
-import { fn } from '@storybook/test'
-import { Meta, StoryObj } from '@storybook/react'
 import { ThemeSwitcher } from '@/features/header/components/tools/ThemeSwitcher'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import { useArgs } from '@storybook/core/preview-api'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 const meta = {
     title: 'Features/Header/Tools',
@@ -13,7 +13,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         isLight: {
-            control: { type: 'boolean', },
+            control: { type: 'boolean' },
         },
     },
     args: {
@@ -30,7 +30,7 @@ export const ThemeSwitcherStory: Story = {
     args: {
         isLight: false,
     },
-    render: (args) => {
+    render: args => {
         const [{ isLight }, updateArgs] = useArgs<Story['args']>()
 
         const handleToggle = () => {
@@ -45,12 +45,12 @@ export const ThemeSwitcherStory: Story = {
             <StoryWithCode code={ThemeSwitcherCode} light={isLight}>
                 <ThemeSwitcher {...args} onToggle={handleToggle} />
 
-                <div className={'bg-header rounded-2xl p-2'}>
+                <div className={'rounded-2xl bg-header p-2'}>
                     <ThemeSwitcher {...args} onToggle={handleToggle} />
                 </div>
             </StoryWithCode>
         )
-    }
+    },
 }
 
 const ThemeSwitcherCode = `

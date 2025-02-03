@@ -1,13 +1,12 @@
+import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import Button from '@/shared/components/Button'
 import { Color, Size, Variant } from '@/shared/components/Button/tw'
+import { useBoolean } from '@/shared/hooks/useBoolean'
+import { capitalize } from '@/shared/utils/capitalize'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import StoryWithCode from '@/features/stories/components/StoryWithCode'
-import { capitalize } from '@/shared/utils/capitalize'
-import { Burger } from '@/features/header/components/tools/Burger'
-import { twMerge } from 'tailwind-merge'
 import { clsx } from 'clsx'
-import { useBoolean } from '@/shared/hooks/useBoolean'
+import { twMerge } from 'tailwind-merge'
 
 const meta = {
     title: 'Shared/Button',
@@ -69,29 +68,25 @@ type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
     args: {
-        children: 'Click me'
-    }
+        children: 'Click me',
+    },
 }
 
 const variants: Variant[] = ['contained', 'outlined', 'text']
 
-const variantsCode = variants.map(variant =>
-    `<Button variant={'${variant}'}>${capitalize(variant)}</Button>`
-).join('\n')
+const variantsCode = variants
+    .map(variant => `<Button variant={'${variant}'}>${capitalize(variant)}</Button>`)
+    .join('\n')
 
 export const Variants: Story = {
-    render: (args) => (
+    render: args => (
         <div className={'flex gap-4'}>
             <StoryWithCode code={variantsCode}>
-                {variants.map(variant =>
-                    <Button
-                        {...args}
-                        key={variant}
-                        variant={variant}
-                    >
+                {variants.map(variant => (
+                    <Button {...args} key={variant} variant={variant}>
                         {capitalize(variant)}
                     </Button>
-                )}
+                ))}
             </StoryWithCode>
         </div>
     ),
@@ -103,26 +98,19 @@ export const Variants: Story = {
     },
 }
 
-
 const sizes: Size[] = [32, 40, 42, 48]
 
-const sizesCode = sizes.map(size =>
-    `<Button size={${size}}>Размер - ${size}px</Button>`
-).join('\n')
+const sizesCode = sizes.map(size => `<Button size={${size}}>Размер - ${size}px</Button>`).join('\n')
 
 export const Sizes: Story = {
-    render: (args) => (
+    render: args => (
         <div className={'flex gap-4'}>
             <StoryWithCode code={sizesCode}>
-                {sizes.map(size =>
-                    <Button
-                        {...args}
-                        key={size}
-                        size={size}
-                    >
+                {sizes.map(size => (
+                    <Button {...args} key={size} size={size}>
                         Размер - {size}px
                     </Button>
-                )}
+                ))}
             </StoryWithCode>
         </div>
     ),
@@ -134,26 +122,33 @@ export const Sizes: Story = {
     },
 }
 
+const colors: Color[] = [
+    'white',
+    'neutral',
+    'primary',
+    'secondary',
+    'accent',
+    'ghost',
+    'link',
+    'info',
+    'success',
+    'warning',
+    'error',
+]
 
-const colors: Color[] = ['white', 'neutral', 'primary', 'secondary', 'accent', 'ghost', 'link', 'info', 'success', 'warning', 'error']
-
-const colorsCode = colors.map(color =>
-    `<Button color={'${color}'}>${capitalize(color)}</Button>`
-).join('\n')
+const colorsCode = colors
+    .map(color => `<Button color={'${color}'}>${capitalize(color)}</Button>`)
+    .join('\n')
 
 export const Colors: Story = {
-    render: (args) => (
+    render: args => (
         <div className={'flex gap-4'}>
             <StoryWithCode code={colorsCode}>
-                {colors.map(color =>
-                    <Button
-                        {...args}
-                        key={color}
-                        color={color}
-                    >
+                {colors.map(color => (
+                    <Button {...args} key={color} color={color}>
                         {capitalize(color)}
                     </Button>
-                )}
+                ))}
             </StoryWithCode>
         </div>
     ),
@@ -177,10 +172,14 @@ export const Square: Story = {
                 size={48}
                 className={'flex flex-col items-center justify-center'}
             >
-                <div className={twMerge(base, clsx(isOpen.value && 'rotate-45 translate-y-[5px]'))} />
+                <div
+                    className={twMerge(base, clsx(isOpen.value && 'translate-y-[5px] rotate-45'))}
+                />
                 <div className={twMerge(base, 'my-[3px]', clsx(isOpen.value && 'w-0'))} />
-                <div className={twMerge(base, clsx(isOpen.value && '-rotate-45 -translate-y-[5px]'))} />
+                <div
+                    className={twMerge(base, clsx(isOpen.value && '-translate-y-[5px] -rotate-45'))}
+                />
             </Button>
         )
-    }
+    },
 }

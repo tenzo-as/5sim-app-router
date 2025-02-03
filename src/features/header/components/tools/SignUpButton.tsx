@@ -1,9 +1,9 @@
 'use client'
 
 import Button from '@/shared/components/Button'
-import { twMerge } from 'tailwind-merge'
-import { useTranslations } from 'next-intl'
 import { useRouter } from '@/shared/hooks/useRouter'
+import { useTranslations } from 'next-intl'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
     className?: string

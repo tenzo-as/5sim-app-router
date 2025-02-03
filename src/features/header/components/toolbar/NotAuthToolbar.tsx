@@ -9,9 +9,7 @@ export const NotAuthToolbar = () => {
 
     return (
         <div className={clsx('ml-auto', isAuthenticated && 'hidden')}>
-            <LocaleSwitcher
-                locale={'ru'}
-            />
+            <LocaleSwitcher locale={'ru'} />
         </div>
     )
 }

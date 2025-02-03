@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { UserMenu } from '@/features/header/components/tools/UserMenu'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'Features/Header/Tools',
@@ -11,7 +11,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         id: {
-            control: { type: 'number', },
+            control: { type: 'number' },
         },
     },
 } satisfies Meta<typeof UserMenu>
@@ -23,16 +23,16 @@ type Story = StoryObj<typeof meta>
 export const UserMenuStory: Story = {
     name: 'UserMenu',
     args: {
-        id: 32245
+        id: 32245,
     },
-    render: (args) =>  (
+    render: args => (
         <StoryWithCode code={burgerCode}>
             <UserMenu {...args} />
-            <div className={'bg-header rounded-2xl p-2'}>
+            <div className={'rounded-2xl bg-header p-2'}>
                 <UserMenu {...args} />
             </div>
         </StoryWithCode>
-)
+    ),
 }
 
 const burgerCode = `

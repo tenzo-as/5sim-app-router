@@ -1,11 +1,10 @@
 import Header from '@/features/header/components/Header'
-import { fn } from '@storybook/test'
-import { Meta, StoryObj } from '@storybook/react'
-import { LOCALE, LOCALES } from '@/shared/constants/LOCALES'
 import { MobileHeader } from '@/features/header/components/MobileHeader'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
+import { LOCALE, LOCALES } from '@/shared/constants/LOCALES'
 import { useArgs } from '@storybook/core/preview-api'
-import { d } from '@pmmmwh/react-refresh-webpack-plugin/types/options'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 const meta = {
     title: 'Features/Header',
@@ -16,7 +15,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         locale: {
-            control: { type: 'select', },
+            control: { type: 'select' },
             options: LOCALES,
             defaultValue: LOCALE.en,
         },
@@ -65,14 +64,10 @@ export const MobileHeaderNotAuthStory: Story = {
 
         return (
             <StoryWithCode code={mobileHeaderNotAuthCode}>
-                <MobileHeader
-                    {...args}
-                    onSignIn={handleSignIn}
-                    onSignOut={handleSignOut}
-                />
+                <MobileHeader {...args} onSignIn={handleSignIn} onSignOut={handleSignOut} />
             </StoryWithCode>
         )
-    }
+    },
 }
 
 const mobileHeaderNotAuthCode = `
@@ -112,14 +107,10 @@ export const MobileHeaderAuthStory: Story = {
 
         return (
             <StoryWithCode code={mobileHeaderAuthCode}>
-                <MobileHeader
-                    {...args}
-                    onSignIn={handleSignIn}
-                    onSignOut={handleSignOut}
-                />
+                <MobileHeader {...args} onSignIn={handleSignIn} onSignOut={handleSignOut} />
             </StoryWithCode>
         )
-    }
+    },
 }
 
 const mobileHeaderAuthCode = `

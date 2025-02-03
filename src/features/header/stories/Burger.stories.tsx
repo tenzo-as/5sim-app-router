@@ -1,8 +1,8 @@
-import { fn } from '@storybook/test'
-import { Meta, StoryObj } from '@storybook/react'
 import { Burger } from '@/features/header/components/tools/Burger'
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import { useArgs } from '@storybook/core/preview-api'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 const meta = {
     title: 'Features/Header/Tools',
@@ -13,7 +13,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         open: {
-            control: { type: 'boolean', },
+            control: { type: 'boolean' },
             defaultValue: false,
         },
     },
@@ -31,7 +31,7 @@ export const BurgerStory: Story = {
     args: {
         open: false,
     },
-    render: (args) => {
+    render: args => {
         const [{ open }, updateArgs] = useArgs<Story['args']>()
 
         const handleToggle = () => {
@@ -46,12 +46,12 @@ export const BurgerStory: Story = {
             <StoryWithCode code={burgerCode}>
                 <Burger {...args} onToggle={handleToggle} />
 
-                <div className={'bg-header rounded-2xl p-2'}>
+                <div className={'rounded-2xl bg-header p-2'}>
                     <Burger {...args} onToggle={handleToggle} />
                 </div>
             </StoryWithCode>
         )
-    }
+    },
 }
 
 const burgerCode = `

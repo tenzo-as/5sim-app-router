@@ -1,8 +1,8 @@
 'use client'
 
+import { Theme } from '@/features/theme/types'
 import storage, { StorageKey } from '@/shared/utils/storage'
 import React, { createContext, ReactNode, useEffect, useState } from 'react'
-import { Theme } from '@/features/theme/types'
 
 export type ThemeContextType = {
     theme: Theme

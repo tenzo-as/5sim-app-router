@@ -13,7 +13,6 @@ const commonTheme = {
     'warning-content': '#ffffff',
     'error-content': '#ffffff',
     '--border-btn': '2px',
-
 }
 
 export default {
@@ -26,8 +25,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                'header': 'oklch(var(--header) / <alpha-value>)',
-                'divider': 'oklch(var(--divider) / <alpha-value>)',
+                header: 'oklch(var(--header) / <alpha-value>)',
+                divider: 'oklch(var(--divider) / <alpha-value>)',
             },
         },
         fontFamily: {
@@ -48,6 +47,8 @@ export default {
                 light: {
                     ...themes.light,
                     ...commonTheme,
+                    primary: '#7480ff',
+                    neutral: '#303e4d',
                     '--header': '43.52% 0.0605 253.42',
                     '--divider': '90.97% 0 0',
                 },
@@ -58,6 +59,7 @@ export default {
                     ...commonTheme,
                     'base-100': '#1e2e3e',
                     'base-200': '#1e2e3e',
+                    neutral: '#303e4d',
                     '--header': '43.52% 0.0605 253.42',
                     '--divider': '43.52% 0.0605 253.42',
                 },
