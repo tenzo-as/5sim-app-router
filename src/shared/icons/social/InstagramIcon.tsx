@@ -2,7 +2,7 @@ type Props = {
     className?: string
 }
 
-const InstagramIcon = ({ className }: Props) => (
+export const InstagramIcon = ({ className }: Props) => (
     <svg className={className} width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <rect width='40' height='40' rx='12' fill='url(#paint0_radial_2500_2409)' />
         <path

@@ -32,7 +32,7 @@ export const LocaleSwitcher = ({ locale: currentLocale, onChangeLocale, classNam
                 color={'white'}
                 variant={'text'}
                 className={'px-3'}
-                endIcon={<FaChevronDown className={'size-3'} />}
+                endIcon={<FaChevronDown className={clsx('size-3 transition-transform', isOpen.value && 'rotate-x-180')} />}
                 onClick={isOpen.toggle}
             >
                 <Image

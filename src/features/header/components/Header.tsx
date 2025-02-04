@@ -36,9 +36,15 @@ const Header = ({ slotProps, ...props }: HeaderProps) => {
             <DesktopHeader
                 className={twMerge('max-md:hidden', slotProps?.DesktopHeader?.className)}
                 {...props}
+                user={{
+                    id: 2323,
+                    balance: 232,
+                }}
             />
         </>
     )
 }
 
 export default Header
+
+

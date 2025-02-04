@@ -1,5 +1,5 @@
-import { RubleIcon } from '@/features/header/components/icons/RubleIcon'
-import { WalletIcon } from '@/features/header/components/icons/WalletIcon'
+import { RubleIcon } from '@/features/header/icons/RubleIcon'
+import { WalletIcon } from '@/features/header/icons/WalletIcon'
 import Button from '@/shared/components/Button'
 import { twMerge } from 'tailwind-merge'
 

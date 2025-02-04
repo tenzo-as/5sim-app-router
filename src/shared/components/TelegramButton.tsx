@@ -42,6 +42,7 @@ const Button = ({ href, className, children }: ButtonProps) => (
         }
         component={'a'}
         href={href}
+        size={44}
         openInNewTab
         className={className}
     >

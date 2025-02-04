@@ -2,7 +2,7 @@ type Props = {
     className?: string
 }
 
-export const VkontakteIcon = ({ className }: Props) => (
+export const VKontakteIcon = ({ className }: Props) => (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="12" fill="#4D76A1" />
         <path fillRule="evenodd" clipRule="evenodd"

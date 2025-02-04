@@ -2,7 +2,7 @@ type Props = {
     className?: string
 }
 
-const FacebookIcon = ({ className }: Props) => (
+export const FacebookIcon = ({ className }: Props) => (
     <svg className={className} width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="12" fill="#1877F2" />
         <g clip-path="url(#clip0_2500_2421)">

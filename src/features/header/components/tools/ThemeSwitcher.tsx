@@ -1,5 +1,5 @@
-import { DarkThemeIcon } from '@/features/header/components/icons/DarkThemeIcon'
-import { LightThemeIcon } from '@/features/header/components/icons/LightThemeIcon'
+import { DarkThemeIcon } from '@/features/header/icons/DarkThemeIcon'
+import { LightThemeIcon } from '@/features/header/icons/LightThemeIcon'
 import Button from '@/shared/components/Button'
 import { twMerge } from 'tailwind-merge'
 

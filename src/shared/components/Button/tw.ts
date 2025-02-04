@@ -1,14 +1,16 @@
-export type Size = 32 | 40 | 42 | 48
+export type Size = 32 | 40 | 42 | 44 | 48
 export const twSize: Record<Size, string> = {
     32: 'h-[32px] text-sm',
     40: 'h-[40px] text-[15px]',
     42: 'h-[42px]',
+    44: 'h-[44px]',
     48: 'h-[48px]',
 }
 export const twFigure: Record<Size, string> = {
     32: 'w-[32px] p-0',
     40: 'w-[40px] p-0',
     42: 'w-[42px] p-0',
+    44: 'w-[44px] p-0',
     48: 'w-[48px] p-0',
 }
 

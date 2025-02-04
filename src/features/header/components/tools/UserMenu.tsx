@@ -1,10 +1,10 @@
-import { CopyIcon } from '@/features/header/components/icons/CopyIcon'
-import { ExitIcon } from '@/features/header/components/icons/ExitIcon'
-import { KeyIcon } from '@/features/header/components/icons/KeyIcon'
-import { MoneyIcon } from '@/features/header/components/icons/MoneyIcon'
-import { PartnerIcon } from '@/features/header/components/icons/PartnerIcon'
-import { ProfileIcon } from '@/features/header/components/icons/ProfileIcon'
-import { SettingsIcon } from '@/features/header/components/icons/SettingsIcon'
+import { CopyIcon } from '@/features/header/icons/CopyIcon'
+import { ExitIcon } from '@/features/header/icons/ExitIcon'
+import { KeyIcon } from '@/features/header/icons/KeyIcon'
+import { MoneyIcon } from '@/features/header/icons/MoneyIcon'
+import { PartnerIcon } from '@/features/header/icons/PartnerIcon'
+import { ProfileIcon } from '@/features/header/icons/ProfileIcon'
+import { SettingsIcon } from '@/features/header/icons/SettingsIcon'
 import Button from '@/shared/components/Button'
 import Divider from '@/shared/components/Divider'
 import Menu from '@/shared/components/Menu'
@@ -52,7 +52,7 @@ export const UserMenu = ({ id, className, slotProps }: Props) => {
                 color={'white'}
                 variant={'text'}
                 className={'px-3'}
-                endIcon={<FaChevronDown className={'size-3'} />}
+                endIcon={<FaChevronDown className={clsx('size-3 transition-transform', isOpen.value && 'rotate-x-180')} />}
                 onClick={isOpen.toggle}
             >
                 <ProfileIcon />

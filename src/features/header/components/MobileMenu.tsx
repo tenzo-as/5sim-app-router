@@ -1,8 +1,8 @@
 'use client'
 
-import { DarkThemeIcon } from '@/features/header/components/icons/DarkThemeIcon'
-import DocIcon from '@/features/header/components/icons/DocIcon'
-import { LightThemeIcon } from '@/features/header/components/icons/LightThemeIcon'
+import { DarkThemeIcon } from '@/features/header/icons/DarkThemeIcon'
+import DocIcon from '@/features/header/icons/DocIcon'
+import { LightThemeIcon } from '@/features/header/icons/LightThemeIcon'
 import Divider from '@/shared/components/Divider'
 import Link from '@/shared/components/Link'
 import SupportButton from '@/shared/components/SupportButton'
@@ -13,6 +13,8 @@ import { clsx } from 'clsx'
 import { useTranslations } from 'next-intl'
 import { ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
+import SocialButton from '@/shared/components/SocialButton'
+import { useNavigationRoutes } from '@/features/header/hooks/useNavigationRoutes'
 
 type Props = {
     activeRoute?: string
@@ -24,23 +26,20 @@ type Props = {
 
 export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleTheme }: Props) => {
     const t = useTranslations()
-
-    const mainRoutes = [
-        { route: Pathname.Home, label: t('header.navigation.home') },
-        { route: Pathname.Home, label: t('header.navigation.faq'), icon: <DocIcon /> },
-        { route: Pathname.Home, label: t('header.navigation.api'), openInNewTab: true },
-        { route: Pathname.Home, label: t('header.navigation.howBuy') },
-        { route: Pathname.Home, label: t('header.navigation.free') },
-        { route: Pathname.Home, label: t('header.navigation.blog'), openInNewTab: true },
-    ]
+    const navigationRoutes = useNavigationRoutes()
 
     return (
         <div className={twMerge('h-full w-[280px] bg-base-100 shadow-xl', className)}>
             <List>
-                {mainRoutes.map(({ route, label }) => (
+                {navigationRoutes.map(({ route, label, icon }) => (
                     <ListItem key={label} activeRoute={activeRoute} route={route}>
-                        <Link href={route} color={'inherit'} underline={'none'}>
-                            {label}
+                        <Link
+                            href={route}
+                            color={'inherit'}
+                            underline={'none'}
+                            className={'flex'}
+                        >
+                            {icon}{label}
                         </Link>
                     </ListItem>
                 ))}
@@ -85,10 +84,19 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
             <div className={'mt-6 px-6'}>
                 <TelegramButton.NewNumbers />
                 <TelegramButton.NewsAndStocks className={'mt-3'} />
+
                 <Text className={'mt-6'} medium>
                     {t('shared.needHelp')}
                 </Text>
                 <SupportButton className={'mt-3'} />
+
+                <div className={'flex items-center justify-between mt-6'}>
+                    <SocialButton.Instagram />
+                    <SocialButton.VKontakte />
+                    <SocialButton.YouTube />
+                    <SocialButton.Facebook />
+                    <SocialButton.Twitter />
+                </div>
             </div>
         </div>
     )

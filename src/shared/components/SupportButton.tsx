@@ -17,6 +17,7 @@ const SupportButton = ({ className }: Props) => {
                 className,
             )}
             fullWidth
+            size={44}
             startIcon={SupportIcon}
         >
             {t('shared.support')}
