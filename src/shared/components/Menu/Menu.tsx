@@ -12,7 +12,7 @@ const Menu = ({ className, children }: Props) => {
     return (
         <ul
             className={twMerge(
-                'menu z-10 min-w-56 rounded-2xl bg-base-100 shadow-lg [&>li>*]:gap-3',
+                'menu z-10 min-w-56 rounded-2xl bg-base-200 shadow-lg [&>li>*]:gap-3',
                 className,
             )}
         >

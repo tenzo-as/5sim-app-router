@@ -23,7 +23,7 @@ const MainLayout = ({ children }: Props) => {
 
     const changeLocale = (locale: Locale) => {
         startTransition(() => {
-            router.replace({ pathname, query }, { locale })
+            router.push({ pathname, query }, { locale })
         })
     }
 

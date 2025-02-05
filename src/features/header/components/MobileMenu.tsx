@@ -29,7 +29,7 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
     const navigationRoutes = useNavigationRoutes()
 
     return (
-        <div className={twMerge('h-full w-[280px] bg-base-100 shadow-xl', className)}>
+        <div className={twMerge('h-full w-[280px] bg-base-200 shadow-xl', className)}>
             <List>
                 {navigationRoutes.map(({ route, label, icon }) => (
                     <ListItem key={label} activeRoute={activeRoute} route={route}>
