@@ -31,6 +31,9 @@
             "newsAndStocks": "News, stocks"
         }
     },
+    "sidebar": {
+        "cover": "<span>Virtual Numbers</span> for Receiving SMS Codes"
+    },
     "HomePage": {
         "title": "Hello world!",
         "about": "Go to the about page"

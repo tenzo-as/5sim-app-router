@@ -10,7 +10,7 @@
         "settings": "Настройки",
         "signOut": "Выйти",
         "navigation": {
-            "home": "Home",
+            "home": "Главная",
             "faq": "FAQ",
             "api": "API",
             "howBuy": "Как купить?",
@@ -30,6 +30,9 @@
             "newNumbers": "Новые номера",
             "newsAndStocks": "Новости, акции"
         }
+    },
+    "sidebar": {
+        "cover": "<span>Виртуальные номера</span> для приема СМС"
     },
     "HomePage": {
         "title": "мазафака",

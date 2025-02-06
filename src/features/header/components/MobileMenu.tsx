@@ -29,7 +29,7 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
     const navigationRoutes = useNavigationRoutes()
 
     return (
-        <div className={twMerge('h-full w-[280px] bg-base-200 shadow-xl', className)}>
+        <div className={twMerge('overflow-y-auto w-[280px] bg-base-200 shadow-xl', className)}>
             <List>
                 {navigationRoutes.map(({ route, label, icon }) => (
                     <ListItem key={label} activeRoute={activeRoute} route={route}>
@@ -81,7 +81,7 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
                 </ListItem>
             </List>
             <Divider />
-            <div className={'mt-6 px-6'}>
+            <div className={'p-6'}>
                 <TelegramButton.NewNumbers />
                 <TelegramButton.NewsAndStocks className={'mt-3'} />
 

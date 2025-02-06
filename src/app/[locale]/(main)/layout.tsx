@@ -8,6 +8,7 @@ import { useParams } from '@/shared/hooks/useParams'
 import { usePathname } from '@/shared/hooks/usePathname'
 import { useRouter } from '@/shared/hooks/useRouter'
 import { ReactNode, useTransition } from 'react'
+import Sidebar from '@/features/sidebar/components/Sidebar'
 
 type Props = {
     children: ReactNode
@@ -28,12 +29,15 @@ const MainLayout = ({ children }: Props) => {
     }
 
     return (
-        <div className={''}>
+        <div className={'grid'}>
             <Header
                 locale={locale}
                 onChangeLocale={locale => changeLocale(locale)}
                 isLight={isLight}
                 onToggleTheme={toggleTheme}
+            />
+            <Sidebar
+                className={''}
             />
             {children}
         </div>

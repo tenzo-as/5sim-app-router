@@ -31,6 +31,9 @@
             "newsAndStocks": "新闻、活动"
         }
     },
+    "sidebar": {
+        "cover": "<span>虚拟号码</span> 用于接收验证码短信"
+    },
     "HomePage": {
         "title": "Hello world!",
         "about": "Go to the about page"

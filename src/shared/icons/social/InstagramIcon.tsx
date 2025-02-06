@@ -18,10 +18,10 @@ export const InstagramIcon = ({ className }: Props) => (
                 gradientUnits='userSpaceOnUse'
                 gradientTransform='translate(10.6251 43.0808) rotate(-90) scale(39.643)'
             >
-                <stop stop-color='#FFDD55' />
-                <stop offset='0.1' stop-color='#FFDD55' />
-                <stop offset='0.5' stop-color='#FF543E' />
-                <stop offset='1' stop-color='#C837AB' />
+                <stop stopColor='#FFDD55' />
+                <stop offset='0.1' stopColor='#FFDD55' />
+                <stop offset='0.5' stopColor='#FF543E' />
+                <stop offset='1' stopColor='#C837AB' />
             </radialGradient>
         </defs>
     </svg>
