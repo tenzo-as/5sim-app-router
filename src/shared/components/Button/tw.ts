@@ -47,7 +47,7 @@ export type Color =
     | 'error'
 export const twColor: Record<Color, Record<Variant, string>> = {
     white: {
-        contained: 'text-blue-400 bg-white hover:bg-gray-200',
+        contained: 'text-blue-400 border-blue-400 border-solid bg-white hover:bg-gray-200',
         outlined: 'text-white bg-transparent border-white border-solid hover:border-white',
         text: 'text-white',
     },

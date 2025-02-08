@@ -13,12 +13,14 @@ import { ToastContainer } from 'react-toastify'
 const inter = Inter({ subsets: ['latin'] })
 
 const LocaleLayout = async ({
-    params: { locale },
+    params,
     children,
 }: Readonly<{
-    params: { locale: 'en' | 'ru' | 'zh' }
+    params: Promise<{ locale: 'en' | 'ru' | 'zh' }>
     children: ReactNode
 }>) => {
+    const { locale } = await params
+
     if (!routing.locales.includes(locale)) {
         notFound()
     }

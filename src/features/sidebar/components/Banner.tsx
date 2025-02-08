@@ -9,7 +9,7 @@ export const Banner = () => {
     return (
         <div
             className={twMerge(
-                'flex items-center justify-start lg:justify-between xl:justify-start h-[88px]',
+                'flex items-center justify-start md:justify-between xl:justify-start h-[88px]',
                 'text-white bg-[#1976d2]',
                 'rounded-b-2xl xl:rounded-t-3xl',
                 'px-4 sm:px-6 lg:p-[0_80px_0_56px]',
@@ -23,9 +23,15 @@ export const Banner = () => {
                     })}
                 </h2>
             </div>
-            <div className={'hidden items-center lg:flex xl:hidden ml-auto'}>
-                <TelegramButton.NewNumbers />
-                <TelegramButton.NewsAndStocks />
+            <div className={'hidden items-center md:flex xl:hidden'}>
+                <TelegramButton.NewNumbers
+                    fullWidth={false}
+                    className={'border-none h-[42px]'}
+                />
+                <TelegramButton.NewsAndStocks
+                    fullWidth={false}
+                    className={'border-none h-[42px] ml-5'}
+                />
             </div>
         </div>
     )
