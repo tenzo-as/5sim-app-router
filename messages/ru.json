@@ -23,6 +23,9 @@
             "darkMode": "Темная тема"
         }
     },
+    "alt": {
+        "serviceLogo": "SMS activation | Receiving sms online to virtual numbers {serviceName}"
+    },
     "shared": {
         "support": "Поддержка",
         "needHelp": "Нужна помощь?",
