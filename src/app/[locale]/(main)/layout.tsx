@@ -7,6 +7,7 @@ import { useLocale } from '@/shared/hooks/useLocale'
 import { useParams } from '@/shared/hooks/useParams'
 import { usePathname } from '@/shared/hooks/usePathname'
 import { useRouter } from '@/shared/hooks/useRouter'
+import { countryNameBy } from '@/shared/utils/countryNameBy'
 import { ReactNode, useTransition } from 'react'
 import Sidebar from '@/features/sidebar/components/Sidebar'
 
@@ -23,6 +24,8 @@ const MainLayout = ({ children }: Props) => {
     const { isLight, toggleTheme } = useTheme()
 
     const changeLocale = (locale: Locale) => {
+        countryNameBy('russia', 'zh')
+
         startTransition(() => {
             router.push({ pathname, query }, { locale })
         })

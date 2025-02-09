@@ -18,7 +18,7 @@ export const Banner = () => {
             <div className={'flex items-center'}>
                 <LogoIcon className={'w-[66px] h-10'} />
                 <h2 className={'ml-4 font-semibold text-base'}>
-                    {t.rich('sidebar.cover', {
+                    {t.rich('sidebar.banner', {
                         span: children => <span className={'block text-[17px] min-[338px]:text-lg min-[360px]:text-xl'}>{children}</span>
                     })}
                 </h2>

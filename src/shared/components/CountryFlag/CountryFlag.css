@@ -1,625 +1,625 @@
-.flags {
+.countries {
     width: 48px;
     height: 48px;
     min-width: 48px;
-    background-image: url(flags.png);
+    background-image: url(/media/sprites/countries.png);
     background-repeat: no-repeat;
     display: block;
 }
 
-.flags-abkhazia {
+.countries-abkhazia {
     background-position: -5px -5px;
 }
 
-.flags-ad {
+.countries-ad {
     background-position: -63px -5px;
 }
 
-.flags-ae {
+.countries-ae {
     background-position: -121px -5px;
 }
 
-.flags-af {
+.countries-af {
     background-position: -179px -5px;
 }
 
-.flags-ag {
+.countries-ag {
     background-position: -237px -5px;
 }
 
-.flags-ai {
+.countries-ai {
     background-position: -295px -5px;
 }
 
-.flags-al {
+.countries-al {
     background-position: -353px -5px;
 }
 
-.flags-am {
+.countries-am {
     background-position: -411px -5px;
 }
 
-.flags-an {
+.countries-an {
     background-position: -469px -5px;
 }
 
-.flags-ao {
+.countries-ao {
     background-position: -527px -5px;
 }
 
-.flags-aq {
+.countries-aq {
     background-position: -585px -5px;
 }
 
-.flags-ar {
+.countries-ar {
     background-position: -643px -5px;
 }
 
-.flags-as {
+.countries-as {
     background-position: -701px -5px;
 }
 
-.flags-at {
+.countries-at {
     background-position: -759px -5px;
 }
 
-.flags-au {
+.countries-au {
     background-position: -817px -5px;
 }
 
-.flags-aw {
+.countries-aw {
     background-position: -5px -63px;
 }
 
-.flags-ax {
+.countries-ax {
     background-position: -63px -63px;
 }
 
-.flags-az {
+.countries-az {
     background-position: -121px -63px;
 }
 
-.flags-ba {
+.countries-ba {
     background-position: -179px -63px;
 }
 
-.flags-bb {
+.countries-bb {
     background-position: -237px -63px;
 }
 
-.flags-bd {
+.countries-bd {
     background-position: -295px -63px;
 }
 
-.flags-be {
+.countries-be {
     background-position: -353px -63px;
 }
 
-.flags-bf {
+.countries-bf {
     background-position: -411px -63px;
 }
 
-.flags-bg {
+.countries-bg {
     background-position: -469px -63px;
 }
 
-.flags-bh {
+.countries-bh {
     background-position: -527px -63px;
 }
 
-.flags-bi {
+.countries-bi {
     background-position: -585px -63px;
 }
 
-.flags-bj {
+.countries-bj {
     background-position: -643px -63px;
 }
 
-.flags-bl {
+.countries-bl {
     background-position: -701px -63px;
 }
 
-.flags-bm {
+.countries-bm {
     background-position: -759px -63px;
 }
 
-.flags-bn {
+.countries-bn {
     background-position: -817px -63px;
 }
 
-.flags-bo {
+.countries-bo {
     background-position: -5px -121px;
 }
 
-.flags-br {
+.countries-br {
     background-position: -63px -121px;
 }
 
-.flags-bs {
+.countries-bs {
     background-position: -121px -121px;
 }
 
-.flags-bt {
+.countries-bt {
     background-position: -179px -121px;
 }
 
-.flags-bw {
+.countries-bw {
     background-position: -237px -121px;
 }
 
-.flags-by_ {
+.countries-by_ {
     background-position: -295px -121px;
 }
 
-.flags-by {
+.countries-by {
     background-position: -353px -121px;
 }
 
-.flags-bz {
+.countries-bz {
     background-position: -411px -121px;
 }
 
-.flags-ca {
+.countries-ca {
     background-position: -469px -121px;
 }
 
-.flags-cd {
+.countries-cd {
     background-position: -527px -121px;
 }
 
-.flags-cf {
+.countries-cf {
     background-position: -585px -121px;
 }
 
-.flags-cg {
+.countries-cg {
     background-position: -643px -121px;
 }
 
-.flags-ch {
+.countries-ch {
     background-position: -701px -121px;
 }
 
-.flags-ci {
+.countries-ci {
     background-position: -759px -121px;
 }
 
-.flags-cl {
+.countries-cl {
     background-position: -817px -121px;
 }
 
-.flags-cm {
+.countries-cm {
     background-position: -5px -179px;
 }
 
-.flags-cn {
+.countries-cn {
     background-position: -63px -179px;
 }
 
-.flags-co {
+.countries-co {
     background-position: -121px -179px;
 }
 
-.flags-cr {
+.countries-cr {
     background-position: -179px -179px;
 }
 
-.flags-cu {
+.countries-cu {
     background-position: -237px -179px;
 }
 
-.flags-cv {
+.countries-cv {
     background-position: -295px -179px;
 }
 
-.flags-cy {
+.countries-cy {
     background-position: -353px -179px;
 }
 
-.flags-cz {
+.countries-cz {
     background-position: -411px -179px;
 }
 
-.flags-de {
+.countries-de {
     background-position: -469px -179px;
 }
 
-.flags-dj {
+.countries-dj {
     background-position: -527px -179px;
 }
 
-.flags-dk {
+.countries-dk {
     background-position: -585px -179px;
 }
 
-.flags-dm {
+.countries-dm {
     background-position: -643px -179px;
 }
 
-.flags-do {
+.countries-do {
     background-position: -701px -179px;
 }
 
-.flags-dz {
+.countries-dz {
     background-position: -759px -179px;
 }
 
-.flags-ec {
+.countries-ec {
     background-position: -817px -179px;
 }
 
-.flags-ee {
+.countries-ee {
     background-position: -5px -237px;
 }
 
-.flags-eg {
+.countries-eg {
     background-position: -63px -237px;
 }
 
-.flags-eh {
+.countries-eh {
     background-position: -121px -237px;
 }
 
-.flags-england {
+.countries-england {
     background-position: -179px -237px;
 }
 
-.flags-er {
+.countries-er {
     background-position: -237px -237px;
 }
 
-.flags-es {
+.countries-es {
     background-position: -295px -237px;
 }
 
-.flags-et {
+.countries-et {
     background-position: -353px -237px;
 }
 
-.flags-eu {
+.countries-eu {
     background-position: -411px -237px;
 }
 
-.flags-fi {
+.countries-fi {
     background-position: -469px -237px;
 }
 
-.flags-fiji {
+.countries-fiji {
     background-position: -527px -237px;
 }
 
-.flags-fk {
+.countries-fk {
     background-position: -585px -237px;
 }
 
-.flags-fm {
+.countries-fm {
     background-position: -643px -237px;
 }
 
-.flags-fo {
+.countries-fo {
     background-position: -701px -237px;
 }
 
-.flags-fr {
+.countries-fr {
     background-position: -759px -237px;
 }
 
-.flags-ga {
+.countries-ga {
     background-position: -817px -237px;
 }
 
-.flags-gd {
+.countries-gd {
     background-position: -5px -295px;
 }
 
-.flags-ge {
+.countries-ge {
     background-position: -63px -295px;
 }
 
-.flags-gg {
+.countries-gg {
     background-position: -121px -295px;
 }
 
-.flags-gh {
+.countries-gh {
     background-position: -179px -295px;
 }
 
-.flags-gi {
+.countries-gi {
     background-position: -875px -818px;
 }
 
-.flags-gl {
+.countries-gl {
     background-position: -237px -295px;
 }
 
-.flags-gm {
+.countries-gm {
     background-position: -295px -295px;
 }
 
-.flags-gn {
+.countries-gn {
     background-position: -353px -295px;
 }
 
-.flags-gq {
+.countries-gq {
     background-position: -411px -295px;
 }
 
-.flags-gr {
+.countries-gr {
     background-position: -469px -295px;
 }
 
-.flags-gs {
+.countries-gs {
     background-position: -527px -295px;
 }
 
-.flags-gt {
+.countries-gt {
     background-position: -585px -295px;
 }
 
-.flags-gu {
+.countries-gu {
     background-position: -643px -295px;
 }
 
-.flags-gw {
+.countries-gw {
     background-position: -701px -295px;
 }
 
-.flags-gy {
+.countries-gy {
     background-position: -759px -295px;
 }
 
-.flags-hk {
+.countries-hk {
     background-position: -817px -295px;
 }
 
-.flags-hn {
+.countries-hn {
     background-position: -5px -353px;
 }
 
-.flags-hr {
+.countries-hr {
     background-position: -63px -353px;
 }
 
-.flags-ht {
+.countries-ht {
     background-position: -121px -353px;
 }
 
-.flags-hu {
+.countries-hu {
     background-position: -179px -353px;
 }
 
-.flags-id {
+.countries-id {
     background-position: -237px -353px;
 }
 
-.flags-ie {
+.countries-ie {
     background-position: -295px -353px;
 }
 
-.flags-il {
+.countries-il {
     background-position: -353px -353px;
 }
 
-.flags-im {
+.countries-im {
     background-position: -411px -353px;
 }
 
-.flags-in {
+.countries-in {
     background-position: -469px -353px;
 }
 
-.flags-iq {
+.countries-iq {
     background-position: -527px -353px;
 }
 
-.flags-ir {
+.countries-ir {
     background-position: -585px -353px;
 }
 
-.flags-is {
+.countries-is {
     background-position: -643px -353px;
 }
 
-.flags-it {
+.countries-it {
     background-position: -701px -353px;
 }
 
-.flags-je {
+.countries-je {
     background-position: -759px -353px;
 }
 
-.flags-jm {
+.countries-jm {
     background-position: -817px -353px;
 }
 
-.flags-jo {
+.countries-jo {
     background-position: -5px -411px;
 }
 
-.flags-jp {
+.countries-jp {
     background-position: -63px -411px;
 }
 
-.flags-ke {
+.countries-ke {
     background-position: -121px -411px;
 }
 
-.flags-kg {
+.countries-kg {
     background-position: -179px -411px;
 }
 
-.flags-kh {
+.countries-kh {
     background-position: -237px -411px;
 }
 
-.flags-ki {
+.countries-ki {
     background-position: -295px -411px;
 }
 
-.flags-km {
+.countries-km {
     background-position: -353px -411px;
 }
 
-.flags-kn {
+.countries-kn {
     background-position: -411px -411px;
 }
 
-.flags-kosovo {
+.countries-kosovo {
     background-position: -469px -411px;
 }
 
-.flags-kp {
+.countries-kp {
     background-position: -527px -411px;
 }
 
-.flags-kr {
+.countries-kr {
     background-position: -585px -411px;
 }
 
-.flags-kw {
+.countries-kw {
     background-position: -643px -411px;
 }
 
-.flags-ky {
+.countries-ky {
     background-position: -701px -411px;
 }
 
-.flags-kz {
+.countries-kz {
     background-position: -759px -411px;
 }
 
-.flags-la {
+.countries-la {
     background-position: -817px -411px;
 }
 
-.flags-lb {
+.countries-lb {
     background-position: -5px -469px;
 }
 
-.flags-lc {
+.countries-lc {
     background-position: -63px -469px;
 }
 
-.flags-li {
+.countries-li {
     background-position: -121px -469px;
 }
 
-.flags-lk {
+.countries-lk {
     background-position: -179px -469px;
 }
 
-.flags-lr {
+.countries-lr {
     background-position: -237px -469px;
 }
 
-.flags-ls {
+.countries-ls {
     background-position: -295px -469px;
 }
 
-.flags-lt {
+.countries-lt {
     background-position: -353px -469px;
 }
 
-.flags-lu {
+.countries-lu {
     background-position: -411px -469px;
 }
 
-.flags-lv {
+.countries-lv {
     background-position: -469px -469px;
 }
 
-.flags-ly {
+.countries-ly {
     background-position: -527px -469px;
 }
 
-.flags-ma {
+.countries-ma {
     background-position: -585px -469px;
 }
 
-.flags-mc {
+.countries-mc {
     background-position: -643px -469px;
 }
 
-.flags-md {
+.countries-md {
     background-position: -701px -469px;
 }
 
-.flags-me {
+.countries-me {
     background-position: -759px -469px;
 }
 
-.flags-mf {
+.countries-mf {
     background-position: -817px -469px;
 }
 
-.flags-mg {
+.countries-mg {
     background-position: -5px -527px;
 }
 
-.flags-mh {
+.countries-mh {
     background-position: -63px -527px;
 }
 
-.flags-mk {
+.countries-mk {
     background-position: -121px -527px;
 }
 
-.flags-ml {
+.countries-ml {
     background-position: -179px -527px;
 }
 
-.flags-mm {
+.countries-mm {
     background-position: -237px -527px;
 }
 
-.flags-mn {
+.countries-mn {
     background-position: -295px -527px;
 }
 
-.flags-mo {
+.countries-mo {
     background-position: -353px -527px;
 }
 
-.flags-mp {
+.countries-mp {
     background-position: -411px -527px;
 }
 
-.flags-mr {
+.countries-mr {
     background-position: -469px -527px;
 }
 
-.flags-ms {
+.countries-ms {
     background-position: -527px -527px;
 }
 
-.flags-mt {
+.countries-mt {
     background-position: -585px -527px;
 }
 
-.flags-mu {
+.countries-mu {
     background-position: -643px -527px;
 }
 
-.flags-mv {
+.countries-mv {
     background-position: -701px -527px;
 }
 
-.flags-mw {
+.countries-mw {
     background-position: -759px -527px;
 }
 
-.flags-mx {
+.countries-mx {
     background-position: -817px -527px;
 }
 
-.flags-my {
+.countries-my {
     background-position: -5px -585px;
 }
 
-.flags-mz {
+.countries-mz {
     background-position: -63px -585px;
 }
 
-.flags-na {
+.countries-na {
     background-position: -121px -585px;
 }
 
@@ -627,358 +627,358 @@
     background-position: -179px -585px;
 }
 
-.flags-nato {
+.countries-nato {
     background-position: -237px -585px;
 }
 
-.flags-nf {
+.countries-nf {
     background-position: -295px -585px;
 }
 
-.flags-ng {
+.countries-ng {
     background-position: -353px -585px;
 }
 
-.flags-ni {
+.countries-ni {
     background-position: -411px -585px;
 }
 
-.flags-ni_ {
+.countries-ni_ {
     background-position: -469px -585px;
 }
 
-.flags-nl {
+.countries-nl {
     background-position: -527px -585px;
 }
 
-.flags-no {
+.countries-no {
     background-position: -585px -585px;
 }
 
-.flags-np {
+.countries-np {
     background-position: -643px -585px;
 }
 
-.flags-nr {
+.countries-nr {
     background-position: -701px -585px;
 }
 
-.flags-nz {
+.countries-nz {
     background-position: -759px -585px;
 }
 
-.flags-om {
+.countries-om {
     background-position: -817px -585px;
 }
 
-.flags-pa {
+.countries-pa {
     background-position: -5px -643px;
 }
 
-.flags-pe {
+.countries-pe {
     background-position: -63px -643px;
 }
 
-.flags-pg {
+.countries-pg {
     background-position: -121px -643px;
 }
 
-.flags-ph {
+.countries-ph {
     background-position: -179px -643px;
 }
 
-.flags-pk {
+.countries-pk {
     background-position: -237px -643px;
 }
 
-.flags-pl {
+.countries-pl {
     background-position: -295px -643px;
 }
 
-.flags-pn {
+.countries-pn {
     background-position: -353px -643px;
 }
 
-.flags-pr {
+.countries-pr {
     background-position: -411px -643px;
 }
 
-.flags-ps {
+.countries-ps {
     background-position: -469px -643px;
 }
 
-.flags-pt {
+.countries-pt {
     background-position: -527px -643px;
 }
 
-.flags-pw {
+.countries-pw {
     background-position: -585px -643px;
 }
 
-.flags-py {
+.countries-py {
     background-position: -643px -643px;
 }
 
-.flags-qa {
+.countries-qa {
     background-position: -701px -643px;
 }
 
-.flags-re {
+.countries-re {
     background-position: -759px -237px;
 }
 
-.flags-nc {
+.countries-nc {
     background-position: -118px -866px;
 }
 
-.flags-om {
+.countries-om {
     background-position: -2px -866px;
 }
 
-.flags-tl {
+.countries-tl {
     background-position: -55px -866px;
 }
 
-.flags-red_cross {
+.countries-red_cross {
     background-position: -759px -643px;
 }
 
-.flags-ro {
+.countries-ro {
     background-position: -817px -643px;
 }
 
-.flags-rs {
+.countries-rs {
     background-position: -5px -701px;
 }
 
-.flags-ru {
+.countries-ru {
     background-position: -63px -701px;
 }
 
-.flags-rw {
+.countries-rw {
     background-position: -121px -701px;
 }
 
-.flags-sa {
+.countries-sa {
     background-position: -179px -701px;
 }
 
-.flags-sb {
+.countries-sb {
     background-position: -237px -701px;
 }
 
-.flags-sc {
+.countries-sc {
     background-position: -295px -701px;
 }
 
-.flags-scotland {
+.countries-scotland {
     background-position: -353px -701px;
 }
 
-.flags-sd {
+.countries-sd {
     background-position: -411px -701px;
 }
 
-.flags-se {
+.countries-se {
     background-position: -469px -701px;
 }
 
-.flags-sg {
+.countries-sg {
     background-position: -527px -701px;
 }
 
-.flags-sh {
+.countries-sh {
     background-position: -585px -701px;
 }
 
-.flags-si {
+.countries-si {
     background-position: -643px -701px;
 }
 
-.flags-sk {
+.countries-sk {
     background-position: -701px -701px;
 }
 
-.flags-sl {
+.countries-sl {
     background-position: -759px -701px;
 }
 
-.flags-sn {
+.countries-sn {
     background-position: -817px -701px;
 }
 
-.flags-so {
+.countries-so {
     background-position: -5px -759px;
 }
 
-.flags-somaliland {
+.countries-somaliland {
     background-position: -63px -759px;
 }
 
-.flags-south_ossetia {
+.countries-south_ossetia {
     background-position: -121px -759px;
 }
 
-.flags-sr {
+.countries-sr {
     background-position: -179px -759px;
 }
 
-.flags-ss {
+.countries-ss {
     background-position: -237px -759px;
 }
 
-.flags-st {
+.countries-st {
     background-position: -295px -759px;
 }
 
-.flags-sv {
+.countries-sv {
     background-position: -353px -759px;
 }
 
-.flags-sy {
+.countries-sy {
     background-position: -411px -759px;
 }
 
-.flags-sz {
+.countries-sz {
     background-position: -469px -759px;
 }
 
-.flags-tc {
+.countries-tc {
     background-position: -527px -759px;
 }
 
-.flags-td {
+.countries-td {
     background-position: -585px -759px;
 }
 
-.flags-tg {
+.countries-tg {
     background-position: -643px -759px;
 }
 
-.flags-th {
+.countries-th {
     background-position: -701px -759px;
 }
 
-.flags-tj {
+.countries-tj {
     background-position: -759px -759px;
 }
 
-.flags-tm {
+.countries-tm {
     background-position: -817px -759px;
 }
 
-.flags-tn {
+.countries-tn {
     background-position: -5px -817px;
 }
 
-.flags-to {
+.countries-to {
     background-position: -63px -817px;
 }
 
-.flags-tp {
+.countries-tp {
     background-position: -121px -817px;
 }
 
-.flags-tr {
+.countries-tr {
     background-position: -179px -817px;
 }
 
-.flags-tt {
+.countries-tt {
     background-position: -237px -817px;
 }
 
-.flags-turkish_republic_of_northern_cyprus {
+.countries-turkish_republic_of_northern_cyprus {
     background-position: -295px -817px;
 }
 
-.flags-tv {
+.countries-tv {
     background-position: -353px -817px;
 }
 
-.flags-tw {
+.countries-tw {
     background-position: -411px -817px;
 }
 
-.flags-tz {
+.countries-tz {
     background-position: -469px -817px;
 }
 
-.flags-ua {
+.countries-ua {
     background-position: -527px -817px;
 }
 
-.flags-ug {
+.countries-ug {
     background-position: -585px -817px;
 }
 
-.flags-gb {
+.countries-gb {
     background-position: -643px -817px;
 }
 
-.flags-un {
+.countries-un {
     background-position: -701px -817px;
 }
 
-.flags-us {
+.countries-us {
     background-position: -759px -817px;
 }
 
-.flags-uy {
+.countries-uy {
     background-position: -817px -817px;
 }
 
-.flags-uz {
+.countries-uz {
     background-position: -875px -5px;
 }
 
-.flags-va {
+.countries-va {
     background-position: -875px -63px;
 }
 
-.flags-vc {
+.countries-vc {
     background-position: -875px -121px;
 }
 
-.flags-ve {
+.countries-ve {
     background-position: -875px -179px;
 }
 
-.flags-vg {
+.countries-vg {
     background-position: -875px -237px;
 }
 
-.flags-vi {
+.countries-vi {
     background-position: -875px -295px;
 }
 
-.flags-vn {
+.countries-vn {
     background-position: -875px -353px;
 }
 
-.flags-vu {
+.countries-vu {
     background-position: -875px -411px;
 }
 
-.flags-wales {
+.countries-wales {
     background-position: -875px -469px;
 }
 
-.flags-ws {
+.countries-ws {
     background-position: -875px -527px;
 }
 
-.flags-ye {
+.countries-ye {
     background-position: -875px -585px;
 }
 
-.flags-za {
+.countries-za {
     background-position: -875px -643px;
 }
 
-.flags-zm {
+.countries-zm {
     background-position: -875px -701px;
 }
 
-.flags-zw {
+.countries-zw {
     background-position: -875px -759px;
 }

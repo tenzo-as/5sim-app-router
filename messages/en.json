@@ -24,7 +24,8 @@
         }
     },
     "alt": {
-        "serviceLogo": "SMS activation | Receiving sms online to virtual numbers {serviceName}"
+        "serviceLogo": "SMS activation | Receiving sms online to virtual numbers {serviceName}",
+        "countryFlag": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "shared": {
         "support": "Support",
@@ -35,7 +36,8 @@
         }
     },
     "sidebar": {
-        "cover": "<span>Virtual Numbers</span> for Receiving SMS Codes"
+        "banner": "<span>Virtual Numbers</span> for Receiving SMS Codes",
+        "priceFrom": "<from>from</from><chip>{value}</chip>"
     },
     "HomePage": {
         "title": "Hello world!",

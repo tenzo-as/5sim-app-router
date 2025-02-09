@@ -351,11 +351,11 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-    background-image: url(services.png);
+    background-image: url(/media/sprites/services.png);
     background-repeat: no-repeat;
     background-position: -337px -48px;
 }
-.dark .services {
+[data-theme='dark'] .services {
     filter: invert(0.7);
 }
 .services-1kkirana {
