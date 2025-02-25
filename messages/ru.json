@@ -37,7 +37,8 @@
     },
     "sidebar": {
         "banner": "<span>Виртуальные номера</span> для приема СМС",
-        "priceFrom": "<from>от</from><chip>{value}</chip>"
+        "priceFrom": "<from>от</from><chip>{value}</chip>",
+        "count": "{value, plural, one {<span>#</span> номер} few {<span>#</span> номера} other {<span>#</span> номеров}}"
     },
     "HomePage": {
         "title": "мазафака",
