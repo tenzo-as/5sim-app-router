@@ -31,9 +31,8 @@ export const ServiceLogo = ({
                 src={'/media/sprites/blank.gif'}
                 alt={t('alt.serviceLogo', { serviceName: serviceNameBy(serviceId, locale) })}
                 className={twMerge(
-                    `services services-${serviceId}`, 
+                    `services services-${serviceId}`,
                     'absolute inset-1/2 -translate-x-1/2 -translate-y-1/2',
-                    className,
                 )}
                 width={size}
                 height={size}

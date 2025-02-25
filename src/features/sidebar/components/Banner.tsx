@@ -23,7 +23,7 @@ export const Banner = () => {
                     })}
                 </h2>
             </div>
-            <div className={'hidden items-center md:flex xl:hidden'}>
+            <div className={'hidden items-center md:flex xl:hidden ml-4'}>
                 <TelegramButton.NewNumbers
                     fullWidth={false}
                     className={'border-none h-[42px]'}

@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl"
-import { formatNumberWithSeparator } from "../../utils/formatNumberWithSeparator"
+import { formatNumberWithSeparator } from "../../../sidebar/utils/formatNumberWithSeparator"
 import { twMerge } from "tailwind-merge"
 
 type Props = {
@@ -13,8 +13,8 @@ export const Count = ({ value, className }: Props) => {
     return (
         <span 
             className={twMerge(
-                'text-medium text-xs truncate',
-                getColor(value), 
+                'text-medium text-xs truncate leading-none',
+                getColor(value),
                 className,
             )}
         >
@@ -32,10 +32,10 @@ export const Count = ({ value, className }: Props) => {
 
 const getColor = (count: number) => (
     count > 9 
-        ? 'text-green-400'
+        ? 'text-[#00c036]'
         : (
             count > 0
-                ? 'text-red-400'
-                : 'text-gray-400'
+                ? 'text-[#e13a3a]'
+                : 'text-[#395372]'
         )
 )

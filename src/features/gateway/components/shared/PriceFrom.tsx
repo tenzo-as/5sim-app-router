@@ -22,7 +22,7 @@ export const PriceFrom = ({
                     </span>
                 ),
                 chip: children => (
-                    <div className="inline-flex items-center pl-2 pr-1 h-6 rounded-xl text-base bg-[#F5F6F8] p-1 dark:bg-[#2e425b]">
+                    <div className="inline-flex items-center pl-2 pr-1 h-6 rounded-xl text-base bg-[#f5f6f8] p-1 dark:bg-[#2e425b]">
                         <span className="font-semibold">
                             {children}
                         </span>
