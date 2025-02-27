@@ -1,29 +1,28 @@
 import { useTranslations } from "next-intl"
-import { formatNumberWithSeparator } from "../../../sidebar/utils/formatNumberWithSeparator"
+import { formatNumberWithSeparator } from "@/features/sidebar/utils/formatNumberWithSeparator"
 import { twMerge } from "tailwind-merge"
 
 type Props = {
-    value: number
+    value?: number
     className?: string,
 }
 
 export const Count = ({ value, className }: Props) => {
     const t = useTranslations()
 
+    if (value === undefined) {
+        return <span className={twMerge('skeleton w-20 h-3', className)} />
+    }
+
     return (
-        <span 
+        <span
             className={twMerge(
-                'text-medium text-xs truncate leading-none',
+                'text-medium truncate text-xs leading-none',
                 getColor(value),
                 className,
             )}
         >
-            {t.rich('sidebar.count', { 
-                span: chunks => (
-                    formatNumberWithSeparator(
-                        Number(chunks)
-                    )
-                ),
+            {t.rich('sidebar.count', {
                 value,
             })}
         </span>

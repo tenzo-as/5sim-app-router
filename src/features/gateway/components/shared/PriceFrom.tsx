@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl"
 import { twMerge } from "tailwind-merge"
 
 type Props = {
-    value: number,
+    value?: number,
     className?: string,
 }
 
@@ -12,6 +12,10 @@ export const PriceFrom = ({
     className,
 }: Props) => {
     const t = useTranslations()
+
+    if (value === undefined) {
+        return <div className={twMerge('skeleton w-12 h-6 rounded-xl', className)} />
+    }
 
     return (
         <div className={twMerge('inline-flex items-center [&>span:first-child]:mr-1  [&>span:last-child]:ml-1', className)}>

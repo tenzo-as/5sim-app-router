@@ -42,7 +42,7 @@ const StoryWithCode = ({ children, code, className, light, info }: Props) => {
             <div className={'mockup-window relative overflow-visible border bg-base-300'}>
                 <div
                     className={twMerge(
-                        'flex flex-wrap justify-center gap-4 rounded-b-2xl bg-base-200 px-0 py-12',
+                        'flex flex-wrap justify-center gap-4 rounded-b-2xl bg-base-200 px-4 py-12',
                         className,
                     )}
                 >

@@ -1,1 +1,1 @@
-export const API_URL = 'https://5sim.biz/v2'
+export const API_URL = 'https://5sim.biz'

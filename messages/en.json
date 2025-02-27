@@ -38,7 +38,7 @@
     "sidebar": {
         "banner": "<span>Virtual Numbers</span> for Receiving SMS Codes",
         "priceFrom": "<from>from</from><chip>{value}</chip>",
-        "count": "{value, plural, one {<span>#</span> number} other {<span>#</span> numbers}}"
+        "count": "{value, plural, one {# number} other {# numbers}}"
 
     },
     "HomePage": {

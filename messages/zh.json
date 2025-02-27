@@ -38,7 +38,7 @@
     "sidebar": {
         "banner": "<span>虚拟号码</span> 用于接收验证码短信",
         "priceFrom": "<chip>{value}</chip><from>起</from>",
-        "count": "<span>{value}</span> 个手机号码"
+        "count": "{value} 个手机号码"
     },
     "HomePage": {
         "title": "Hello world!",

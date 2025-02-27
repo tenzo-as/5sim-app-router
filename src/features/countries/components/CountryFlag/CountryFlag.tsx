@@ -1,9 +1,9 @@
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import Image from '@/shared/components/Image'
-import { countryNameBy } from '@/shared/utils/countryNameBy'
+import { countryNameBy } from '@/features/countries/utils/countryNameBy'
 import { useLocale } from '@/shared/hooks/useLocale'
-import '@/shared/components/CountryFlag/CountryFlag.css'
+import './CountryFlag.css'
 
 type Props = {
     className?: string

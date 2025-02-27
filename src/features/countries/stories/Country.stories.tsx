@@ -1,9 +1,9 @@
 import StoryWithCode from '@/features/stories/components/StoryWithCode'
 import { Meta, StoryObj } from '@storybook/react'
-import { Country } from '@/features/gateway/components/directions/Country'
+import Country from '@/features/countries/components/Country'
 
 const meta = {
-    title: 'Features/Gateway',
+    title: 'Features/Countries',
     component: Country,
     parameters: {
         layout: 'centered',

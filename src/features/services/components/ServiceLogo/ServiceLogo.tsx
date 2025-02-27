@@ -1,9 +1,9 @@
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import Image from '@/shared/components/Image'
-import { serviceNameBy } from '@/shared/utils/serviceNameBy'
+import { serviceNameBy } from '@/features/services/utils/serviceNameBy'
 import { useLocale } from '@/shared/hooks/useLocale'
-import '@/shared/components/ServiceLogo/ServiceLogo.css'
+import './ServiceLogo.css'
 
 type Props = {
     className?: string
