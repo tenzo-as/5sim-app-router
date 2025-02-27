@@ -33,7 +33,7 @@ export const SearchFieldStory: Story = {
     render: args => {
         const [{ }, updateArgs] = useArgs<Story['args']>()
 
-        const handleChange = (_: ChangeEvent, value: string) => {
+        const handleChange = (_: ChangeEvent<HTMLInputElement>, value: string) => {
             updateArgs({
                 value,
             })
@@ -47,9 +47,8 @@ export const SearchFieldStory: Story = {
             })
         }
 
-
         return (
-            <StoryWithCode code={searchFieldCode(args.value, args.placeholder)}>
+            <StoryWithCode code={searchFieldCode(args.value, args.placeholder || '')}>
                 <SearchField {...args} onChange={handleChange} reset={reset} className={'w-[372px]'} />
             </StoryWithCode>
         )

@@ -25,7 +25,7 @@ const ServiceList = ({
 
     return (
         <VirtualizedList
-            height={height * 8}
+            height={getHeight(serviceIds.length)}
             itemCount={serviceIds.length}
             itemData={rowProps}
             itemSize={height}
@@ -42,6 +42,11 @@ const createRowProps = memoize(
     (serviceIds, serviceById, onSelect, onToggleFavorite) =>
     ({ serviceIds, serviceById, onSelect, onToggleFavorite })
 )
+
+const getHeight = (length: number) =>
+    length > 8
+        ? height * 8
+        : height * length
 
 const Row = memo<RowProps>(({ data, index, style }) => {
     const { serviceIds, serviceById, onSelect, onToggleFavorite } = data
