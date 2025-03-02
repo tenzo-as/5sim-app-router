@@ -1,7 +1,7 @@
 import { apiClient } from '@/shared/utils/api'
 
-export const fetchServices = async () => {
-    const { data } = await apiClient.get<ServicesType>('v1/guest/products/any/any')
+export const fetchServices = async (countryId: string = 'any') => {
+    const { data } = await apiClient.get<ServicesType>(`v1/guest/products/${countryId}/any`)
 
     return data
 }

@@ -7,7 +7,7 @@ type Props = {
     count: number
 }
 
-const ListToggleButton = ({
+const ExpandListButton = ({
     expanded = false,
     onToggle,
     count,
@@ -15,10 +15,14 @@ const ListToggleButton = ({
     const t = useTranslations()
 
     return (
-        <Button variant={'text'} color={'info'}>
-            Показать все {count}
+        <Button
+            variant={'text'}
+            color={'info'}
+            onClick={onToggle}
+        >
+            {expanded ? 'Свернуть список' : `Показать все ${count}`}
         </Button>
     )
 }
 
-export default ListToggleButton
+export default ExpandListButton

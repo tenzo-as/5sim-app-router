@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchServices, ServicesType } from '@/features/services/utils/fetchServices'
-import { fetchCountriesByService } from '@/features/countries/utils/fetchCountriesByService'
+import { fetchServices } from '@/features/services/utils/fetchServices'
 
-export const useServices = (serviceId: string) =>
+export const useServices = (countryId?: string) =>
     useQuery({ 
-        queryKey: ['services'],
-        queryFn: () => fetchCountriesByService,
+        queryKey: countryId ? ['services', countryId] : ['services'],
+        queryFn: () => fetchServices(countryId || undefined),
         staleTime: fiveSec,
     })
 

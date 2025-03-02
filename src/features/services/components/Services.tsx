@@ -1,10 +1,12 @@
 import ServiceList, { ServiceListProps } from '@/features/services/components/ServiceList'
 import SearchField from '@/shared/components/SearchField'
 import Button from '@/shared/components/Button'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { ruServiceAliases, serviceNameBy } from '@/features/services/utils/serviceNameBy'
 import { Locale } from '@/shared/constants/LOCALES'
 import { useLocale } from '@/shared/hooks/useLocale'
+import { useBoolean } from '@/shared/hooks/useBoolean'
+import ExpandListButton from '@/features/gateway/components/shared/ExpandListButton'
 
 type Props = {
     search: string,
@@ -27,7 +29,17 @@ const Services = ({
         
         return serviceIds
     }, [search])
-    
+
+    const isExpanded = useBoolean()
+
+    const collapseShortList = () => {
+        if (list.length < 8) {
+            isExpanded.setFalse()
+        }
+    }
+
+    useEffect(collapseShortList, [list])
+
     return (
         <div>
             <SearchField
@@ -35,6 +47,7 @@ const Services = ({
                 onChange={(_, value) => onChangeSearch(value)}
                 reset={() => onChangeSearch('')}
             />
+            {isExpanded.value }
             <ServiceList
                 serviceIds={list}
                 serviceById={serviceById}
@@ -42,12 +55,11 @@ const Services = ({
                 onToggleFavorite={() => {}}
             />
             {serviceIds.length > 8 &&
-                <Button
-                    variant={'text'}
-                    color={'info'}
-                >
-                    Показать все {serviceIds.length}
-                </Button>
+                <ExpandListButton
+                    count={serviceIds.length}
+                    expanded={isExpanded.value}
+                    onToggle={isExpanded.toggle}
+                />
             }
         </div>
     )
