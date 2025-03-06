@@ -31,6 +31,7 @@ type Props = {
     loading?: boolean
     startGap?: Gap
     fullWidth?: boolean
+    disableShadow?: boolean
     endGap?: Gap
     slotProps?: {
         startIconWrapperProps?: {
@@ -58,6 +59,7 @@ export const Button = ({
     endGap = 8,
     slotProps,
     fullWidth,
+    disableShadow,
     href,
     openInNewTab,
     children,
@@ -88,6 +90,7 @@ export const Button = ({
                     circle && `btn-circle rounded-full ${twFigure[size]}`,
                 ),
                 fullWidth && 'w-full',
+                disableShadow && 'shadow-none',
                 className,
             )}
             onClick={typeof onClick === 'undefined' ? undefined : handleClick}

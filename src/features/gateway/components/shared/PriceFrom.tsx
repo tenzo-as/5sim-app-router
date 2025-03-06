@@ -19,7 +19,7 @@ export const PriceFrom = ({
 
     return (
         <div className={twMerge('inline-flex items-center [&>span:first-child]:mr-1  [&>span:last-child]:ml-1', className)}>
-            {t.rich('sidebar.priceFrom', {
+            {t.rich('gateway.priceFrom', {
                 from: children => (
                     <span className={'text-xs font-medium'}>
                         {children}

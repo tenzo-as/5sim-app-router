@@ -24,8 +24,6 @@
         }
     },
     "alt": {
-        "serviceLogo": "SMS activation | Receiving sms online to virtual numbers {serviceName}",
-        "countryFlag": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "shared": {
         "support": "帮助中心",
@@ -36,9 +34,19 @@
         }
     },
     "sidebar": {
-        "banner": "<span>虚拟号码</span> 用于接收验证码短信",
+        "banner": "<span>虚拟号码</span> 用于接收验证码短信"
+    },
+    "gateway": {
         "priceFrom": "<chip>{value}</chip><from>起</from>",
         "count": "{value} 个手机号码"
+    },
+    "services": {
+        "addService": "添加服务",
+        "searchPlaceholder": "寻找网站或者APP",
+        "logoAlt": "SMS activation | Receiving sms online to virtual numbers {serviceName}"
+    },
+    "countries": {
+        "flagAlt": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "HomePage": {
         "title": "Hello world!",

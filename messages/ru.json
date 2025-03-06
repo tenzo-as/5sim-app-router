@@ -24,8 +24,6 @@
         }
     },
     "alt": {
-        "serviceLogo": "SMS activation | Receiving sms online to virtual numbers {serviceName}",
-        "countryFlag": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "shared": {
         "support": "Поддержка",
@@ -36,9 +34,19 @@
         }
     },
     "sidebar": {
-        "banner": "<span>Виртуальные номера</span> для приема СМС",
+        "banner": "<span>Виртуальные номера</span> для приема СМС"
+    },
+    "gateway": {
         "priceFrom": "<from>от</from><chip>{value}</chip>",
         "count": "{value, plural, one {# номер} few {# номера} other {# номеров}}"
+    },
+    "services": {
+        "addService": "Добавить сервис",
+        "searchPlaceholder": "Найти сайт или приложение",
+        "logoAlt": "SMS activation | Receiving sms online to virtual numbers {serviceName}"
+    },
+    "countries": {
+        "flagAlt": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "HomePage": {
         "title": "мазафака",

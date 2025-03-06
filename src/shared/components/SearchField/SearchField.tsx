@@ -27,7 +27,7 @@ export const SearchField = ({
     return (
         <label
             className={twMerge(
-                'flex items-center rounded-3xl bg-white dark:bg-[#1e3044] pl-3 pr-[14px]',
+                'flex items-center rounded-3xl bg-white dark:bg-[#1e3044] pl-3 pr-[14px] h-12',
                 'border-2 border-solid border-[#42a5f5] hover:border-[#1976d2]',
                 className,
             )}
@@ -36,7 +36,7 @@ export const SearchField = ({
                 <IoMdSearch />
             </div>
             <input
-                className={'text-base grow h-12 bg-transparent outline-none'}
+                className={'text-base grow bg-transparent outline-none'}
                 value={value}
                 onChange={handleChange}
                 placeholder={placeholder}

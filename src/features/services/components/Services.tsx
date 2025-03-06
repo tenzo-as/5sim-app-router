@@ -7,38 +7,41 @@ import { Locale } from '@/shared/constants/LOCALES'
 import { useLocale } from '@/shared/hooks/useLocale'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 import ExpandListButton from '@/features/gateway/components/shared/ExpandListButton'
+import AddServiceButton from '@/features/services/components/AddServiceButton'
+import { useTranslations } from 'next-intl'
+import SelectedService from '@/features/services/components/SelectedService'
 
 type Props = {
+    selectedService?: string | null
+    onSelect?: (selectedService: string | null) => void
     search: string,
     onChangeSearch: (value: string) => void,
-
+    collapsedList: string[]
 } & ServiceListProps
 
 const Services = ({
+    selectedService,
+    onSelect,
     search,
     onChangeSearch,
     serviceIds,
     serviceById,
+    collapsedList,
 }: Props) => {
+    const t = useTranslations()
     const locale = useLocale()
+
+    const isExpanded = useBoolean()
 
     const list = useMemo(() => {
         if (search) {
             return filterBySearch(search, serviceIds, locale)
         }
+
+        if (!isExpanded.value) return collapsedList
         
         return serviceIds
-    }, [search])
-
-    const isExpanded = useBoolean()
-
-    const collapseShortList = () => {
-        if (list.length < 8) {
-            isExpanded.setFalse()
-        }
-    }
-
-    useEffect(collapseShortList, [list])
+    }, [search, isExpanded.value])
 
     return (
         <div>
@@ -46,19 +49,32 @@ const Services = ({
                 value={search}
                 onChange={(_, value) => onChangeSearch(value)}
                 reset={() => onChangeSearch('')}
+                placeholder={t('services.searchPlaceholder')}
+                className={isExpanded.value ? 'mb-2' : 'mb-4'}
             />
-            {isExpanded.value }
-            <ServiceList
-                serviceIds={list}
-                serviceById={serviceById}
-                onSelect={() => {}}
-                onToggleFavorite={() => {}}
-            />
+            {isExpanded.value &&
+                <AddServiceButton className={'mb-2'} />
+            }
+            {selectedService
+                ? <SelectedService
+                    id={selectedService}
+                    locale={locale}
+                    onRemove={() => onSelect(null)}
+                />
+                : <ServiceList
+                    serviceIds={list}
+                    serviceById={serviceById}
+                    onSelect={id => onSelect(id)}
+                    favoriteServices={{}}
+                    onToggleFavorite={() => {}}
+                />
+            }
             {serviceIds.length > 8 &&
                 <ExpandListButton
                     count={serviceIds.length}
                     expanded={isExpanded.value}
                     onToggle={isExpanded.toggle}
+                    className={'mt-2'}
                 />
             }
         </div>

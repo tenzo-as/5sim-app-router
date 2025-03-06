@@ -22,7 +22,7 @@ export const Count = ({ value, className }: Props) => {
                 className,
             )}
         >
-            {t.rich('sidebar.count', {
+            {t.rich('gateway.count', {
                 value,
             })}
         </span>

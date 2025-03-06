@@ -29,7 +29,7 @@ export const CountryFlag = ({
         >
             <Image
                 src={'/media/sprites/blank.gif'}
-                alt={t('alt.countryFlag', { countryName: countryNameBy(countryId, locale) })}
+                alt={t('countries.flagAlt', { countryName: countryNameBy(countryId, locale) })}
                 className={twMerge(
                     `countries countries-${isoBy.get(countryId)}`,
                     'absolute inset-1/2 scale-[0.8] -translate-x-1/2  -translate-y-1/2',

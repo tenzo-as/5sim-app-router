@@ -4,19 +4,19 @@ import { useServices } from '@/features/services/hooks/useServices'
 
 const Gateway = () => {
     const { value: country } = useString()
-
-    const { data: services, isFetched } = useServices(country)
+    const { data: services } = useServices(country)
     const servicesSearch = useString()
 
     return (
-        <div>
+        <div className={'py-6 px-6'}>
             <Services
                 search={servicesSearch.value}
                 onChangeSearch={servicesSearch.setValue}
-                serviceIds={isFetched ? Object.keys(services) : ['amazon', 'facebook', 'telegram', 'whatsapp', 'google', 'microsoft', 'openai', 'instagram']}
-                serviceById={services}
-                onSelect={}
-                onToggleFavorite={}
+                serviceIds={Object.keys(services || {})}
+                serviceById={services || {}}
+                collapsedList={['amazon', 'facebook', 'telegram', 'whatsapp', 'google', 'microsoft', 'openai', 'instagram']}
+                onSelect={() => {}}
+                onToggleFavorite={() => {}}
             />
         </div>
     )
