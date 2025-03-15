@@ -1,11 +1,12 @@
-import { useQuery } from '@tanstack/react-query'
-import { fetchServices } from '@/features/services/utils/fetchServices'
+import { useContext } from 'react'
+import { ServicesContext } from '@/features/services/providers/ServicesProvider'
 
-export const useServices = (countryId?: string) =>
-    useQuery({ 
-        queryKey: countryId ? ['services', countryId] : ['services'],
-        queryFn: () => fetchServices(countryId || undefined),
-        staleTime: fiveSec,
-    })
+export const useServices = () => {
+    const context = useContext(ServicesContext)
 
-const fiveSec = 5 * 1000
+    if (!context) {
+        throw new Error('useServices must be used within a ServicesProvider')
+    }
+
+    return context
+}

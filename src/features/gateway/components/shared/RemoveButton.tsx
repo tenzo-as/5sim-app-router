@@ -6,7 +6,7 @@ type Props = {
 }
 
 const RemoveButton = ({ className }: Props) => (
-    <div className={twMerge('size-8 rounded-xl text-[#42a5f5] bg-[#e2f1fd] dark:bg-[#2a3e52]', className)}>
+    <div className={twMerge('size-8 rounded-xl text-[#42a5f5] bg-[#e2f1fd] dark:bg-[#2a3e52] flex items-center justify-center', className)}>
         <CgClose className={'size-6'}/>
     </div>
 )

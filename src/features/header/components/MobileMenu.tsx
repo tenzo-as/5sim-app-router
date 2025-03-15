@@ -1,7 +1,6 @@
 'use client'
 
 import { DarkThemeIcon } from '@/features/header/icons/DarkThemeIcon'
-import DocIcon from '@/features/header/icons/DocIcon'
 import { LightThemeIcon } from '@/features/header/icons/LightThemeIcon'
 import Divider from '@/shared/components/Divider'
 import Link from '@/shared/components/Link'

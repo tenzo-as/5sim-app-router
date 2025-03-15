@@ -5,6 +5,7 @@ import Service from '@/features/services/components/Service'
 import { ServicesType } from '@/features/services/utils/fetchServices'
 import { VirtualizedListItemWrapper } from '@/features/gateway/components/shared/VirtualizedListItemWrapper'
 import { Locale } from '@/shared/constants/LOCALES'
+import { twMerge } from 'tailwind-merge'
 
 const height = 58
 
@@ -13,7 +14,7 @@ export type ServiceListProps = {
     serviceById: ServicesType
     onSelect: (id: string) => void
     onToggleFavorite: (id: string) => void
-    favoriteServices: Record<string, true>
+    favoriteServices: Set<string>
     locale?: Locale
     className?: string
 }
@@ -22,7 +23,7 @@ const ServiceList = ({
     serviceIds,
     serviceById,
     onSelect,
-    favoriteServices = {},
+    favoriteServices = new Set(),
     onToggleFavorite,
     locale,
     className,
@@ -36,7 +37,10 @@ const ServiceList = ({
             itemData={rowProps}
             itemSize={height}
             width={'100%'}
-            className={className}
+            className={twMerge(
+                'rounded-[20px]',
+                className,
+            )}
         >
             {Row}
         </VirtualizedList>
@@ -66,7 +70,7 @@ const Row = memo<RowProps>(({ data, index, style }) => {
                 count={serviceById[id]?.Qty}
                 priceFrom={serviceById[id]?.Price}
                 onSelect={() => onSelect(id)}
-                isFavorite={!!favoriteServices[id]}
+                isFavorite={favoriteServices.has(id)}
                 onToggleFavorite={() => onToggleFavorite(id)}
                 locale={locale}
             />

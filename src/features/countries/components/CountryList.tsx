@@ -4,6 +4,8 @@ import { CSSProperties, memo } from 'react'
 import Country from '@/features/countries/components/Country'
 import { CountriesByServiceType } from '@/features/countries/utils/fetchCountriesByService'
 import { VirtualizedListItemWrapper } from '@/features/gateway/components/shared/VirtualizedListItemWrapper'
+import { twMerge } from 'tailwind-merge'
+import { Locale } from '@/shared/constants/LOCALES'
 
 const height = 58
 
@@ -12,13 +14,17 @@ type Props = {
     countryById: CountriesByServiceType
     onSelect: (id: string) => void
     onToggleFavorite: (id: string) => void
+    favoriteServices: Set<string>
+    locale?: Locale
+    className?: string
 }
 
 const CountryList = ({
     countryIds,
     countryById,
     onSelect,
-    onToggleFavorite
+    onToggleFavorite,
+    className,
 }: Props) => {
     const rowProps = createRowProps(countryIds, countryById, onSelect, onToggleFavorite)
 
@@ -29,6 +35,10 @@ const CountryList = ({
             itemData={rowProps}
             itemSize={height}
             width={'100%'}
+            className={twMerge(
+                'rounded-[20px]',
+                className,
+            )}
         >
             {Row}
         </VirtualizedList>

@@ -5,7 +5,8 @@ import { serviceNameBy } from '@/features/services/utils/serviceNameBy'
 import { LOCALE, Locale } from '@/shared/constants/LOCALES'
 import { PriceFrom } from '@/features/gateway/components/shared/PriceFrom'
 import { Count } from '@/features/gateway/components/shared/Count'
-import { GatewayPaper } from '@/features/gateway/components/shared/GatewayPaper'
+import { GatewayCard } from '@/features/gateway/components/shared/GatewayCard'
+import { MouseEventHandler } from 'react'
 
 export type ServiceProps = {
     isFavorite?: boolean
@@ -28,12 +29,18 @@ const Service = ({
     onSelect,
     onToggleFavorite,
 }: ServiceProps) => {
+    const handleSelect: MouseEventHandler<HTMLDivElement> = event => {
+        const isStarIcon = event.target instanceof SVGElement
+
+        if (!isStarIcon && onSelect) onSelect()
+    }
+
     return (
-        <GatewayPaper className={className} onClick={onSelect}>
-            <div className={'flex items-center ml-3 mr-2'}>
+        <GatewayCard className={className} onClick={handleSelect}>
+            <div className={'flex items-center ml-3 mr-2 min-w-0'}>
                 <StarIcon
                     enabled={isFavorite}
-                    className={'size-8 p-[6px]'}
+                    className={'size-8 min-w-8 p-[6px]'}
                     onClick={onToggleFavorite}
                 />
                 <ServiceLogo serviceId={id} className={'ml-[6px] mr-[10px]'}/>
@@ -43,7 +50,7 @@ const Service = ({
                 <PriceFrom value={priceFrom} />
                 <Count value={count} className={'mt-1'} />
             </div>
-        </GatewayPaper>
+        </GatewayCard>
     )
 }
 

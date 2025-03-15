@@ -22,7 +22,7 @@ export const ServiceLogo = ({
     return (
         <div 
             className={twMerge(
-                'overflow-hidden relative min-w-0 min-h-0 rounded-full', 
+                'overflow-hidden relative min-h-0 rounded-full',
                 twSize[size],
                 className,
             )}
@@ -44,5 +44,5 @@ export const ServiceLogo = ({
 type Size = 24
 
 const twSize: Record<Size, string> = {
-    24: 'size-6',
+    24: 'size-6 min-w-6',
 }

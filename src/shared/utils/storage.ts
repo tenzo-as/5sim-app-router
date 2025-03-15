@@ -3,7 +3,14 @@ import { isClient } from '@/shared/utils/isClient'
 export enum StorageKey {
     Token = 'token',
     Theme = 'theme',
+    Service = 'service',
+    LastService = 'lastService',
+    Country = 'country',
+    LastCountry = 'lastCountry',
+    ActiveOperator = 'operator',
 }
+
+export const StorageEventKey = 'local-storage'
 
 class Storage {
     constructor() {}
@@ -27,6 +34,6 @@ class Storage {
     }
 }
 
-const storage = new Storage()
+export const storage = new Storage()
 
 export default storage

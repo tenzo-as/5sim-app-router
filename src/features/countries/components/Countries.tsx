@@ -1,4 +1,3 @@
-import ServiceList, { ServiceListProps } from '@/features/services/components/ServiceList'
 import SearchField from '@/shared/components/SearchField'
 import { useMemo } from 'react'
 import { ruServiceAliases, serviceNameBy } from '@/features/services/utils/serviceNameBy'
@@ -12,14 +11,14 @@ import SelectedService from '@/features/services/components/SelectedService'
 import { clsx } from 'clsx'
 
 type Props = {
-    selectedService?: string | null
-    onSelect?: (selectedService: string | null) => void
+    selectedCountry?: string | null
+    onSelect?: (selectedCountry: string | null) => void
     search: string,
     onChangeSearch: (value: string) => void,
     collapsedList: string[]
-} & ServiceListProps
+} & CountryListProps
 
-const Services = ({
+const Countries = ({
     selectedCountry,
     onSelect,
     search,

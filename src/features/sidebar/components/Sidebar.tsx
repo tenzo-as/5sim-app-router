@@ -15,7 +15,7 @@ const Sidebar = ({
     className,
 }: Props) => {
     return (
-        <div className={twMerge('bg-[#f5f6f8]', className)}>
+        <div className={twMerge('bg-[#f5f6f8] dark:bg-[#2e425b]', className)}>
             <Banner />
             <Gateway />
             <CountryFlag countryId='russia' />
