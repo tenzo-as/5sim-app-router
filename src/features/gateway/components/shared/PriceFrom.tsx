@@ -11,7 +11,7 @@ export const PriceFrom = ({
     value,
     className,
 }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('gateway')
 
     if (value === undefined) {
         return <div className={twMerge('skeleton w-12 h-6 rounded-xl', className)} />
@@ -19,7 +19,7 @@ export const PriceFrom = ({
 
     return (
         <div className={twMerge('inline-flex items-center [&>span:first-child]:mr-1  [&>span:last-child]:ml-1', className)}>
-            {t.rich('gateway.priceFrom', {
+            {t.rich('priceFrom', {
                 from: children => (
                     <span className={'text-xs font-medium'}>
                         {children}

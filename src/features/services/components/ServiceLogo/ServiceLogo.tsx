@@ -16,7 +16,7 @@ export const ServiceLogo = ({
     className,
     size = 24,
 }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('services')
     const locale = useLocale()
 
     return (
@@ -29,7 +29,7 @@ export const ServiceLogo = ({
         >
             <Image
                 src={'/media/sprites/blank.gif'}
-                alt={t('services.logoAlt', { serviceName: serviceNameBy(serviceId, locale) })}
+                alt={t('logoAlt', { serviceName: serviceNameBy(serviceId, locale) })}
                 className={twMerge(
                     `services services-${serviceId}`,
                     'absolute inset-1/2 -translate-x-1/2 -translate-y-1/2',

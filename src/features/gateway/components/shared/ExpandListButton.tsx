@@ -30,7 +30,6 @@ const ExpandListButton = ({
             endIcon={<FaChevronDown className={clsx('transition-transform duration-200', expanded && 'rotate-x-180')} />}
         >
             {expanded ? 'Свернуть список' : `Показать все ${count}`}
-
         </Button>
     )
 }

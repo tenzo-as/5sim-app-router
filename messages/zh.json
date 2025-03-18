@@ -23,7 +23,8 @@
             "darkMode": "Dark mode"
         }
     },
-    "alt": {
+    "symbol": {
+        "dot": "."
     },
     "shared": {
         "support": "帮助中心",
@@ -46,6 +47,13 @@
         "logoAlt": "SMS activation | Receiving sms online to virtual numbers {serviceName}"
     },
     "countries": {
+        "sortBy": {
+            "popularity": "按热门度",
+            "name": "按名称",
+            "price": "按价格",
+            "quantity": "按数量"
+        },
+        "searchPlaceholder": "寻找国家",
         "flagAlt": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "HomePage": {

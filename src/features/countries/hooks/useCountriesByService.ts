@@ -1,11 +1,22 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchCountries } from '@/features/countries/utils/fetchCountries'
+import { fetchCountriesByService } from '@/features/countries/utils/fetchCountriesByService'
+import { useInterval } from '@/shared/hooks/useInterval'
 
-export const useCountriesByService = () =>
-    useQuery({
-        queryKey: ['countriesByService'],
-        queryFn: fetchCountries,
-        staleTime: fiveSec,
+export const useCountriesByService = (serviceId: string | null) => {
+    const query = useQuery({
+        queryKey: ['countries', serviceId],
+        queryFn: () => tryGetCountries(serviceId),
+        staleTime: Infinity,
     })
 
+    useInterval(() => query.refetch(), serviceId ? fiveSec : null)
+
+    return query
+}
+
 const fiveSec = 5 * 1000
+
+const tryGetCountries = (serviceId: string | null) =>
+    serviceId
+        ? fetchCountriesByService(serviceId)
+        : null

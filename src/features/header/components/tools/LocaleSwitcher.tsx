@@ -19,7 +19,7 @@ type Props = {
 
 export const LocaleSwitcher = ({ locale: currentLocale, onChangeLocale, className }: Props) => {
     const ref = useRef<HTMLDivElement>(null)
-    const t = useTranslations()
+    const t = useTranslations('header')
     const isOpen = useBoolean()
 
     useOnClickOutside<HTMLDivElement>(ref, () => {
@@ -38,7 +38,7 @@ export const LocaleSwitcher = ({ locale: currentLocale, onChangeLocale, classNam
                 <Image
                     className={'size-[26px] rounded-full'}
                     src={flagByLocale[currentLocale]}
-                    alt={t('header.languageSelection')}
+                    alt={t('languageSelection')}
                     width={24}
                     height={24}
                 />
@@ -49,7 +49,7 @@ export const LocaleSwitcher = ({ locale: currentLocale, onChangeLocale, classNam
                     !isOpen.value && 'hidden',
                 )}
             >
-                <Menu.Title>{t('header.languageSelection')}</Menu.Title>
+                <Menu.Title>{t('languageSelection')}</Menu.Title>
                 {LOCALES.map(locale => (
                     <Menu.Item
                         key={locale}

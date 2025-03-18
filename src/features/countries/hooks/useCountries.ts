@@ -1,30 +1,12 @@
-import { useQuery } from '@tanstack/react-query'
-import { fetchCountries } from '@/features/countries/utils/fetchCountries'
-import { objectKeys } from '@/shared/utils/objectKeys'
-import { getFirstKey } from '@/shared/utils/getFirstKey'
+import { useContext } from 'react'
+import { CountriesContext } from '@/features/countries/providers/CountriesProvider'
 
-export const useCountries = () =>
-    useQuery({ 
-        queryKey: ['countries'],
-        queryFn: fetchCountries,
-        staleTime: day,
-        select: data => {
-            const countryIds = objectKeys(data)
+export const useCountries = () => {
+    const context = useContext(CountriesContext)
 
-            return Object.fromEntries(
-                countryIds.map(id => [
-                    id,
-                    {
-                        iso: getFirstKey(data[id].iso),
-                        prefix: getFirstKey(data[id].prefix),
-                        name: {
-                            en: data[id].text_en,
-                            ru: data[id].text_ru,
-                        },
-                    },
-                ])
-            )
-        },
-    })
+    if (!context) {
+        throw new Error('useCountries must be used within a CountriesContext')
+    }
 
-const day = 24 * 60 * 60 * 1000
+    return context
+}

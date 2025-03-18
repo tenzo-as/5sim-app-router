@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const SignInButton = ({ className }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('header')
     const router = useRouter()
 
     return (
@@ -19,7 +19,7 @@ export const SignInButton = ({ className }: Props) => {
             className={twMerge('py-1', className)}
             onClick={() => router.push('/')}
         >
-            {t('header.signIn')}
+            {t('signIn')}
         </Button>
     )
 }

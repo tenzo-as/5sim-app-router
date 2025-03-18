@@ -7,6 +7,7 @@ import { Count } from '@/features/gateway/components/shared/Count'
 import { clsx } from 'clsx'
 import CountryFlag from '@/features/countries/components/CountryFlag'
 import { GatewayCard } from '@/features/gateway/components/shared/GatewayCard'
+import { MouseEventHandler } from 'react'
 
 type Props = {
     isFavorite?: boolean
@@ -29,9 +30,15 @@ const Country = ({
     onToggleFavorite,
     className,
 }: Props) => {
+    const handleSelect: MouseEventHandler<HTMLDivElement> = event => {
+        const isStarIcon = event.target instanceof SVGElement
+
+        if (!isStarIcon) onSelect?.()
+    }
+
     return (
-        <GatewayCard className={className} onClick={onSelect}>
-            <div className={'flex items-center ml-3 mr-2'}>
+        <GatewayCard className={className} onClick={handleSelect}>
+            <div className={'flex items-center ml-3 mr-2 min-w-0'}>
                 <StarIcon
                     enabled={isFavorite}
                     className={'size-8 min-w-8 p-[6px]'}

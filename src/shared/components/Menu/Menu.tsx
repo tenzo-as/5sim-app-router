@@ -4,15 +4,17 @@ import type { ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
+    isOpen?: boolean
     className?: string
     children?: ReactNode
 }
 
-const Menu = ({ className, children }: Props) => {
+const Menu = ({ isOpen, className, children }: Props) => {
     return (
         <ul
             className={twMerge(
-                'menu z-10 min-w-56 rounded-2xl bg-base-200 shadow-lg [&>li>*]:gap-3',
+                'menu z-10 min-w-56 rounded-2xl bg-base-200 shadow-2xl [&>li>*]:gap-3',
+                isOpen === false && 'hidden',
                 className,
             )}
         >

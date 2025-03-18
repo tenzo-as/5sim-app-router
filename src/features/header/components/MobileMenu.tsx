@@ -24,7 +24,7 @@ type Props = {
 }
 
 export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleTheme }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('header')
     const navigationRoutes = useNavigationRoutes()
 
     return (
@@ -47,7 +47,7 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
             <List>
                 <ListItem activeRoute={activeRoute} route={Pathname.Home}>
                     <Link href={Pathname.Home} color={'inherit'} underline={'none'}>
-                        {t('header.navigation.forDevelopers')}
+                        {t('navigation.forDevelopers')}
                     </Link>
                 </ListItem>
                 <ListItem>
@@ -55,7 +55,7 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
                         onClick={onToggleTheme}
                         className={'flex items-center justify-between !py-1'}
                     >
-                        {t(`header.theme.${isLight ? 'lightMode' : 'darkMode'}`)}
+                        {t(`theme.${isLight ? 'lightMode' : 'darkMode'}`)}
                         <div
                             className={
                                 'flex h-10 w-[82px] justify-between rounded-3xl bg-[#F5F6F8] p-1 dark:bg-[#344A66]'
@@ -80,22 +80,30 @@ export const MobileMenu = ({ className, isLight, activeRoute, onClose, onToggleT
                 </ListItem>
             </List>
             <Divider />
-            <div className={'p-6'}>
-                <TelegramButton.NewNumbers />
-                <TelegramButton.NewsAndStocks className={'mt-3'} />
+            <Contact />
+        </div>
+    )
+}
 
-                <Text className={'mt-6'} medium>
-                    {t('shared.needHelp')}
-                </Text>
-                <SupportButton className={'mt-3'} />
+const Contact = () => {
+    const t = useTranslations('shared')
 
-                <div className={'flex items-center justify-between mt-6'}>
-                    <SocialButton.Instagram />
-                    <SocialButton.VKontakte />
-                    <SocialButton.YouTube />
-                    <SocialButton.Facebook />
-                    <SocialButton.Twitter />
-                </div>
+    return (
+        <div className={'p-6'}>
+            <TelegramButton.NewNumbers />
+            <TelegramButton.NewsAndStocks className={'mt-3'} />
+
+            <Text className={'mt-6'} medium>
+                {t('needHelp')}
+            </Text>
+            <SupportButton className={'mt-3'} />
+
+            <div className={'flex items-center justify-between mt-6'}>
+                <SocialButton.Instagram />
+                <SocialButton.VKontakte />
+                <SocialButton.YouTube />
+                <SocialButton.Facebook />
+                <SocialButton.Twitter />
             </div>
         </div>
     )
@@ -106,10 +114,10 @@ const List = ({ children }: { children?: ReactNode }) => (
 )
 
 const ListItem = ({
-    activeRoute,
-    route,
-    children,
-}: {
+                      activeRoute,
+                      route,
+                      children,
+                  }: {
     activeRoute?: string
     route?: string
     children?: ReactNode

@@ -1,20 +1,24 @@
 import SearchField from '@/shared/components/SearchField'
-import { useMemo } from 'react'
-import { ruServiceAliases, serviceNameBy } from '@/features/services/utils/serviceNameBy'
+import { useMemo, useState } from 'react'
+import { countryNameBy } from '@/features/countries/utils/countryNameBy'
 import { Locale } from '@/shared/constants/LOCALES'
 import { useLocale } from '@/shared/hooks/useLocale'
 import { useBoolean } from '@/shared/hooks/useBoolean'
 import ExpandListButton from '@/features/gateway/components/shared/ExpandListButton'
-import AddServiceButton from '@/features/services/components/AddServiceButton'
 import { useTranslations } from 'next-intl'
-import SelectedService from '@/features/services/components/SelectedService'
 import { clsx } from 'clsx'
+import CountryList, { CountryListProps } from '@/features/countries/components/CountryList'
+import SelectedCountry from '@/features/countries/components/SelectedCountry'
+import Fuse from 'fuse.js'
+import CountriesSortMenu, { SortBy } from '@/features/countries/components/CountriesSortMenu'
+import { sort } from 'fast-sort'
+import { CountriesByServiceType } from '@/features/countries/utils/fetchCountriesByService'
 
 type Props = {
     selectedCountry?: string | null
     onSelect?: (selectedCountry: string | null) => void
-    search: string,
-    onChangeSearch: (value: string) => void,
+    search: string
+    onChangeSearch: (value: string) => void
     collapsedList: string[]
 } & CountryListProps
 
@@ -23,72 +27,75 @@ const Countries = ({
     onSelect,
     search,
     onChangeSearch,
-    serviceIds,
-    serviceById,
-    favoriteServices,
+    countryIds,
+    countryById,
+    favoriteCountries,
     onToggleFavorite,
     collapsedList,
 }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('countries')
     const locale = useLocale()
 
     const isExpanded = useBoolean()
 
-    const canShowAddService = !selectedCountry && isExpanded.value
-    const canShowExpandButton = !selectedCountry && serviceIds.length > 8
+    const canShowSortMenu = !selectedCountry && isExpanded.value
+    const canShowExpandButton = !selectedCountry && countryIds.length > 8
+
+    const [sortBy, setSortBy] = useState<SortBy>(SortBy.Name)
 
     const list = useMemo(() => {
         if (search) {
-            return filterBySearch(search, serviceIds, locale)
+            return filterBySearch(search, countryIds, locale)
         }
 
-        if (!isExpanded.value) return getCollapsedListSortedByFavorites(collapsedList, favoriteServices)
-        
-        return getSortedByOtherFirst(serviceIds)
-    }, [search, favoriteServices, isExpanded.value])
+        if (!isExpanded.value)
+            return getCollapsedListSortedByFavorites(collapsedList, favoriteCountries)
+
+        return getSortedIds(countryIds, countryById, sortBy, locale)
+    }, [search, countryIds, countryById, favoriteCountries, isExpanded.value, sortBy])
 
     return (
         <div>
-            {!selectedCountry &&
+            {!selectedCountry && (
                 <SearchField
                     value={search}
                     onChange={(_, value) => onChangeSearch(value)}
                     reset={() => onChangeSearch('')}
-                    placeholder={t('services.searchPlaceholder')}
+                    placeholder={t('searchPlaceholder')}
                     className={isExpanded.value ? 'mb-2' : 'mb-4'}
                 />
-            }
-            {canShowAddService &&
-                <AddServiceButton className={'mb-2'} />
-            }
-            {selectedCountry &&
-                <SelectedService
+            )}
+            {canShowSortMenu && (
+                <CountriesSortMenu sortBy={sortBy} onSortChange={setSortBy} className={'mb-2'} />
+            )}
+            {selectedCountry && (
+                <SelectedCountry
                     id={selectedCountry}
                     locale={locale}
                     onRemove={() => onSelect(null)}
                 />
-            }
-            <ServiceList
-                serviceIds={list}
-                serviceById={serviceById}
+            )}
+            <CountryList
+                countryIds={list}
+                countryById={countryById}
                 onSelect={id => onSelect(id)}
-                favoriteServices={favoriteServices}
+                favoriteCountries={favoriteCountries}
                 onToggleFavorite={onToggleFavorite}
                 className={clsx(selectedCountry && 'hidden')}
             />
-            {canShowExpandButton &&
+            {canShowExpandButton && (
                 <ExpandListButton
-                    count={serviceIds.length}
+                    count={countryIds.length}
                     expanded={isExpanded.value}
                     onToggle={isExpanded.toggle}
                     className={'mt-2'}
                 />
-            }
+            )}
         </div>
     )
 }
 
-export default Services
+export default Countries
 
 const getCollapsedListSortedByFavorites = (collapsedList: string[], favorites: Set<string>) => {
     const favoriteList = [...favorites]
@@ -97,38 +104,67 @@ const getCollapsedListSortedByFavorites = (collapsedList: string[], favorites: S
     return favoriteList.concat(nonFavoriteList).slice(0, 8)
 }
 
-const getSortedByOtherFirst = (serviceIds: string[]) => {
-    return [...serviceIds].sort((a, b) => {
-        if (a === 'other') return -1
-        if (b === 'other') return 1
-        return a.localeCompare(b)
-    })
+const getSortedIds = (
+    countryIds: string[],
+    countryById: CountriesByServiceType,
+    sortBy: SortBy,
+    locale: Locale,
+) => {
+    const sortMode = getSortMode(countryById, locale)
+    const haveExtraData = Object.keys(countryById).length
+
+    if (haveExtraData) {
+        return sort(countryIds)
+            [sortMode[sortBy].direction]
+        (sortMode[sortBy].callback)
+    } else {
+        return sort(countryIds)
+            [sortMode[SortBy.Name].direction]
+        (sortMode[SortBy.Name].callback)
+    }
 }
 
-const filterBySearch = (search: string, serviceIds: string[], locale: Locale) => {
-    const lowerCasedSearch = search.toLowerCase()
-    const alipayName = serviceNameBy('alipay', locale).toLowerCase()
+const getSortMode = (countryById: CountriesByServiceType, locale: Locale) => {
+    type Callback = (countryId: string) => number | string | undefined
+    type SortMode = {
+        direction: 'asc' | 'desc',
+        callback: Callback | Callback[],
+    }
 
-    return serviceIds.filter(id => {
-        const isAliexpress = id === 'aliexpress'
+    const sortMode: Record<SortBy, SortMode> = {
+        [SortBy.Popularity]: {
+            direction: 'asc',
+            callback: [
+                id => countryById[id].Rate,
+                id => countryNameBy(id, locale),
+            ],
+        },
+        [SortBy.Name]: {
+            direction: 'asc',
+            callback: id => countryNameBy(id, locale),
+        },
+        [SortBy.Price]: {
+            direction: 'asc',
+            callback: id => countryById[id].Price,
+        },
+        [SortBy.Quantity]: {
+            direction: 'asc',
+            callback: id => countryById[id].Qty,
+        },
+    }
 
-        if (
-            isAliexpress &&
-            alipayName.includes(lowerCasedSearch)
-        ) {
-            return true
-        }
+    return sortMode
+}
 
-        if (
-            ruServiceAliases.has(id)
-            && ruServiceAliases.get(id)
-                ?.includes(lowerCasedSearch)
-        ) {
-            return true
-        }
+const filterBySearch = (search: string, countryIds: string[], locale: Locale) => {
+    const countriesWithName = countryIds.map(id => ({
+        id,
+        name: countryNameBy(id, locale),
+    }))
 
-        return serviceNameBy(id, locale)
-            .toLowerCase()
-            .includes(lowerCasedSearch)
-    })
+    const fuse = new Fuse(countriesWithName, { keys: ['name'] })
+
+    const filteredCountryIds = fuse.search(search).map(({ item }) => item.id)
+
+    return filteredCountryIds
 }

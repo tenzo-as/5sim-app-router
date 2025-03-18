@@ -15,6 +15,10 @@ import { CookiesKey } from '@/shared/utils/cookies'
 import GatewayProvider from '@/features/gateway/providers/GatewayProvider'
 import { fetchServices } from '@/features/services/utils/fetchServices'
 import ServicesProvider from '@/features/services/providers/ServicesProvider'
+import Countries from '@/features/countries/components/Countries'
+import CountriesProvider from '@/features/countries/providers/CountriesProvider'
+import { fetchCountries } from '@/features/countries/utils/fetchCountries'
+import { mapCountriesResponse } from '@/features/countries/utils/mapCountriesResponse'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,10 +37,12 @@ const LocaleLayout = async ({
     const favoriteServices = headersResponse.get(CookiesKey.FavoriteServices) || '[]'
     const country = headersResponse.get(CookiesKey.Country)
     const lastCountry = headersResponse.get(CookiesKey.LastCountry)
+    const favoriteCountries = headersResponse.get(CookiesKey.FavoriteCountries) || '[]'
 
-    console.log(favoriteServices)
+    console.log(favoriteServices, typeof favoriteServices)
 
     const services = await fetchServices()
+    const countries = await fetchCountries()
 
     const { locale } = await params
 
@@ -54,19 +60,24 @@ const LocaleLayout = async ({
                         initialServices={services}
                         initialFavorites={JSON.parse(favoriteServices)}
                     >
-                        <GatewayProvider
-                            initialValue={{
-                                service,
-                                lastService,
-                                country,
-                                lastCountry,
-                            }}
+                        <CountriesProvider
+                            initialCountries={mapCountriesResponse(countries)}
+                            initialFavorites={JSON.parse(favoriteCountries)}
                         >
-                            <body className={`${inter.className} antialiased`}>
-                                {children}
-                                <ToastContainer />
-                            </body>
-                        </GatewayProvider>
+                            <GatewayProvider
+                                initialValue={{
+                                    service,
+                                    lastService,
+                                    country,
+                                    lastCountry,
+                                }}
+                            >
+                                <body className={`${inter.className} antialiased`}>
+                                    {children}
+                                    <ToastContainer />
+                                </body>
+                            </GatewayProvider>
+                        </CountriesProvider>
                     </ServicesProvider>
                 </ThemedHtml>
             </ThemeProvider>

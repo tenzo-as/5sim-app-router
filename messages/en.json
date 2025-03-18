@@ -23,7 +23,8 @@
             "darkMode": "Dark mode"
         }
     },
-    "alt": {
+    "symbol": {
+        "dot": "."
     },
     "shared": {
         "support": "Support",
@@ -46,6 +47,13 @@
         "logoAlt": "SMS activation | Receiving sms online to virtual numbers {serviceName}"
     },
     "countries": {
+        "sortBy": {
+            "popularity": "by popularity",
+            "name": "by name",
+            "price": "by price",
+            "quantity": "by quantity"
+        },
+        "searchPlaceholder": "Find country",
         "flagAlt": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
     "HomePage": {

@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const Count = ({ value, className }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('gateway')
 
     if (value === undefined) {
         return <span className={twMerge('skeleton w-20 h-3', className)} />
@@ -22,7 +22,7 @@ export const Count = ({ value, className }: Props) => {
                 className,
             )}
         >
-            {t.rich('gateway.count', {
+            {t.rich('count', {
                 value,
             })}
         </span>

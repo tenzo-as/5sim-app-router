@@ -7,14 +7,14 @@ import { VirtualizedListItemWrapper } from '@/features/gateway/components/shared
 import { twMerge } from 'tailwind-merge'
 import { Locale } from '@/shared/constants/LOCALES'
 
-const height = 58
+const height = 56 + 2
 
-type Props = {
+export type CountryListProps = {
     countryIds: string[]
     countryById: CountriesByServiceType
     onSelect: (id: string) => void
     onToggleFavorite: (id: string) => void
-    favoriteServices: Set<string>
+    favoriteCountries: Set<string>
     locale?: Locale
     className?: string
 }
@@ -23,14 +23,16 @@ const CountryList = ({
     countryIds,
     countryById,
     onSelect,
+    favoriteCountries = new Set(),
     onToggleFavorite,
+    locale,
     className,
-}: Props) => {
-    const rowProps = createRowProps(countryIds, countryById, onSelect, onToggleFavorite)
+}: CountryListProps) => {
+    const rowProps = createRowProps(countryIds, countryById, onSelect, locale, favoriteCountries, onToggleFavorite)
 
     return (
         <VirtualizedList
-            height={height * 8}
+            height={getHeight(countryIds.length)}
             itemCount={countryIds.length}
             itemData={rowProps}
             itemSize={height}
@@ -48,29 +50,36 @@ const CountryList = ({
 export default CountryList
 
 const createRowProps = memoize(
-    (countryIds, countryById, onSelect, onToggleFavorite) =>
-    ({ countryIds, countryById, onSelect, onToggleFavorite })
+    (countryIds, countryById, onSelect, locale, favoriteCountries, onToggleFavorite) =>
+    ({ countryIds, countryById, onSelect, locale, favoriteCountries, onToggleFavorite })
 )
 
+const getHeight = (length: number) =>
+    length > 8
+        ? height * 8
+        : height * length
+
 const Row = memo<RowProps>(({ data, index, style }) => {
-    const { countryIds, countryById, onSelect, onToggleFavorite } = data
+    const { countryIds, countryById, onSelect, locale, favoriteCountries, onToggleFavorite } = data
     const id = countryIds[index];
 
     return (
         <VirtualizedListItemWrapper style={style}>
             <Country
                 id={id}
-                count={countryById[id].Qty}
-                priceFrom={countryById[id].Price}
+                count={countryById[id]?.Qty}
+                priceFrom={countryById[id]?.Price}
                 onSelect={() => onSelect(id)}
+                isFavorite={favoriteCountries.has(id)}
                 onToggleFavorite={() => onToggleFavorite(id)}
+                locale={locale}
             />
         </VirtualizedListItemWrapper>
     )
 }, areEqual)
 
 type RowProps = {
-    data: Props
+    data: Omit<CountryListProps, 'className'>
     index: number
     style: CSSProperties
 }

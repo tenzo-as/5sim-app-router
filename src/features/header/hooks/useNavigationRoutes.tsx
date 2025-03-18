@@ -3,14 +3,14 @@ import { Pathname } from '@/shared/utils/routes'
 import DocIcon from '@/features/header/icons/DocIcon'
 
 export const useNavigationRoutes = () => {
-    const t = useTranslations()
+    const t = useTranslations('header')
 
     return [
-        { route: Pathname.Home, label: t('header.navigation.home') },
-        { route: Pathname.Home, label: t('header.navigation.faq') },
-        { route: Pathname.Home, label: t('header.navigation.api'), openInNewTab: true, icon: <DocIcon /> },
-        { route: Pathname.Manual, label: t('header.navigation.howBuy') },
-        { route: Pathname.Home, label: t('header.navigation.free') },
-        { route: Pathname.Home, label: t('header.navigation.blog'), openInNewTab: true },
+        { route: Pathname.Home, label: t('navigation.home') },
+        { route: Pathname.Home, label: t('navigation.faq') },
+        { route: Pathname.Home, label: t('navigation.api'), openInNewTab: true, icon: <DocIcon /> },
+        { route: Pathname.Manual, label: t('navigation.howBuy') },
+        { route: Pathname.Home, label: t('navigation.free') },
+        { route: Pathname.Home, label: t('navigation.blog'), openInNewTab: true },
     ]
 }

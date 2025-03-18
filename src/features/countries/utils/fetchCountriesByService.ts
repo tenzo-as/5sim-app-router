@@ -12,4 +12,5 @@ export type CountryByServiceType = {
     Price: number
     Qty: number
     Category: 'activation' | 'hosting'
+    Rate?: number
 }

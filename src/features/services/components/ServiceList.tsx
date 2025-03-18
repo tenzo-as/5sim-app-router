@@ -7,7 +7,7 @@ import { VirtualizedListItemWrapper } from '@/features/gateway/components/shared
 import { Locale } from '@/shared/constants/LOCALES'
 import { twMerge } from 'tailwind-merge'
 
-const height = 58
+const height = 56 + 2
 
 export type ServiceListProps = {
     serviceIds: string[]

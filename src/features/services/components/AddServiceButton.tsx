@@ -9,7 +9,7 @@ type Props = {
 }
 
 const AddServiceButton = ({ className }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('services')
     const { push } = useRouter()
 
     return (
@@ -22,7 +22,7 @@ const AddServiceButton = ({ className }: Props) => {
             disableShadow
             className={className}
         >
-            {t('services.addService')}
+            {t('addService')}
         </Button>
     )
 }

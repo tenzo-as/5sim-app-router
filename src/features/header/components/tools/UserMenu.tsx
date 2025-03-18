@@ -28,7 +28,7 @@ type Props = {
 
 export const UserMenu = ({ id, className, slotProps }: Props) => {
     const ref = useRef<HTMLDivElement>(null)
-    const t = useTranslations()
+    const t = useTranslations('header')
     const isOpen = useBoolean()
 
     useOnClickOutside<HTMLDivElement>(ref, () => {
@@ -37,13 +37,13 @@ export const UserMenu = ({ id, className, slotProps }: Props) => {
 
     const topMenuItems = [
         { label: `ID: ${id}`, Icon: ProfileIcon, allowCopy: true },
-        { label: t('header.partner'), Icon: PartnerIcon, IconClassName: '-translate-y-0.5' },
+        { label: t('partner'), Icon: PartnerIcon, IconClassName: '-translate-y-0.5' },
     ]
     const bottomMenuItems = [
-        { label: t('header.topUpBalance'), Icon: MoneyIcon },
-        { label: t('header.getApiKey'), Icon: KeyIcon },
-        { label: t('header.settings'), Icon: SettingsIcon },
-        { label: t('header.signOut'), Icon: ExitIcon },
+        { label: t('topUpBalance'), Icon: MoneyIcon },
+        { label: t('getApiKey'), Icon: KeyIcon },
+        { label: t('settings'), Icon: SettingsIcon },
+        { label: t('signOut'), Icon: ExitIcon },
     ]
 
     return (

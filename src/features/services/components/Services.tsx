@@ -14,13 +14,13 @@ import { clsx } from 'clsx'
 type Props = {
     selectedService?: string | null
     onSelect?: (selectedService: string | null) => void
-    search: string,
-    onChangeSearch: (value: string) => void,
+    search: string
+    onChangeSearch: (value: string) => void
     collapsedList: string[]
 } & ServiceListProps
 
 const Services = ({
-    selectedCountry,
+    selectedService,
     onSelect,
     search,
     onChangeSearch,
@@ -30,13 +30,13 @@ const Services = ({
     onToggleFavorite,
     collapsedList,
 }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('services')
     const locale = useLocale()
 
     const isExpanded = useBoolean()
 
-    const canShowAddService = !selectedCountry && isExpanded.value
-    const canShowExpandButton = !selectedCountry && serviceIds.length > 8
+    const canShowAddService = !selectedService && isExpanded.value
+    const canShowExpandButton = !selectedService && serviceIds.length > 8
 
     const list = useMemo(() => {
         if (search) {
@@ -46,25 +46,25 @@ const Services = ({
         if (!isExpanded.value) return getCollapsedListSortedByFavorites(collapsedList, favoriteServices)
         
         return getSortedByOtherFirst(serviceIds)
-    }, [search, favoriteServices, isExpanded.value])
+    }, [search, serviceIds, locale, favoriteServices, isExpanded.value])
 
     return (
         <div>
-            {!selectedCountry &&
+            {!selectedService &&
                 <SearchField
                     value={search}
                     onChange={(_, value) => onChangeSearch(value)}
                     reset={() => onChangeSearch('')}
-                    placeholder={t('services.searchPlaceholder')}
+                    placeholder={t('searchPlaceholder')}
                     className={isExpanded.value ? 'mb-2' : 'mb-4'}
                 />
             }
             {canShowAddService &&
                 <AddServiceButton className={'mb-2'} />
             }
-            {selectedCountry &&
+            {selectedService &&
                 <SelectedService
-                    id={selectedCountry}
+                    id={selectedService}
                     locale={locale}
                     onRemove={() => onSelect(null)}
                 />
@@ -75,7 +75,7 @@ const Services = ({
                 onSelect={id => onSelect(id)}
                 favoriteServices={favoriteServices}
                 onToggleFavorite={onToggleFavorite}
-                className={clsx(selectedCountry && 'hidden')}
+                className={clsx(selectedService && 'hidden')}
             />
             {canShowExpandButton &&
                 <ExpandListButton

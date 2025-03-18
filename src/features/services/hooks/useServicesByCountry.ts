@@ -9,7 +9,7 @@ export const useServicesByCountry = (countryId: string | null) => {
         staleTime: Infinity,
     })
 
-    useInterval(() => query.refetch(), fiveSec)
+    useInterval(() => query.refetch(), countryId ? fiveSec : null)
 
     return query
 }

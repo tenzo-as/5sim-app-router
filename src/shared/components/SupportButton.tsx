@@ -8,7 +8,7 @@ type Props = {
 }
 
 const SupportButton = ({ className }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('shared')
 
     return (
         <Button
@@ -20,7 +20,7 @@ const SupportButton = ({ className }: Props) => {
             size={44}
             startIcon={SupportIcon}
         >
-            {t('shared.support')}
+            {t('support')}
         </Button>
     )
 }

@@ -8,6 +8,7 @@ export enum CookiesKey {
     FavoriteServices = 'favoriteServices',
     Country = 'country',
     LastCountry = 'lastCountry',
+    FavoriteCountries = 'favoriteCountries',
 }
 
 const cookies = new UniversalCookies(null, { path: '/' })

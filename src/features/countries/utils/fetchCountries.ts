@@ -1,9 +1,13 @@
 import { apiClient } from '@/shared/utils/api'
 
 export const fetchCountries = async () => {
-    const { data } = await apiClient.get<CountriesType>('v1/guest/countries')
+    try {
+        const { data } = await apiClient.get<CountriesType>('v1/guest/countries')
 
-    return data
+        return data
+    } catch (e) {
+        return {}
+    }
 }
 
 export type CountriesType = Record<string, CountryType>

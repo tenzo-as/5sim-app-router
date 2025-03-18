@@ -25,14 +25,14 @@ const Service = ({
     locale = LOCALE.en,
     priceFrom,
     count,
-    className,
     onSelect,
     onToggleFavorite,
+    className,
 }: ServiceProps) => {
     const handleSelect: MouseEventHandler<HTMLDivElement> = event => {
         const isStarIcon = event.target instanceof SVGElement
 
-        if (!isStarIcon && onSelect) onSelect()
+        if (!isStarIcon) onSelect?.()
     }
 
     return (

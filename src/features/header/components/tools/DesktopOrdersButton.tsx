@@ -8,12 +8,12 @@ type Props = {
 }
 
 export const DesktopOrdersButton = ({ className, activeOrdersCount }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('header')
 
     return (
         <Badge badgeContent={activeOrdersCount} color={'warning'} className={className}>
             <Button variant={'text'} color={'white'}>
-                {t('header.partner')}
+                {t('partner')}
             </Button>
         </Badge>
     )

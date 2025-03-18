@@ -3,32 +3,29 @@ import { twMerge } from 'tailwind-merge'
 
 type Props = {
     className?: string
-    size?: Size
-    inline?: boolean
-    medium?: boolean
+    level: Level
     semibold?: boolean
+    medium?: boolean
     bold?: boolean
     children?: ReactNode
 }
 
-const Text = ({
+const Title = ({
     className,
-    size = 16,
-    inline = false,
+    level,
+    semibold = true,
     medium = false,
-    semibold = false,
     bold = false,
     children,
 }: Props) => {
-    const Component = inline ? 'span' : 'p'
+    const Component = level
 
     return (
         <Component
             className={twMerge(
-                twSize[size],
-                inline ? 'inline-block' : 'block',
-                medium && 'font-medium',
+                twLevel[level],
                 semibold && 'font-semibold',
+                medium && 'font-medium',
                 bold && 'font-bold',
                 className,
             )}
@@ -38,13 +35,11 @@ const Text = ({
     )
 }
 
-export default Text
+export default Title
 
-type Size = 14 | 16 | 18 | 20 | 24
-const twSize: Record<Size, string> = {
-    14: 'text-sm',
-    16: 'text-base',
-    18: 'text-lg',
-    20: 'text-xl',
-    24: 'text-2xl',
+type Level = 'h1' | 'h2' | 'h3'
+const twLevel: Record<Level, string> = {
+    h1: 'text-3xl',
+    h2: 'text-2xl',
+    h3: 'text-xl',
 }

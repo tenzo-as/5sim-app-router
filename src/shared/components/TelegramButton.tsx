@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge'
 type Props = { className?: string, fullWidth?: boolean }
 
 const NewNumbers = ({ className, fullWidth }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('shared.telegram')
 
     return (
         <Button
@@ -15,13 +15,13 @@ const NewNumbers = ({ className, fullWidth }: Props) => {
             className={className}
             fullWidth={fullWidth}
         >
-            {t('shared.telegram.newNumbers')}
+            {t('newNumbers')}
         </Button>
     )
 }
 
 const NewsAndStocks = ({ className, fullWidth }: Props) => {
-    const t = useTranslations()
+    const t = useTranslations('shared.telegram')
 
     return (
         <Button
@@ -29,7 +29,7 @@ const NewsAndStocks = ({ className, fullWidth }: Props) => {
             className={className}
             fullWidth={fullWidth}
         >
-            {t('shared.telegram.newsAndStocks')}
+            {t('newsAndStocks')}
         </Button>
     )
 }

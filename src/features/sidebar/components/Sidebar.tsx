@@ -18,11 +18,6 @@ const Sidebar = ({
         <div className={twMerge('bg-[#f5f6f8] dark:bg-[#2e425b]', className)}>
             <Banner />
             <Gateway />
-            <CountryFlag countryId='russia' />
-            <ServiceLogo serviceId='telegram' />
-            <PriceFrom value={32} />
-            <Count value={32}/>
-            <Label>Russia</Label>
         </div>
     )
 }
