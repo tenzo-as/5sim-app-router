@@ -48,8 +48,11 @@ const Countries = ({
             return filterBySearch(search, countryIds, locale)
         }
 
-        if (!isExpanded.value)
-            return getCollapsedListSortedByFavorites(collapsedList, favoriteCountries)
+        if (!isExpanded.value) {
+            const isServiceSelected = Object.keys(countryById).length > 0
+
+            return getCollapsedListSortedByFavorites(isServiceSelected ? countryIds : collapsedList, favoriteCountries)
+        }
 
         return getSortedIds(countryIds, countryById, sortBy, locale)
     }, [search, countryIds, countryById, favoriteCountries, isExpanded.value, sortBy])

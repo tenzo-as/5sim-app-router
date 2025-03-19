@@ -19,7 +19,10 @@ export const Banner = () => {
                 <LogoIcon className={'w-[66px] h-10'} />
                 <h2 className={'ml-4 font-semibold text-base'}>
                     {t.rich('banner', {
-                        span: children => <span className={'block text-[17px] min-[338px]:text-lg min-[360px]:text-xl'}>{children}</span>
+                        span: children =>
+                            <span className={'block text-[17px] min-[338px]:text-lg min-[360px]:text-xl'}>
+                                {children}
+                            </span>
                     })}
                 </h2>
             </div>
