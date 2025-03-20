@@ -75,6 +75,7 @@ const Services = ({
                 onSelect={id => onSelect(id)}
                 favoriteServices={favoriteServices}
                 onToggleFavorite={onToggleFavorite}
+                locale={locale}
                 className={clsx(selectedService && 'hidden')}
             />
             {canShowExpandButton &&

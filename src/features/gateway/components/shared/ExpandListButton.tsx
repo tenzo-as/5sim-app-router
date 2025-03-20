@@ -2,6 +2,7 @@ import Button from '@/shared/components/Button'
 import { useTranslations } from 'next-intl'
 import { FaChevronDown } from 'react-icons/fa'
 import { clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
     expanded: boolean
@@ -25,7 +26,7 @@ const ExpandListButton = ({
             onClick={onToggle}
             fullWidth
             disableShadow
-            className={className}
+            className={twMerge('font-medium', className)}
             size={32}
             endIcon={<FaChevronDown className={clsx('transition-transform duration-200', expanded && 'rotate-x-180')} />}
         >

@@ -32,7 +32,7 @@ const CountriesSortMenu = ({ sortBy, onSortChange, className }: Props) => {
             <Button
                 variant={'text'}
                 color={'primary'}
-                startIcon={<MdFilterList className={'text-[#395372]'} />}
+                startIcon={<MdFilterList className={'text-[#395372] dark:text-[#e2f1fd] text-2xl'} />}
                 startGap={8}
                 endIcon={
                     <FaChevronDown
@@ -57,7 +57,10 @@ const CountriesSortMenu = ({ sortBy, onSortChange, className }: Props) => {
                     <Menu.Item key={sortMode}>
                         <div
                             className={clsx(sortMode === sortBy && 'active', 'text-base')}
-                            onClick={() => onSortChange?.(sortMode)}
+                            onClick={() => {
+                                onSortChange?.(sortMode)
+                                isOpen.setFalse()
+                            }}
                         >
                             {t(`sortBy.${sortMode}`)}
                         </div>

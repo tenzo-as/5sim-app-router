@@ -56,6 +56,9 @@
         "searchPlaceholder": "Find country",
         "flagAlt": "SMS activation | Receiving sms online to virtual numbers {countryName}"
     },
+    "operator": {
+        "anyOperator": "n"
+    },
     "HomePage": {
         "title": "Hello world!",
         "about": "Go to the about page"

@@ -1,0 +1,1 @@
+export const operatorAcceptOneSMS = new Set(['virtual4', 'virtual55'])

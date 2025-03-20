@@ -10,6 +10,7 @@ import { twMerge } from 'tailwind-merge'
 import { useCountriesByService } from '@/features/countries/hooks/useCountriesByService'
 import Button from '@/shared/components/Button'
 import { ChangeOrderIcon } from '@/features/gateway/icons/ChangeOrderIcon'
+import Operator from '@/features/operators/components/Operator'
 
 const Gateway = () => {
     const { service, setService, country, setCountry } = useGateway()
@@ -55,6 +56,11 @@ const Gateway = () => {
                 onToggleFavorite={countries.toggleFavorite}
             />
             <StepName className={'mt-8 mb-4'}>3. Выбрать оператор</StepName>
+            <Operator
+                id={'virtual39'}
+                count={134143}
+                price={133}
+            />
         </div>
     )
 }

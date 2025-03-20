@@ -1,16 +1,19 @@
+import { twMerge } from 'tailwind-merge'
+
 type RubleIconType = {
     color?: string
     className?: string
+    size?: Size
 }
 
-export const RubleIcon = ({ color = 'currentcolor', className }: RubleIconType) => (
+export const RubleIcon = ({ color = 'currentcolor', size = 16, className }: RubleIconType) => (
     <svg
         width='16'
         height='16'
         viewBox='0 0 16 16'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
-        className={className}
+        className={twMerge(twSize[size], className)}
     >
         <path
             fillRule='evenodd'
@@ -24,3 +27,9 @@ export const RubleIcon = ({ color = 'currentcolor', className }: RubleIconType) 
         />
     </svg>
 )
+
+type Size = 16 | 20
+const twSize: Record<Size, string> = {
+    16: 'size-4',
+    20: 'size-5',
+}

@@ -84,6 +84,7 @@ const Countries = ({
                 onSelect={id => onSelect(id)}
                 favoriteCountries={favoriteCountries}
                 onToggleFavorite={onToggleFavorite}
+                locale={locale}
                 className={clsx(selectedCountry && 'hidden')}
             />
             {canShowExpandButton && (
@@ -138,7 +139,7 @@ const getSortMode = (countryById: CountriesByServiceType, locale: Locale) => {
         [SortBy.Popularity]: {
             direction: 'asc',
             callback: [
-                id => countryById[id].Rate,
+                id => countryById[id].Rank,
                 id => countryNameBy(id, locale),
             ],
         },
@@ -151,7 +152,7 @@ const getSortMode = (countryById: CountriesByServiceType, locale: Locale) => {
             callback: id => countryById[id].Price,
         },
         [SortBy.Quantity]: {
-            direction: 'asc',
+            direction: 'desc',
             callback: id => countryById[id].Qty,
         },
     }

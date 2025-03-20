@@ -1,7 +1,7 @@
 import { apiClient } from '@/shared/utils/api'
 
 export const fetchCountriesByService = async (serviceId: string) => {
-    const { data } = await apiClient.get<CountriesByServiceType>(`v1/guest/products/any/any/${serviceId}?single=0`)
+    const { data } = await apiClient.get<CountriesByServiceType>(`v1/guest/products/any/any/${serviceId}?single=0&sort=top`)
 
     return data
 }
@@ -12,5 +12,5 @@ export type CountryByServiceType = {
     Price: number
     Qty: number
     Category: 'activation' | 'hosting'
-    Rate?: number
+    Rank?: number
 }

@@ -22,9 +22,7 @@ export const LocaleSwitcher = ({ locale: currentLocale, onChangeLocale, classNam
     const t = useTranslations('header')
     const isOpen = useBoolean()
 
-    useOnClickOutside<HTMLDivElement>(ref, () => {
-        isOpen.setFalse()
-    })
+    useOnClickOutside<HTMLDivElement>(ref, isOpen.setFalse)
 
     return (
         <div className={twMerge('relative', className)} ref={ref}>
